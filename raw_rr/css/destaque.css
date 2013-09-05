@@ -1,0 +1,84 @@
+pre {
+	font-family: "Source Code Pro", monospace;
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 20px;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	background-color: whiteSmoke;
+	border: 1px solid #CCC;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+pre {
+	margin-top: 80px;
+}
+
+#containerBanner{
+	max-width:990px;
+	margin:0 auto;
+	padding-bottom:80px;
+}
+
+#banner-fade,
+#banner-slide{
+	margin-bottom: 60px;
+}
+
+ul.bjqs-controls.v-centered li a{
+	display:block;
+	padding:0;
+	color:#fff;
+	font-size:0px;
+	width:74px;
+	height:74px;
+	text-decoration: none;
+}
+
+ul.bjqs-controls.v-centered li a:hover{
+	background:#000;
+	color:#fff;
+}
+
+ul.bjqs-controls.v-centered li.bjqs-next a{
+	background:url(../img/seta_direita.png) no-repeat;
+	}
+	
+ul.bjqs-controls.v-centered li.bjqs-prev a{
+	background:url(../img/seta_esquerda.png) no-repeat;
+	}
+	
+ol.bjqs-markers {
+	background:url(../img/detalhe_destaque.png) no-repeat;
+	float:right;
+	width:64px;
+	height:34px;
+	padding-top:8px;
+	display:none!important;
+	}
+
+ol.bjqs-markers li a{
+	padding:0;
+	width:10px;
+	height:10px;
+	background:url(../img/detalhe_destaque_off.png) no-repeat;
+	color:#fff;
+	font-size:0px;
+	margin:2px;
+	text-decoration: none;
+}
+
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover{
+	background:url(../img/detalhe_destaque_on.png) no-repeat;
+}
+
+p.bjqs-caption{
+	background: rgba(255,255,255,0.5);
+}

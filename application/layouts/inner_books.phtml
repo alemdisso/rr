@@ -1,0 +1,39 @@
+<?php
+  $controller = Zend_Controller_Front::getInstance();
+  $request = $controller->getRequest();
+  $controller->setParam('outerModule', $request->getModuleName());
+  $params = $controller->getParams();
+?>
+
+<!-- header -->
+<?php echo $this->action('header', 'include', 'includes') ?>
+<!-- /header -->
+
+<!-- container -->
+<div id="container" class="clearfix contato">
+
+<!-- breadcrumb -->
+<div id="breadcrumb_livros">
+<a href="/home" title="Home">Home</a> &rsaquo; Livros
+</div>
+<!-- /breadcrumb -->
+
+<!-- conteudo -->
+<?php echo $this->layout()->content; ?>
+<!-- /conteudo -->
+
+<!-- lateral -->
+<div id="lateral">
+<div class="box clearfix"><?php echo $this->action('filter', 'include', 'includes') ?></div>
+<div class="box clearfix"><?php echo $this->action('search', 'include', 'includes') ?></div>
+</div>
+<!-- /lateral -->
+</div>
+<!-- /container -->
+<!-- rodape -->
+<br /><br /><br />
+<div title="" id="rodape_container" class="clearfix" style="background:url(../img/personagens/livros.png) bottom center no-repeat">
+<?php echo $this->action('footer', 'include', 'includes') ?>
+</div>
+<!-- /rodape -->
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <?php echo $this->headTitle() ?>
+
+
+<?php include ("meta.phtml") ?>
+
+<link rel="stylesheet" href="/css/estilo.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/bjqs.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/destaque.css" type="text/css" media="screen" />
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="/js/bjqs-1.3.min.js"></script>
+
+
+  </head>
+  <body>
+<?php
+  if ($this->layout()->nestedLayout) {
+      $this->layout()->setLayout($this->layout()->nestedLayout);
+  } else {
+      $this->layout()->setLayout('inner');
+  }
+  echo $this->layout()->render();
+?>
+  </body>
+</html>
