@@ -20,6 +20,9 @@ class Auth_UserController extends Zend_Controller_Action
     {
         $this->db = Zend_Registry::get('db');
         $this->userMapper = new Moxca_Auth_UserMapper($this->db);
+
+        $layoutHelper = $this->_helper->getHelper('Layout');
+        $this->view->setNestedLayout($layoutHelper, 'inner_admin');
     }
 
     public function createAction()
@@ -67,8 +70,15 @@ class Auth_UserController extends Zend_Controller_Action
             }
         } else {
             // GET
-            $thisUser = $this->InitUserWithCheckedId($this->userMapper);
-            $id = $this->checkIdFromGet();
+
+            $data = $this->_request->getParams();
+            try {
+                $id = $this->view->checkIdFromGet($data);
+            } catch (Exception $e) {
+                throw $e;
+            }
+            $thisUser = $this->userMapper->findById($id);
+
             Moxca_Util_FormFieldValueSetter::SetValueToFormField($form, 'id', $id);
             Moxca_Util_FormFieldValueSetter::SetValueToFormField($form, 'name', $thisUser->GetName());
             Moxca_Util_FormFieldValueSetter::SetValueToFormField($form, 'login', $thisUser->GetLogin());
@@ -87,30 +97,5 @@ class Auth_UserController extends Zend_Controller_Action
         }
     }
 
-    private function initUserMapper()
-    {
-         $this->userMapper = new Moxca_Auth_UserMapper($this->db);
-    }
 
-    private function InitUserWithCheckedId(Moxca_Auth_UserMapper $mapper)
-    {
-        return $mapper->findById($this->checkIdFromGet());
-    }
-
-    private function checkIdFromGet()
-    {
-        $data = $this->_request->getParams();
-        $filters = array(
-            'id' => new Zend_Filter_Alnum(),
-        );
-        $validators = array(
-            'id' => array('Digits', new Zend_Validate_GreaterThan(0)),
-        );
-        $input = new Zend_Filter_Input($filters, $validators, $data);
-        if ($input->isValid()) {
-            $id = $input->id;
-            return $id;
-        }
-        throw new Moxca_Auth_UserException(_("#Invalid User Id from Get"));
-    }
 }

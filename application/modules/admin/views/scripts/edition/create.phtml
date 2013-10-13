@@ -1,19 +1,125 @@
-          <script type="text/javascript">
-            function populateEditorField() {
+        <script type="text/javascript">
 
-              $.getJSON('/works/helper/populate-editors', function(data) {
-                var html = '';
-                var len = data.length;
-                html += '<option value="0">(##choose an editor)</option>';
-                for (var i = 0; i< len; i++) {
-                  html += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
-                }
-                $('#editor').empty();
-                $('#editor').append(html);
-              });
+        $(document).ready(function(){
+
+            $("#newSerieDiv").hide();
+            $("#newEditorDiv").hide();
+
+            initEditorField();
+            initSeriesField();
+
+            $('#editor').change(function(){
+                initSeriesField();
+            });
+
+            $('#newEditorClick').click(function(){
+                $.ajax({
+                    type: 'get',
+                    url:'/admin/editor/create',
+                    success: function(successReturn){
+                    $('#newEditorDiv').html(successReturn);
+                    }
+                });
+                $("#newEditorDiv").slideToggle();
+            });
+            $('#hideNewEditorClick').click(function(){
+                $("#newEditorDiv").slideToggle();
+            });
+
+
+            $('#newSerieClick').click(function(){
+                var current = $('#editor').val();
+
+                $.ajax({
+                    type: 'get',
+                    data: 'serieEditor=' + current,
+                    url:'/admin/serie/create/serieEditor=',
+                    success: function(successReturn){
+                    $('#newSerieDiv').html(successReturn);
+                    }
+                })
+                $("#newSerieDiv").slideToggle();
+            });
+            $('#hideNewSerieClick').click(function(){
+                $("#newSerieDiv").slideToggle();
+            });
+
+//            $('#submitEditor').click(function(){
+//                $.ajax({
+//                    type: 'post',
+//                    url:'/admin/serie/create',
+//                    success: function(successReturn){
+//                    $('#newSerieDiv').html(successReturn);
+//                    }
+//                })
+//                $("#newSerieDiv").slideToggle();
+//            });
+
+        });
+
+        function submitEditorForm()
+        {
+            $.post("/admin/editor/create", $("#newEditorForm").serialize(), function(successReturn){
+                $('#newEditorDiv').html(successReturn);
+                });
+            $("#newEditorDiv").slideToggle();
+        }
+
+        function initEditorField() {
+            var current = $('#editor').val();
+            $.getJSON('/admin/index/populate-editors', function(data) {
+            var html = '';
+            var len = data.length;
+            html += '<option value="0"><?php echo $this->translate("#(choose an editor)") ?></option>';
+            for (var i = 0; i< len; i++) {
+                html += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
             }
-          </script>
-          <div id="MainHeader">
+            $('#editor').empty();
+            $('#editor').append(html);
+            $('#editor').val(current);
+            });
+        }
+
+        function initSeriesField(serie) {
+            var editor = $('#editor').val();
+            $.getJSON('/admin/index/populate-series/?editor='+editor, function(data) {
+            var html = '';
+            var len = data.length;
+            html += '<option value="0">(#choose a serie)</option>';
+            for (var i = 0; i< len; i++) {
+                html += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+            }
+            $('#serie').empty();
+            $('#serie').append(html);
+            $('#serie').val(serie);
+            });
+        }
+        </script>
+          <div id="conteudo">
             <h1><?php print($this->translate('#Create edition')) ?></h1>
           </div>
-<?php echo $this->form; ?>
+<form id="newEditionForm" action="<?php echo $this->escape($this->form->getAction()); ?>" method="<?php echo $this->escape($this->form->getMethod()); ?>" enctype="<?php echo $this->escape($this->form->getEnctype()); ?>">
+<table>
+  <?php echo $this->form->id ?>
+  <?php echo $this->form->title ?>
+  <?php echo $this->form->cover ?>
+  <?php echo $this->form->type ?>
+          <a name="anchorNewEditor" ></a>
+  <?php echo $this->form->editor ?>
+          <div id="newEditorDiv" name="newEditorDiv" class="slidingDiv">
+          </div>
+    <p style="margin-top:-12px; margin-bottom: 12px; margin-left: 32px;"><a href="#anchorNewEditor" id="newEditorClick"><?php echo $this->translate("#(new editor)") ?></a></p>
+  <?php echo $this->form->summary ?>
+  <?php echo $this->form->description ?>
+          <a name="anchorNewSerie" ></a>
+  <?php echo $this->form->serie ?>
+          <div id="newSerieDiv" class="slidingDiv">
+          </div>
+    <p style="margin-top:-12px; margin-bottom: 12px; margin-left: 32px;"><a href="#anchorNewSerie" id="newSerieClick"><?php echo $this->translate("#(new serie)") ?></a></p>
+  <?php echo $this->form->isbn ?>
+  <?php echo $this->form->pages ?>
+  <?php echo $this->form->illustrator ?>
+  <?php echo $this->form->coverDesigner ?>
+  <?php echo $this->form->submit ?>
+</div>
+</form>

@@ -1,0 +1,22 @@
+          <script type="text/javascript">
+            function submitSerieForm()
+            {
+                var current = $('#serieEditor').val();
+                $.post("/admin/serie/create", $("#newSerieForm").serialize(), function(successReturn){
+                    $('#newSerieDiv').html(successReturn);
+                    });
+                $("#newSerieDiv").slideToggle();
+                initSeriesField(current);
+            }
+
+            $(document).ready(function(){
+
+                $('#hideNewSerieClick').click(function(){
+                    $("#newSerieDiv").slideToggle();
+                });
+
+            });
+
+          </script>
+<?php echo $this->form; ?>
+<p style="margin-top:-12px; margin-bottom: 12px; margin-left: 32px;"><a href="#newEditionForm" id="hideNewSerieClick"><?php echo $this->translate("#(hide)") ?></a></p>

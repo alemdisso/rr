@@ -1,0 +1,29 @@
+<?php
+  $controller = Zend_Controller_Front::getInstance();
+  $request = $controller->getRequest();
+  $controller->setParam('outerModule', $request->getModuleName());
+  $params = $controller->getParams();
+?>
+<script type="text/javascript" language="javascript" src="/js/jquery.dataTables.js"></script>
+
+<!-- header -->
+<?php echo $this->action('header', 'include', 'includes') ?>
+<!-- /header -->
+
+<!-- container -->
+<div id="ng_container" class="clearfix admin">
+
+<!-- breadcrumb -->
+<div id="breadcrumb_livros">
+<a href="/home" title="Home">Home</a> &rsaquo; Livros
+</div>
+<!-- /breadcrumb -->
+
+<!-- conteudo -->
+<div id="admin" class="clearfix">
+<?php echo $this->layout()->content; ?>
+</div>
+<!-- /conteudo -->
+
+</div>
+<!-- /container -->

@@ -1,0 +1,29 @@
+<?php
+$pageData = $this->pageData;
+?>
+<!-- conteudo -->
+<div id="conteudo">
+    <h1><?php echo $pageData['title'] ?></h1>
+    <h2><a href="<?php echo $pageData['typeListLink']?>"><?php echo $pageData['typeLabel']?></a></h3> <a href="/admin/work/change-type/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate('#(change type)')?></a></p>
+
+    <h3><?php echo $this->translate('#Description')?></h2>
+    <p><?php echo $pageData['description']?></p>
+    <p><a href="/admin/work/change-description/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#(change description)") ?></a></p>
+
+    <h3><?php echo $this->translate('#Summary')?></h2>
+    <p><?php echo $pageData['summary']?></p>
+    <p> <a href="/admin/work/change-summary/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#(change summary)") ?></a></p>
+
+    <h3><?php echo $this->translate('#Prizes')?></h2>
+    <?php echo $this->prizesLoop($pageData['prizes']) ?>
+    <p><a href="/admin/prize/create/?work=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#Add prize") ?></a></p>
+
+    <h3><?php echo $this->translate('#Editions')?></h2>
+    <?php echo $this->editionsLoop($pageData['editions']) ?>
+    <hr>
+        <a href="/admin/work/remove/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate('#(remove this work!)')?></a></p>
+
+
+
+</div>
+<!-- /conteudo -->

@@ -1,32 +1,31 @@
 <?php
 
-class Ruth_Collection_WorkTypes {
+class Ruth_Collection_WorkTypes extends Author_Collection_WorkTypes {
 
     private $titles = array();
 
-
     public function __construct() {
         $this->titles = array(
-
-            Ruth_Collection_WorkTypeConstants::TYPE_NIL      => _("#Nil"),
-            Ruth_Collection_WorkTypeConstants::TYPE_CHILDREN => _("#Children"),
-            Ruth_Collection_WorkTypeConstants::TYPE_YOUNG    => _("#Young"),
-            Ruth_Collection_WorkTypeConstants::TYPE_FICTION  => _("#Fiction"),
-            Ruth_Collection_WorkTypeConstants::TYPE_ESSAY    => _("#Essay"),
+            Ruth_Collection_WorkTypeConstants::TYPE_NIL         => _("#Nil"),
+            Ruth_Collection_WorkTypeConstants::TYPE_INFANT      => _("#Infant"),
+            Ruth_Collection_WorkTypeConstants::TYPE_PRESCHOOLER => _("#Preschooler"),
+            Ruth_Collection_WorkTypeConstants::TYPE_KIDS        => _("#Kids"),
+            Ruth_Collection_WorkTypeConstants::TYPE_TWEEN       => _("#Tween"),
+            Ruth_Collection_WorkTypeConstants::TYPE_TEEN        => _("#Teen"),
+            Ruth_Collection_WorkTypeConstants::TYPE_ADULT       => _("#Adult"),
         );
     }
 
     public function TitleForType($type)
     {
             switch ($type) {
-                case Ruth_Collection_WorkTypeConstants::TYPE_PROSPECTING:
-                case Ruth_Collection_WorkTypeConstants::TYPE_PLANNING:
-                case Ruth_Collection_WorkTypeConstants::TYPE_PROPOSAL:
-                case Ruth_Collection_WorkTypeConstants::TYPE_EXECUTION:
-                case Ruth_Collection_WorkTypeConstants::TYPE_ACCOUNTABILITY:
-                case Ruth_Collection_WorkTypeConstants::TYPE_CANCELED:
-                case Ruth_Collection_WorkTypeConstants::TYPE_SUSPENDED:
-                case Ruth_Collection_WorkTypeConstants::TYPE_FINISHED:
+                case Ruth_Collection_WorkTypeConstants::TYPE_NIL:
+                case Ruth_Collection_WorkTypeConstants::TYPE_INFANT:
+                case Ruth_Collection_WorkTypeConstants::TYPE_PRESCHOOLER:
+                case Ruth_Collection_WorkTypeConstants::TYPE_KIDS:
+                case Ruth_Collection_WorkTypeConstants::TYPE_TWEEN:
+                case Ruth_Collection_WorkTypeConstants::TYPE_TEEN:
+                case Ruth_Collection_WorkTypeConstants::TYPE_ADULT:
                     return $this->titles[$type];
                     break;
 

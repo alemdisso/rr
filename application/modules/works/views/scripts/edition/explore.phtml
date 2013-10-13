@@ -1,0 +1,69 @@
+<?php
+$pageData = $this->pageData;
+?>
+<!-- conteudo -->
+<div id="conteudo">
+
+<h1><?php echo $pageData['title'] ?></h1>
+
+<!-- detalhes -->
+<div class="detalhe">
+Tema: <a href="">Animais</a> <span>|</span>
+<?php if ((isset($pageData['typeLabel'])) && ($pageData['typeLabel'])) { ?>
+Idade: <a href=""><?php echo $pageData['typeLabel'] ?></a>
+<?php } ?>
+</div>
+<!-- /detalhes -->
+
+<!--<p><img src="/img/marcacao_livro_detalhe.jpg" class="float_left" /><strong>&Aacute;tica, 2000</strong></p>-->
+<p><a href="<?php echo $pageData['mediumImageUri']?>"><?php $this->exploreCover($pageData['mediumImageUri']) ?></a></p>
+<p><?php echo $pageData['description']?></p>
+
+<p>
+<?php if ((isset($pageData['serieName'])) && ($pageData['serieName'])) { ?>
+<a href="/colecao/<?php echo $pageData['serieUri']?>"><?php echo $pageData['serieName']?></a><br />
+<?php } ?>
+<?php if ((isset($pageData['illustrator'])) && ($pageData['illustrator'])) { ?>
+<?php echo $pageData['illustrator']?><br />
+<?php } ?>
+<?php if ((isset($pageData['coverDesigner'])) && ($pageData['coverDesigner'])) { ?>
+<?php echo $pageData['coverDesigner']?><br />
+<?php } ?>
+<?php if ((isset($pageData['editorName'])) && ($pageData['editorName'])) { ?>
+<?php echo $pageData['editorName']?><br />
+<?php } ?>
+<?php if ((isset($pageData['isbn'])) && ($pageData['isbn'])) { ?>
+<?php echo $pageData['isbn']?><br />
+<?php } ?>
+<?php if ((isset($pageData['pages'])) && ($pageData['pages'])) { ?>
+<?php echo $pageData['pages']?><br />
+<?php } ?>
+
+</p>
+
+<!--<form>
+<input type="submit" value="Comprar online" />
+</form>-->
+
+<!-- outros livros -->
+<div class="detalhe clear_both">
+Outros livros da colecao: <a href="">Vou te contar</a>
+</div>
+
+<table id="livros" width="580px">
+<tr>
+	<td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
+    <td width="20px">&nbsp;</td>
+    <td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
+    <td width="20px">&nbsp;</td>
+    <td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
+    <td width="20px">&nbsp;</td>
+    <td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
+    <td width="20px">&nbsp;</td>
+    <td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
+</tr>
+</table>
+<!-- /outros livros -->
+
+</div>
+<!-- /conteudo -->

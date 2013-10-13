@@ -5,16 +5,17 @@
   $params = $controller->getParams();
 ?>
 
-<!-- container -->
-<div id="novidades" class="clearfix">
-
 <!-- header -->
 <?php echo $this->action('header', 'include', 'includes') ?>
 <!-- /header -->
 
+
+<!-- container -->
+<div id="ng_container" class="clearfix novidades">
+
 <!-- breadcrumb -->
-<div id="breadcrumb">
-<a href="/home" title="Home">Home</a> &rsaquo; <a href="/livros" title="Livros">Livros</a> &rsaquo; Menina Bonita do La&ccedil;o de Fita
+<div id="breadcrumb_novidades">
+<a href="/home" title="Home">Home</a> &rsaquo; Novidades
 </div>
 <!-- /breadcrumb -->
 
@@ -24,14 +25,16 @@
 
 <!-- lateral -->
 <div id="lateral">
-<?php echo $this->action('categories', 'include', 'includes') ?>
-<?php echo $this->action('search', 'include', 'includes') ?>
+<div class="box clearfix"><?php echo $this->action('filter', 'include', 'includes') ?></div>
+<div class="box clearfix"><?php echo $this->action('search', 'include', 'includes') ?></div>
 </div>
 <!-- /lateral -->
-
-<!-- rodape -->
-<?php echo $this->action('footer', 'include', 'includes') ?>
-<!-- /rodape -->
-
 </div>
 <!-- /container -->
+<!-- rodape -->
+<br /><br /><br />
+<div title="" id="rodape_container" class="clearfix" style="background:url(../img/personagens/livros.png) bottom center no-repeat">
+<?php echo $this->action('footer', 'include', 'includes') ?>
+</div>
+<!-- /rodape -->
+

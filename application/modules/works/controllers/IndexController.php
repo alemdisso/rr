@@ -57,7 +57,7 @@ class Works_IndexController extends Zend_Controller_Action
         );
 
         $this->view->pageData = $pageData;
-        $this->view->pageTitle = $this->view->translate("#Ana Maria Machado - Fiction");
+        $this->view->pageTitle = $this->view->translate("#Ruth Rocha - Fiction");
 
     }
 
@@ -76,7 +76,7 @@ class Works_IndexController extends Zend_Controller_Action
         );
 
         $this->view->pageData = $pageData;
-        $this->view->pageTitle = "Ana Maria Machado - Histórias";
+        $this->view->pageTitle = "Ruth Rocha - Histórias";
 
     }
 }
