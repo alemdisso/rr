@@ -55,18 +55,18 @@ class Works_EditionController extends Zend_Controller_Action
             $pagesLabel = "";
         }
 
-        $serie = $editionObj->getSerie();
-        if ($serie > 0) {
-            $serieMapper = new Author_Collection_SerieMapper($this->db);
-            $serieObj = $serieMapper->findById($serie);
-            $serieName = $serieObj->getName();
-            $serieLabel = $serieName;
-//            $serieLabel = sprintf($this->view->translate("#Serie: %s"), $serieName);
-            $serieUri = $serieObj->getUri();
-        } else {
-            $serieLabel = "";
-            $serieUri = "#";
-        }
+//        $serie = $editionObj->getSerie();
+//        if ($serie > 0) {
+//            $serieMapper = new Author_Collection_SerieMapper($this->db);
+//            $serieObj = $serieMapper->findById($serie);
+//            $serieName = $serieObj->getName();
+//            $serieLabel = $serieName;
+////            $serieLabel = sprintf($this->view->translate("#Serie: %s"), $serieName);
+//            $serieUri = $serieObj->getUri();
+//        } else {
+//            $serieLabel = "";
+//            $serieUri = "#";
+//        }
 
         $prizeMapper = new Author_Collection_PrizeMapper($this->db);
         $prizesLabels = $this->view->workPrizesLabels($workObj->getId(), $prizeMapper);
@@ -86,31 +86,13 @@ class Works_EditionController extends Zend_Controller_Action
             $editorLabel = $this->view->translate("#Editor:") . " " . $editorObj->getName();
         }
 
-        $editionsIds = $this->editionMapper->getAllEditionsOfSerieByUri($serieObj->getUri());
+//        $editionsIds = $this->editionMapper->getAllEditionsOfSerieByUri($serieObj->getUri());
 
-        $sameSerieData = $this->buildSameSerieEditionsModel($editionsIds, $editionObj->getId());
+//        $otherEditionsModel = $this->buildOtherEditionsModel($editionsIds, $editionObj->getId());
 
-//        $sameSerieData = array(
-//            '1' => array(
-//                'isFirstEdition' => true,
-//                'title' => "Um livro",
-//                'coverSrc' => "/img/marcacao_livro.jpg",
-//                'exploreUri' => "/explore/um-livro",
-//                ),
-//            '2' => array(
-//                'isFirstEdition' => false,
-//                'title' => "Um outro livro",
-//                'coverSrc' => "/img/marcacao_livro.jpg",
-//                'exploreUri' => "/explore/um-outro-livro",
-//                ),
-//            '3' => array(
-//                'isFirstEdition' => false,
-//                'title' => "mais um livro",
-//                'coverSrc' => "/img/marcacao_livro.jpg",
-//                'exploreUri' => "/explore/mais-um-livro",
-//                ),
-//        );
-
+        $sameSerieModel = $this->buildSameSerieModel($editionObj
+                , new Author_Collection_SerieMapper($this->db)
+                , $this->editionMapper);
 
         $pageData = array(
             'edition' => $editionObj,
@@ -122,9 +104,10 @@ class Works_EditionController extends Zend_Controller_Action
             'mediumImageUri' => $coverFilePath,
             'editorName' => $editorLabel,
             'description' => nl2br($workObj->getDescription()),
-            'serieName' => $serieLabel,
-            'serieUri' => $serieUri,
-            'sameSerieData' => $sameSerieData,
+            'serieData' => $sameSerieModel,
+//            'serieName' => $serieLabel,
+//            'serieUri' => $serieUri,
+//            'sameSerieData' => $otherEditionsModel,
             'illustrator' => $illustratorLabel,
             'coverDesigner' => $coverDesignerLabel,
             'isbn' => $isbnLabel,
@@ -152,9 +135,34 @@ class Works_EditionController extends Zend_Controller_Action
 
     }
 
-    private function buildSameSerieEditionsModel($editionsIds, $currentPageEditionId=0)
+    private function buildSameSerieModel(Author_Collection_Edition $edition, Author_Collection_SerieMapper $serieMapper, Author_Collection_EditionMapper $editionMapper)
     {
-        $model = array();
+        $serie = $edition->getSerie();
+        if ($serie > 0) {
+            $serieObj = $serieMapper->findById($serie);
+            $serieName = $serieObj->getName();
+            $serieLabel = $serieName;
+            $serieUri = $serieObj->getUri();
+
+            $editionsIds = $editionMapper->getAllEditionsOfSerieByUri($serieUri);
+            $otherEditionsModel = $this->buildOtherEditionsModel($editionsIds, $edition->getId());
+        } else {
+            $serieLabel = "";
+            $serieUri = "#";
+        }
+
+        $sameEditionModel = array(
+                'name' => $serieLabel,
+                'uri' => $serieUri,
+                'otherEditionsModel' => $otherEditionsModel,
+        );
+
+        return $sameEditionModel;
+    }
+
+    private function buildOtherEditionsModel($editionsIds, $currentPageEditionId=0)
+    {
+        $otherEditionsData = array();
         foreach ($editionsIds as $editionId) {
             if ($editionId != $currentPageEditionId) {
                 $loopEditionObj = $this->editionMapper->findById($editionId);
@@ -163,23 +171,15 @@ class Works_EditionController extends Zend_Controller_Action
 
                 $coverFilePath = $this->view->coverFilePath($loopEditionObj);
 
-//            $prizeMapper = new Author_Collection_PrizeMapper($this->db);
-//            $prizesLabels = $this->view->workPrizesLabels($loopWorkObj->getId(), $prizeMapper);
-
-                $model[$editionId] = array(
+                $otherEditionsData[$editionId] = array(
                         'title' => $loopWorkObj->getTitle(),
                         'coverSrc' => $coverFilePath,
                         'exploreUri' => '/explore/' . $loopWorkObj->getUri(),
-//                    'summary' => $loopWorkObj->getSummary(),
-//                    'editorName' => $loopEditorObj->getName(),
-//                    'prizes' => $prizesLabels,
-//                    'moreAbout' => false,
-//                    'otherLanguages' => false,
                 );
             }
         }
 
-        return $model;
+        return $otherEditionsData;
     }
 
 

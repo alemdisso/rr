@@ -1,21 +1,9 @@
 <!-- outros livros -->
-<div class="detalhe clear_both">Outros livros da colecao: <a href="/colecao/<?php echo $this->serieUri ?>"><?php echo  $this->serieName ?></a></div>
+<div class="detalhe clear_both">
+    Outros livros da colecao: <a href="/colecao/<?php echo $this->uri ?>"><?php echo  $this->name ?></a>
+</div>
 
 <table id="livros" width="580px">
-<tr>
-    <?php echo $this->sameSerieEditionsLoop($this->sameSerieData) ?>
-
-<!--
-    <td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
-    <td width="20px">&nbsp;</td>
-    <td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
-    <td width="20px">&nbsp;</td>
-    <td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
-    <td width="20px">&nbsp;</td>
-    <td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
-    <td width="20px">&nbsp;</td>
-    <td width="100px"><a href="" alt="Titulo do Livro"><img src="/img/marcacao_livro.jpg" alt="Titulo do Livro" /></a></td>
-    -->
-</tr>
+    <?php echo $this->sameSerieEditionsRows($this->otherEditionsModel) ?></tr>
 </table>
 <!-- /outros livros -->

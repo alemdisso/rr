@@ -1,5 +1,6 @@
 <?php
 $pageData = $this->pageData;
+$serieData = $pageData['serieData'];
 ?>
 <div id="conteudo">
 
@@ -19,8 +20,8 @@ $pageData = $this->pageData;
 <p><?php echo $pageData['description']?></p>
 
 <p>
-<?php if ((isset($pageData['serieName'])) && ($pageData['serieName'])) { ?>
-<?php echo $this->translate("#Serie:")?> <a href="/colecao/<?php echo $pageData['serieUri']?>"><?php echo  $pageData['serieName'] ?></a><br />
+<?php if ((isset($serieData['name'])) && ($serieData['name'])) { ?>
+<?php echo $this->translate("#Serie:")?> <a href="/colecao/<?php echo $serieData['uri']?>"><?php echo  $serieData['name'] ?></a><br />
 <?php } ?>
 <?php if ((isset($pageData['illustrator'])) && ($pageData['illustrator'])) { ?>
 <?php echo $pageData['illustrator']?><br />
@@ -46,5 +47,5 @@ $pageData = $this->pageData;
 </form>
 -->
 
-<?php $this->editionSerie($pageData['edition'], $pageData['editionMapper'], $pageData['serieName'], $pageData['serieUri'], $pageData['sameSerieData']) ?>
+<?php $this->editionSerie($pageData['serieData']) ?>
 </div>

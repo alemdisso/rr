@@ -1,0 +1,22 @@
+<tr>
+    <td width="20px">&nbsp;</td>
+<?php
+foreach ($this->row as $td) {
+    if (!is_null($td)) {
+?>
+    <td width="100px"><?php echo $this->thumbnailCover($td['coverSrc'], $td['exploreUri'], $td['title']) ?></td>
+    <td width="20px">&nbsp;</td>
+<?php
+    } else {
+?>
+    <td width="100px">&nbsp;</td>
+    <td width="20px">&nbsp;</td>
+<?php
+    }
+}
+
+
+?>
+
+
+</tr>
