@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+    <nav>
+        <home>
+            <label>Ruth Rocha</label>
+            <uri>/home</uri>
+            <pages>
+                <root>
+                    <uri>/</uri>
+                    <label>Ruth Rocha</label>
+                </root>
+            </pages>
+        </home>
+    </nav>
+</configdata>

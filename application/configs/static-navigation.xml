@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+    <nav>
+        <home>
+            <label>Ruth Rocha</label>
+            <uri>/home</uri>
+
+            <pages>
+                <works>
+                    <label>Livros</label>
+                    <uri>/livros</uri>
+                </works>
+
+                <news>
+                    <label>Novidades</label>
+                    <uri>/novidades</uri>
+                </news>
+
+                <biografia>
+                    <label>Biografia</label>
+                    <uri>/biografia</uri>
+                </biografia>
+
+
+
+
+            </pages>
+        </home>
+    </nav>
+</configdata>

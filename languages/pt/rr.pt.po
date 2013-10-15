@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-15 10:44-0300\n"
-"PO-Revision-Date: 2013-10-15 10:45-0300\n"
+"POT-Creation-Date: 2013-10-15 17:05-0300\n"
+"PO-Revision-Date: 2013-10-15 17:05-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -76,7 +76,7 @@ msgstr "sem edições"
 #: application\modules/admin/controllers/NavigationController.php:46
 #: application\modules/works/views/scripts/index/fiction.phtml:7
 msgid "#Works"
-msgstr "Obras"
+msgstr "Livros"
 
 #: application\modules/admin/controllers/NavigationController.php:47
 #: library\Author/View/Helper/TypeListLink.php:27
@@ -180,7 +180,7 @@ msgstr "Design da capa:"
 msgid "#Editor:"
 msgstr "Editora:"
 
-#: application\modules/works/controllers/EditionController.php:139
+#: application\modules/works/controllers/EditionController.php:122
 #, php-format
 msgid "#Exploring %s"
 msgstr "Explorando %s"
@@ -1592,7 +1592,7 @@ msgstr "Editar prêmio"
 #: application\modules/admin/views/scripts/work/change-summary.phtml:2
 #, php-format
 msgid "#Change summary for %s"
-msgstr "Mudar sumário de %s"
+msgstr "Mudar resumo de %s"
 
 #: application\modules/admin/views/scripts/work/change-title.phtml:2
 #, php-format
@@ -1618,7 +1618,7 @@ msgstr "(mudar descrição)"
 
 #: application\modules/admin/views/scripts/work/detail.phtml:13
 msgid "#Summary"
-msgstr "(Resumo"
+msgstr "Resumo"
 
 #: application\modules/admin/views/scripts/work/detail.phtml:15
 msgid "#(change summary)"
@@ -1651,7 +1651,7 @@ msgid "#(edit)"
 msgstr "(editar)"
 
 #: application\modules/admin/views/scripts/work/editions-loop.phtml:6
-#: application\modules/works/views/scripts/edition/explore.phtml:23
+#: application\modules/works/views/scripts/edition/explore.phtml:24
 msgid "#Serie:"
 msgstr "Coleção:"
 
@@ -1702,15 +1702,15 @@ msgstr "Biografia"
 msgid "#Contact"
 msgstr "Contato"
 
-#: application\modules/works/views/scripts/edition/explore.phtml:10
+#: application\modules/works/views/scripts/edition/explore.phtml:11
 msgid "#Theme:"
 msgstr "Tema:"
 
-#: application\modules/works/views/scripts/edition/explore.phtml:10
+#: application\modules/works/views/scripts/edition/explore.phtml:11
 msgid "/theme/"
 msgstr "/tema/"
 
-#: application\modules/works/views/scripts/edition/explore.phtml:12
+#: application\modules/works/views/scripts/edition/explore.phtml:13
 msgid "#Age:"
 msgstr "Faixa etária:"
 

@@ -181,16 +181,17 @@ class Author_Collection_EditionMapper
     }
 
 
-   public function getAllEditionsAlphabeticallyOrdered()
+    public function getAllEditionsAlphabeticallyOrdered()
     {
-        $query = $this->db->prepare('SELECT id, editor FROM author_collection_editions WHERE 1 =1 ORDER BY editor;');
-        $query->bindValue(':project', $obj->getId(), PDO::PARAM_STR);
+        $query = $this->db->prepare('SELECT e.id, e.title FROM author_collection_works w
+                                    LEFT JOIN author_collection_editions e ON w.id = e.work
+                                    WHERE 1=1 ORDER BY e.title;');
         $query->execute();
         $resultPDO = $query->fetchAll();
 
         $data = array();
         foreach ($resultPDO as $row) {
-            $data[$row['id']] = $row['editor'];
+            $data[$row['id']] = $row['id'];
         }
         return $data;
 
@@ -298,9 +299,9 @@ class Author_Collection_EditionMapper
 
     public function getAllEditionsOfTypeAlphabeticallyOrdered($type)
     {
-            $query = $this->db->prepare('SELECT e.id, e.title FROM author_collection_works w
-                                        LEFT JOIN author_collection_editions e ON w.id = e.work
-                                        WHERE w.type=:type ORDER BY e.title;');
+        $query = $this->db->prepare('SELECT e.id, e.title FROM author_collection_works w
+                                    LEFT JOIN author_collection_editions e ON w.id = e.work
+                                    WHERE w.type=:type ORDER BY e.title;');
         $query->bindValue(':type', $type, PDO::PARAM_STR);
         $query->execute();
         $resultPDO = $query->fetchAll();

@@ -132,7 +132,6 @@ class Works_EditionController extends Zend_Controller_Action
         $this->workMapper = new Author_Collection_WorkMapper($this->db);
         $this->editorMapper = new Author_Collection_EditorMapper($this->db);
         $this->editionMapper = new Author_Collection_EditionMapper($this->db);
-
     }
 
     private function buildSameSerieModel(Author_Collection_Edition $edition, Author_Collection_SerieMapper $serieMapper, Author_Collection_EditionMapper $editionMapper)

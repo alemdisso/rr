@@ -47,50 +47,16 @@ class Admin_NavigationController extends Zend_Controller_Action
         $works->addChild('uri', $this->view->translate('/works'));
         $worksPages = $works->addChild('pages');
 
-        $childrenNode = $this->addPage($worksPages, 'children', '#Children', '/works/children');
-        $childrenPages = $childrenNode->addChild('pages');
-
-        $youngNode = $this->addPage($worksPages, 'young', '#Young', '/works/young');
-        $youngPages = $youngNode->addChild('pages');
-
-        $fictionNode = $this->addPage($worksPages, 'fiction', '#Fiction', '/works/fiction');
-        $fictionPages = $fictionNode->addChild('pages');
-
-        $essaysNode = $this->addPage($worksPages, 'essays', '#Essays', '/works/essays');
-        $essaysPages = $essaysNode->addChild('pages');
-
         $editionsIds = $this->editionMapper->getAllIds();
         foreach ($editionsIds as $editionId) {
             $loopEditionObj = $this->editionMapper->findById($editionId);
             $loopWorkObj = $this->workMapper->findById($loopEditionObj->getWork());
 
-            switch($loopWorkObj->getType()) {
-                case Ruth_Collection_WorkTypeConstants::TYPE_INFANT:
-                    $nodePages = $childrenPages;
-                    break;
 
-                case Ruth_Collection_WorkTypeConstants::TYPE_YOUNG:
-                    $nodePages = $youngPages;
-                    break;
-
-                case Ruth_Collection_WorkTypeConstants::TYPE_FICTION:
-                    $nodePages = $fictionPages;
-                    break;
-
-                case Ruth_Collection_WorkTypeConstants::TYPE_ESSAY:
-                    $nodePages = $essaysPages;
-                    break;
-
-                default:
-                    $nodePages = $worksPages;
-                    break;
-
-            }
-
-            $edition = $this->addPage($nodePages, 'edition-' . $loopWorkObj->getUri(), $loopWorkObj->getTitle(), '/explore/' . $loopWorkObj->getUri());
+            $edition = $this->addPage($worksPages, 'edition-' . $loopWorkObj->getUri(), $loopWorkObj->getTitle(), '/explore/' . $loopWorkObj->getUri());
         }
 
-        $series = $this->addPage($worksPages, 'series', '#Series', '/series');
+        $series = $this->addPage($worksPages, 'series', $this->view->translate("#Series"), '/series');
 
         $seriesPages = $series->addChild('pages');
         $seriesIds = $this->serieMapper->getAllIds();
@@ -101,13 +67,17 @@ class Admin_NavigationController extends Zend_Controller_Action
 
         $this->addPage($pages, 'biography', '#Biography', '/biography');
         $newsNode = $this->addPage($pages, 'news', '#News', '/news');
-        $newsPages = $newsNode->addChild('pages');
 
         $postsIds = $this->postMapper->getAllPublishedIds();
-        foreach ($postsIds as $postId) {
-            $loopPostObj = $this->postMapper->findById($postId);
-            $serie = $this->addPage($newsPages, 'post-' . $loopPostObj->getUri(), $loopPostObj->getTitle(), '/novidades/' . $loopPostObj->getUri());
+
+        if (count($postsIds) > 0) {
+            $newsPages = $newsNode->addChild('pages');
+            foreach ($postsIds as $postId) {
+                $loopPostObj = $this->postMapper->findById($postId);
+                $this->addPage($newsPages, 'post-' . $loopPostObj->getUri(), $loopPostObj->getTitle(), '/novidades/' . $loopPostObj->getUri());
+            }
         }
+
 
 
 
