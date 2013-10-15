@@ -1,0 +1,8 @@
+<?php
+if ($this->isFirstEdition) {
+    ?>
+    <td width="20px">&nbsp;</td>
+<?php
+}
+    ?>
+    <td width="100px"><?php echo $this->thumbnailCover($this->coverSrc, $this->exploreUri, $this->title) ?></td>

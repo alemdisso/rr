@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-12 18:35-0300\n"
-"PO-Revision-Date: 2013-10-12 18:43-0300\n"
+"POT-Creation-Date: 2013-10-15 10:44-0300\n"
+"PO-Revision-Date: 2013-10-15 10:45-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate;setLabel;translate\n"
 "X-Poedit-Basepath: C:\\xampp\\htdocs\\ruthrocha\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: application\\modules\n"
@@ -142,7 +142,7 @@ msgstr "NI"
 msgid "#Remove work"
 msgstr "Remover"
 
-#: application\modules/auth/controllers/LoginController.php:44
+#: application\modules/auth/controllers/LoginController.php:47
 msgid "#You could not be logged in. Please try again."
 msgstr "Não foi possível fazer o login. Por favor tente novamente."
 
@@ -150,22 +150,17 @@ msgstr "Não foi possível fazer o login. Por favor tente novamente."
 msgid "#Access denied"
 msgstr "Acesso negado"
 
-#: application\modules/works/controllers/EditionController.php:43
+#: application\modules/works/controllers/EditionController.php:46
 #, php-format
 msgid "#ISBN: %s"
 msgstr "ISBN: %s"
 
-#: application\modules/works/controllers/EditionController.php:50
+#: application\modules/works/controllers/EditionController.php:53
 #, php-format
 msgid "#%s pages"
 msgstr "%s páginas"
 
-#: application\modules/works/controllers/EditionController.php:60
-#, php-format
-msgid "#Serie: %s"
-msgstr "Coleção: %s"
-
-#: application\modules/works/controllers/EditionController.php:72
+#: application\modules/works/controllers/EditionController.php:76
 #: library\Author/Form/EditionCreate.php:148
 #: library\Author/Form/IllustratorChange.php:21
 #: library\Ruth/Form/EditionCreate.php:148
@@ -173,7 +168,7 @@ msgstr "Coleção: %s"
 msgid "#Illustrator:"
 msgstr "Ilustrador:"
 
-#: application\modules/works/controllers/EditionController.php:77
+#: application\modules/works/controllers/EditionController.php:81
 #: library\Author/Form/CoverDesignerChange.php:23
 #: library\Author/Form/EditionCreate.php:162
 #: library\Ruth/Form/EditionCreate.php:162
@@ -181,11 +176,11 @@ msgstr "Ilustrador:"
 msgid "#Cover designer:"
 msgstr "Design da capa:"
 
-#: application\modules/works/controllers/EditionController.php:82
+#: application\modules/works/controllers/EditionController.php:86
 msgid "#Editor:"
 msgstr "Editora:"
 
-#: application\modules/works/controllers/EditionController.php:103
+#: application\modules/works/controllers/EditionController.php:139
 #, php-format
 msgid "#Exploring %s"
 msgstr "Explorando %s"
@@ -265,6 +260,39 @@ msgstr "Título:"
 msgid "#Title is required"
 msgstr "Título é obrigatório"
 
+#: library\Moxca/Form/PostCreate.php:36
+#: application\modules/admin/views/scripts/index/list-posts.phtml:45
+msgid "#Status"
+msgstr "Status"
+
+#: library\Moxca/Form/PostCreate.php:52
+msgid "#Category"
+msgstr "Faixa Etária:"
+
+#: library\Moxca/Form/PostCreate.php:65
+msgid "#Content:"
+msgstr "Conteúdo:"
+
+#: library\Moxca/Form/PostCreate.php:80 library\Moxca/Form/UserCreate.php:101
+#: library\Author/Form/CoverChange.php:33
+#: library\Author/Form/CoverDesignerChange.php:38
+#: library\Author/Form/DescriptionChange.php:37
+#: library\Author/Form/EditionCreate.php:176
+#: library\Author/Form/EditorCreate.php:32
+#: library\Author/Form/IllustratorChange.php:35
+#: library\Author/Form/IsbnChange.php:35
+#: library\Author/Form/PagesChange.php:38
+#: library\Author/Form/PrizeCreate.php:79
+#: library\Author/Form/SerieChange.php:34
+#: library\Author/Form/SerieCreate.php:39
+#: library\Author/Form/SummaryChange.php:37
+#: library\Author/Form/TitleChange.php:39
+#: library\Author/Form/WorkTypeChange.php:40
+#: library\Ruth/Form/EditionCreate.php:176
+#: library\Ruth/Form/WorkTypeChange.php:40
+msgid "#Submit"
+msgstr "Enviar"
+
 #: library\Moxca/Form/PostRemove.php:21 library\Author/Form/WorkRemove.php:21
 msgid "#Confirm removal"
 msgstr "Confirmar remoção"
@@ -300,10 +328,6 @@ msgstr "Senha"
 #: library\Moxca/Form/UserCreate.php:84
 msgid "#Email:"
 msgstr "Email"
-
-#: library\Moxca/Form/UserCreate.php:101
-msgid "#Submit"
-msgstr "Enviar"
 
 #: library\Moxca/Form/UserLogin.php:16
 msgid "#User:"
@@ -1299,10 +1323,42 @@ msgstr "Ensaios"
 msgid "#Upload an image:"
 msgstr "Enviar imagem:"
 
+#: library\Author/Form/DescriptionChange.php:22
+#: library\Author/Form/EditionCreate.php:94
+#: library\Ruth/Form/EditionCreate.php:94
+msgid "#Description:"
+msgstr "Descrição:"
+
+#: library\Author/Form/EditionCreate.php:51
+#: library\Ruth/Form/EditionCreate.php:51
+#: application\modules/admin/views/scripts/index/list-works.phtml:46
+#: application\modules/admin/views/scripts/work/list.phtml:20
+msgid "#Type"
+msgstr "Tipo"
+
+#: library\Author/Form/EditionCreate.php:65
+#: library\Ruth/Form/EditionCreate.php:65
+#: application\modules/admin/views/scripts/index/list-works.phtml:47
+#: application\modules/admin/views/scripts/work/list.phtml:21
+msgid "#Editor"
+msgstr "Editora"
+
 #: library\Author/Form/EditionCreate.php:68
 #: library\Ruth/Form/EditionCreate.php:68
 msgid "#Editor is required"
 msgstr "Editora é obrigatória"
+
+#: library\Author/Form/EditionCreate.php:80
+#: library\Author/Form/SummaryChange.php:22
+#: library\Ruth/Form/EditionCreate.php:80
+msgid "#Summary:"
+msgstr "Resumo:"
+
+#: library\Author/Form/EditionCreate.php:108
+#: library\Author/Form/SerieChange.php:20
+#: library\Ruth/Form/EditionCreate.php:108
+msgid "#Serie"
+msgstr "Coleção:"
 
 #: library\Author/Form/EditionCreate.php:121
 #: library\Author/Form/IsbnChange.php:21
@@ -1338,6 +1394,11 @@ msgstr "Faixa Etária:"
 #: library\Author/Form/PrizeCreate.php:65
 msgid "#Year:"
 msgstr "Ano:"
+
+#: library\Author/Form/WorkTypeChange.php:25
+#: library\Ruth/Form/WorkTypeChange.php:25
+msgid "#Type:"
+msgstr "Tipo:"
 
 #: library\Author/View/Helper/TypeListLink.php:11
 msgid "/works/children"
@@ -1460,10 +1521,6 @@ msgstr "Lista de posts"
 msgid "#Title"
 msgstr "Título"
 
-#: application\modules/admin/views/scripts/index/list-posts.phtml:45
-msgid "#Status"
-msgstr "Status"
-
 #: application\modules/admin/views/scripts/index/list-posts.phtml:46
 msgid "#Date"
 msgstr "Data"
@@ -1481,16 +1538,6 @@ msgstr "editar"
 #: application\modules/admin/views/scripts/work/list.phtml:13
 msgid "#List of works"
 msgstr "Lista de livros"
-
-#: application\modules/admin/views/scripts/index/list-works.phtml:46
-#: application\modules/admin/views/scripts/work/list.phtml:20
-msgid "#Type"
-msgstr "Tipo"
-
-#: application\modules/admin/views/scripts/index/list-works.phtml:47
-#: application\modules/admin/views/scripts/work/list.phtml:21
-msgid "#Editor"
-msgstr "Editora"
 
 #: application\modules/admin/views/scripts/navigation/update.phtml:2
 msgid "#Navigation updated"
@@ -1604,6 +1651,7 @@ msgid "#(edit)"
 msgstr "(editar)"
 
 #: application\modules/admin/views/scripts/work/editions-loop.phtml:6
+#: application\modules/works/views/scripts/edition/explore.phtml:23
 msgid "#Serie:"
 msgstr "Coleção:"
 
@@ -1634,25 +1682,37 @@ msgstr "Editar conta do usuário"
 msgid "#Success!!!"
 msgstr "Sucesso!"
 
-#: application\modules/includes/views/scripts/include/header-login.phtml:5
-msgid "#Home"
-msgstr "Principal"
-
-#: application\modules/includes/views/scripts/include/header-login.phtml:10
+#: application\modules/includes/views/scripts/include/header-login.phtml:12
+#: application\modules/includes/views/scripts/include/header.phtml:12
 msgid "#Books"
 msgstr "Livros"
 
-#: application\modules/includes/views/scripts/include/header-login.phtml:11
+#: application\modules/includes/views/scripts/include/header-login.phtml:13
+#: application\modules/includes/views/scripts/include/header.phtml:13
 msgid "#News"
 msgstr "Novidades"
 
-#: application\modules/includes/views/scripts/include/header-login.phtml:12
+#: application\modules/includes/views/scripts/include/header-login.phtml:14
+#: application\modules/includes/views/scripts/include/header.phtml:14
 msgid "#Biography"
 msgstr "Biografia"
 
-#: application\modules/includes/views/scripts/include/header-login.phtml:13
+#: application\modules/includes/views/scripts/include/header-login.phtml:15
+#: application\modules/includes/views/scripts/include/header.phtml:15
 msgid "#Contact"
 msgstr "Contato"
+
+#: application\modules/works/views/scripts/edition/explore.phtml:10
+msgid "#Theme:"
+msgstr "Tema:"
+
+#: application\modules/works/views/scripts/edition/explore.phtml:10
+msgid "/theme/"
+msgstr "/tema/"
+
+#: application\modules/works/views/scripts/edition/explore.phtml:12
+msgid "#Age:"
+msgstr "Faixa etária:"
 
 #: application\modules/works/views/scripts/index/fiction.phtml:9
 msgid "#Fiction books"
@@ -1665,6 +1725,12 @@ msgstr "Curiosidades"
 #: application\modules/works/views/scripts/index/fiction.phtml:12
 msgid "#Available in other language"
 msgstr "Disponível em outro idioma"
+
+#~ msgid "#Serie: %s"
+#~ msgstr "Coleção: %s"
+
+#~ msgid "#Home"
+#~ msgstr "Principal"
 
 #~ msgid "#Not published"
 #~ msgstr "Não publicado"

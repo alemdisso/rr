@@ -18,7 +18,10 @@ public/index.php
 /application/configs/default_production_application.ini
 /application/en_browser_prod_Bootstrap.php
 /application/en_browser_Bootstrap.php
+/application/*.php_
+/application/configs/_*.ini
 /public/js/jquery-1.10.2.js
 /public/js/jquery.dataTables.js
 /public/img/editions/raw/*
 /public/img/special/*
+/application/_Bootstrap_staging.php

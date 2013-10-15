@@ -5,21 +5,17 @@
   $params = $controller->getParams();
 ?>
 
-<!-- container -->
-<div id="livros" class="clearfix">
 
 <!-- header -->
 <?php echo $this->action('header-login', 'include', 'includes') ?>
 <!-- /header -->
-
+<!-- container -->
+<div id="container" class="clearfix admin">
 <!-- conteudo -->
 <?php echo $this->layout()->content; ?>
 <!-- /conteudo -->
-
-
+</div>
+<!-- /container -->
 <!-- rodape -->
 <?php echo $this->action('footer', 'include', 'includes') ?>
 <!-- /rodape -->
-
-</div>
-<!-- /container -->

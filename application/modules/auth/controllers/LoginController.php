@@ -5,6 +5,9 @@ class Auth_LoginController extends Zend_Controller_Action
 
     public function init()
     {
+        $layoutHelper = $this->_helper->getHelper('Layout');
+        $this->view->setNestedLayout($layoutHelper, 'inner_admin');
+
     }
 
     public function indexAction()

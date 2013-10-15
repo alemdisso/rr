@@ -60,7 +60,8 @@ class Works_EditionController extends Zend_Controller_Action
             $serieMapper = new Author_Collection_SerieMapper($this->db);
             $serieObj = $serieMapper->findById($serie);
             $serieName = $serieObj->getName();
-            $serieLabel = sprintf($this->view->translate("#Serie: %s"), $serieName);
+            $serieLabel = $serieName;
+//            $serieLabel = sprintf($this->view->translate("#Serie: %s"), $serieName);
             $serieUri = $serieObj->getUri();
         } else {
             $serieLabel = "";
@@ -85,14 +86,45 @@ class Works_EditionController extends Zend_Controller_Action
             $editorLabel = $this->view->translate("#Editor:") . " " . $editorObj->getName();
         }
 
+        $editionsIds = $this->editionMapper->getAllEditionsOfSerieByUri($serieObj->getUri());
+
+        $sameSerieData = $this->buildSameSerieEditionsModel($editionsIds, $editionObj->getId());
+
+//        $sameSerieData = array(
+//            '1' => array(
+//                'isFirstEdition' => true,
+//                'title' => "Um livro",
+//                'coverSrc' => "/img/marcacao_livro.jpg",
+//                'exploreUri' => "/explore/um-livro",
+//                ),
+//            '2' => array(
+//                'isFirstEdition' => false,
+//                'title' => "Um outro livro",
+//                'coverSrc' => "/img/marcacao_livro.jpg",
+//                'exploreUri' => "/explore/um-outro-livro",
+//                ),
+//            '3' => array(
+//                'isFirstEdition' => false,
+//                'title' => "mais um livro",
+//                'coverSrc' => "/img/marcacao_livro.jpg",
+//                'exploreUri' => "/explore/mais-um-livro",
+//                ),
+//        );
+
+
         $pageData = array(
+            'edition' => $editionObj,
+            'editionMapper' => $this->editionMapper,
             'title' => $workTitle,
             'typeLabel' => $typeLabel,
+            'themeLabel' => "Animais",
+            'themeUri' => "animais",
             'mediumImageUri' => $coverFilePath,
             'editorName' => $editorLabel,
             'description' => nl2br($workObj->getDescription()),
             'serieName' => $serieLabel,
             'serieUri' => $serieUri,
+            'sameSerieData' => $sameSerieData,
             'illustrator' => $illustratorLabel,
             'coverDesigner' => $coverDesignerLabel,
             'isbn' => $isbnLabel,
@@ -119,5 +151,38 @@ class Works_EditionController extends Zend_Controller_Action
         $this->editionMapper = new Author_Collection_EditionMapper($this->db);
 
     }
+
+    private function buildSameSerieEditionsModel($editionsIds, $currentPageEditionId=0)
+    {
+        $model = array();
+        foreach ($editionsIds as $editionId) {
+            if ($editionId != $currentPageEditionId) {
+                $loopEditionObj = $this->editionMapper->findById($editionId);
+                $loopWorkObj = $this->workMapper->findById($loopEditionObj->getWork());
+                $loopEditorObj = $this->editorMapper->findById($loopEditionObj->getEditor());
+
+                $coverFilePath = $this->view->coverFilePath($loopEditionObj);
+
+//            $prizeMapper = new Author_Collection_PrizeMapper($this->db);
+//            $prizesLabels = $this->view->workPrizesLabels($loopWorkObj->getId(), $prizeMapper);
+
+                $model[$editionId] = array(
+                        'title' => $loopWorkObj->getTitle(),
+                        'coverSrc' => $coverFilePath,
+                        'exploreUri' => '/explore/' . $loopWorkObj->getUri(),
+//                    'summary' => $loopWorkObj->getSummary(),
+//                    'editorName' => $loopEditorObj->getName(),
+//                    'prizes' => $prizesLabels,
+//                    'moreAbout' => false,
+//                    'otherLanguages' => false,
+                );
+            }
+        }
+
+        return $model;
+    }
+
+
+
 }
 
