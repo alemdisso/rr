@@ -52,5 +52,11 @@ class LongStringTest extends ControllerTestCase
        $this->assertTrue($validator->isValid($string));
     }
 
+    public function testThatCanUseDollarSignAtString() {
+       $validator = new Moxca_Util_ValidLongString();
+       $string = "O Teatro Cacilda Becker recebe, entre 19 de outubro e 24 de novembro, a peça infantil homônimo da escritora Ruth Rocha. As apresentações acontecem aos sábados e domingos, às 16h, com ingressos até R$ 10. ";
+       $this->assertTrue($validator->isValid($string));
+    }
+
 
 }

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-15 17:05-0300\n"
-"PO-Revision-Date: 2013-10-15 17:05-0300\n"
+"POT-Creation-Date: 2013-10-16 18:16-0300\n"
+"PO-Revision-Date: 2013-10-16 18:17-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -84,6 +84,35 @@ msgstr "Livros"
 msgid "/works"
 msgstr "/livros"
 
+#: application\modules/admin/controllers/NavigationController.php:59
+msgid "#Series"
+msgstr "Coleções"
+
+#: application\modules/admin/controllers/NavigationController.php:59
+msgid "/series"
+msgstr "/colecoes"
+
+#: application\modules/admin/controllers/NavigationController.php:68
+#: application\modules/includes/views/scripts/include/header-login.phtml:14
+#: application\modules/includes/views/scripts/include/header.phtml:14
+msgid "#Biography"
+msgstr "Biografia"
+
+#: application\modules/admin/controllers/NavigationController.php:68
+msgid "/biography"
+msgstr "/biografia"
+
+#: application\modules/admin/controllers/NavigationController.php:69
+#: application\modules/includes/views/scripts/include/header-login.phtml:13
+#: application\modules/includes/views/scripts/include/header.phtml:13
+msgid "#News"
+msgstr "Novidades"
+
+#: application\modules/admin/controllers/NavigationController.php:69
+#: application\modules/blog/views/scripts/index/posts-loop.phtml:4
+msgid "/news"
+msgstr "/novidades"
+
 #: application\modules/admin/controllers/PostController.php:48
 #: application\modules/admin/views/scripts/post/create.phtml:7
 msgid "#Create post"
@@ -150,6 +179,10 @@ msgstr "Não foi possível fazer o login. Por favor tente novamente."
 msgid "#Access denied"
 msgstr "Acesso negado"
 
+#: application\modules/blog/controllers/PostController.php:46
+msgid "#Not published"
+msgstr "Não publicado"
+
 #: application\modules/works/controllers/EditionController.php:46
 #, php-format
 msgid "#ISBN: %s"
@@ -185,7 +218,7 @@ msgstr "Editora:"
 msgid "#Exploring %s"
 msgstr "Explorando %s"
 
-#: application\modules/works/controllers/IndexController.php:60
+#: application\modules/works/controllers/IndexController.php:68
 msgid "#Ruth Rocha - Fiction"
 msgstr "Ruth Rocha"
 
@@ -267,7 +300,7 @@ msgstr "Status"
 
 #: library\Moxca/Form/PostCreate.php:52
 msgid "#Category"
-msgstr "Faixa Etária:"
+msgstr "Categoria:"
 
 #: library\Moxca/Form/PostCreate.php:65
 msgid "#Content:"
@@ -1682,20 +1715,16 @@ msgstr "Editar conta do usuário"
 msgid "#Success!!!"
 msgstr "Sucesso!"
 
+#: application\modules/blog/views/scripts/index/index.phtml:7
+#: application\modules/blog/views/scripts/index/index_amm.phtml:6
+#: application\modules/blog/views/scripts/post/explore.phtml:7
+msgid "#Blog title"
+msgstr "Novidades"
+
 #: application\modules/includes/views/scripts/include/header-login.phtml:12
 #: application\modules/includes/views/scripts/include/header.phtml:12
 msgid "#Books"
 msgstr "Livros"
-
-#: application\modules/includes/views/scripts/include/header-login.phtml:13
-#: application\modules/includes/views/scripts/include/header.phtml:13
-msgid "#News"
-msgstr "Novidades"
-
-#: application\modules/includes/views/scripts/include/header-login.phtml:14
-#: application\modules/includes/views/scripts/include/header.phtml:14
-msgid "#Biography"
-msgstr "Biografia"
 
 #: application\modules/includes/views/scripts/include/header-login.phtml:15
 #: application\modules/includes/views/scripts/include/header.phtml:15
@@ -1731,21 +1760,6 @@ msgstr "Disponível em outro idioma"
 
 #~ msgid "#Home"
 #~ msgstr "Principal"
-
-#~ msgid "#Not published"
-#~ msgstr "Não publicado"
-
-#~ msgid "/serie/"
-#~ msgstr "/colecao/"
-
-#~ msgid "#Series"
-#~ msgstr "Coleções"
-
-#~ msgid "#Blog title"
-#~ msgstr "Ruth Rocha"
-
-#~ msgid "/news"
-#~ msgstr "/novidades"
 
 #~ msgid "#Stories for all"
 #~ msgstr "Mil histórias num só lugar"

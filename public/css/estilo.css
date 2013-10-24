@@ -13,12 +13,12 @@
 
 html {
 	height:100%;
-	background:url(../img/fundo.jpg) repeat-x;
+	background:url(/img/fundo.jpg) repeat-x;
 	}
 
 @font-face {
     font-family:carto;
-    src:url(../css/fontes/CartoGothicStd-Book.otf);
+    src:url(/css/fontes/CartoGothicStd-Book.otf);
     font-weight:normal;
     font-style:normal;
 	}
@@ -27,7 +27,7 @@ body {
 	font-family: carto, sans-serif;
 	font-size:14px;
 	color:#2e2e1f;
-	background:url(../img/fundo_rodape.png) repeat-x bottom;
+	background:url(/img/fundo_rodape.png) repeat-x bottom;
 	position:relative;
 	}
 
@@ -61,7 +61,7 @@ body {
 	margin:0 auto 0;
 	/*margin:0 0 -40px -65px;*/
 	padding:0 15px 20px 15px;
-	background:url(../img/fundo_container.png) repeat-y center;
+	background:url(/img/fundo_container.png) repeat-y center;
 	/*float:right;*/
 	position:relative;
 	}
@@ -110,7 +110,7 @@ a.link_box {
 	margin:0;
 	font-size:16px;
 	color:#fff;
-	background:url(../img/icone_mais.png) no-repeat 235px 17px #15bf25;
+	background:url(/img/icone_mais.png) no-repeat 235px 17px #15bf25;
 	display:block;
 	text-align:left;
 	}
@@ -119,7 +119,7 @@ a.link_box {
 #topo {
 	width:890px;
 	padding:0 65px;
-	background:url(../img/fundo_container.png) repeat-y center;
+	background:url(/img/fundo_container.png) repeat-y center;
 	height:100px;
 	margin:0 auto 0;
 	}
@@ -190,6 +190,7 @@ a.link_box {
 	}
 
 /* CONTEÚDO */
+
 #conteudo {
 	line-height:18px;
 	width:560px;
@@ -197,6 +198,7 @@ a.link_box {
 	padding:0 0 20px 50px;
 	/*margin-bottom:20px;*/
 	position:relative;
+	z-index:999!important;
 	}
 
 .conteudo_1coluna {

@@ -15,7 +15,7 @@
 
 <!-- breadcrumb -->
 <div id="breadcrumb_novidades">
-<a href="/home" title="Home">Home</a> &rsaquo; Novidades
+<?php echo $this->navigation()->breadcrumbs()->setLinkLast(false)->setMinDepth(0)->render(); ?>
 </div>
 <!-- /breadcrumb -->
 
@@ -33,7 +33,7 @@
 <!-- /container -->
 <!-- rodape -->
 <br /><br /><br />
-<div title="" id="rodape_container" class="clearfix" style="background:url(../img/personagens/livros.png) bottom center no-repeat">
+<div title="" id="rodape_container" class="clearfix" style="background:url(/img/personagens/novidades.png) bottom center no-repeat">
 <?php echo $this->action('footer', 'include', 'includes') ?>
 </div>
 <!-- /rodape -->

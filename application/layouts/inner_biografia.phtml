@@ -14,7 +14,7 @@
 
 <!-- breadcrumb -->
 <div id="breadcrumb_biografia">
-<a href="/home" title="Home">Home</a> &rsaquo; Biografia
+<?php echo $this->navigation()->breadcrumbs()->setLinkLast(false)->setMinDepth(0)->render(); ?>
 </div>
 <!-- /breadcrumb -->
 

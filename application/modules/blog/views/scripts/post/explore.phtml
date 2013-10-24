@@ -1,0 +1,19 @@
+<?php
+$pageData = $this->pageData;
+?>
+<!-- conteudo -->
+<div id="conteudo">
+
+<h1><img src="/img/icone_novidades.png" align="absmiddle" alt="<?php echo $this->translate("#Blog title") ?>" /> <?php echo $this->translate("#Blog title") ?></h1>
+
+
+<h3><?php echo $pageData['title'] ?></h3>
+<p><?php echo $pageData['publicationDate'] ?> | <?php echo $this->categoryHrefTerm($pageData['categoryModel']) ?><!-- | <a href="" title=""><img src="/img/icone_comentario.png" align="absmiddle" /> <strong>Comente</strong></a>--></p>
+<div id="explore"><?php echo $pageData['content'] ?></div>
+<!-- tags -->
+<!--<p>Tags: <a href="" class="tag_2">encontro-literario</a>, <a href="" class="tag_2">palestra</a>, <a href="" class="tag_2">livros</a>, <a href="" class="tag_2">escola</a>, <a href="" class="tag_2">luva</a>, <a href="" class="tag_2">infamia</a></p>-->
+<!-- /tags -->
+
+</div>
+
+<!-- /conteudo -->

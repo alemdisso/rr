@@ -18,12 +18,36 @@ $pageData = $this->pageData;
     <?php echo $this->prizesLoop($pageData['prizes']) ?>
     <p><a href="/admin/prize/create/?work=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#Add prize") ?></a></p>
 
+    <h3><?php echo $this->translate('#Themes')?></h2>
+    <?php echo $this->themesLoop($pageData['themes']) ?>
+    <p><a href="#"><?php echo $this->translate("#Add theme") ?></a></p>
+    <input type="hidden" name="id" value="<?php echo $pageData['id'] ?>" id="id">
+
     <h3><?php echo $this->translate('#Editions')?></h2>
     <?php echo $this->editionsLoop($pageData['editions']) ?>
     <hr>
-        <a href="/admin/work/remove/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate('#(remove this work!)')?></a></p>
-
-
-
+    <a href="/admin/work/remove/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate('#(remove this work!)')?></a></p>
 </div>
 <!-- /conteudo -->
+
+<script>
+
+  $("#new-theme-click").click(function(){
+      var workId = $('#id').val();
+
+      $.ajax({
+          type: 'get',
+          data: 'work=' + workId,
+          url:'/admin/theme/create/',
+          success: function(successReturn){
+          $('#new-theme-div').html(successReturn);
+          }
+      })
+      $("#new-theme-div").show("slow");
+  });
+  $("#hide-new-theme").click(function(){
+      $("#new-theme-div").hide("slow");
+  });
+
+
+</script>

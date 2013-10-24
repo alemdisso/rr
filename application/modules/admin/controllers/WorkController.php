@@ -217,6 +217,8 @@ class Admin_WorkController extends Zend_Controller_Action
         $prizeMapper = new Author_Collection_PrizeMapper($this->db);
         $prizesLabels = $this->view->workPrizesLabels($id, $prizeMapper);
 
+        $themesData = array();
+
         $data = array(
             'id' => $id,
             'title' => $workObj->getTitle(),
@@ -226,6 +228,7 @@ class Admin_WorkController extends Zend_Controller_Action
             'summary' => nl2br($workObj->getSummary()),
             'editions' => $editionsModel,
             'prizes' => $prizesLabels,
+            'themes' => $themesData,
         );
 
         $this->view->pageData = $data;

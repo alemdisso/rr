@@ -56,7 +56,7 @@ class Admin_NavigationController extends Zend_Controller_Action
             $edition = $this->addPage($worksPages, 'edition-' . $loopWorkObj->getUri(), $loopWorkObj->getTitle(), '/explore/' . $loopWorkObj->getUri());
         }
 
-        $series = $this->addPage($worksPages, 'series', $this->view->translate("#Series"), '/series');
+        $series = $this->addPage($worksPages, 'series', $this->view->translate("#Series"), $this->view->translate("/series"));
 
         $seriesPages = $series->addChild('pages');
         $seriesIds = $this->serieMapper->getAllIds();
@@ -65,8 +65,8 @@ class Admin_NavigationController extends Zend_Controller_Action
             $serie = $this->addPage($seriesPages, 'serie-' . $loopSerieObj->getUri(), $loopSerieObj->getName(), '/colecao/' . $loopSerieObj->getUri());
         }
 
-        $this->addPage($pages, 'biography', '#Biography', '/biography');
-        $newsNode = $this->addPage($pages, 'news', '#News', '/news');
+        $this->addPage($pages, 'biography', $this->view->translate("#Biography"), $this->view->translate("/biography"));
+        $newsNode = $this->addPage($pages, 'news', $this->view->translate("#News"), $this->view->translate("/news"));
 
         $postsIds = $this->postMapper->getAllPublishedIds();
 
