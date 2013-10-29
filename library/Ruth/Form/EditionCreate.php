@@ -197,7 +197,7 @@ class Ruth_Form_EditionCreate extends Author_Form_EditionCreate
             $workMapper = new Author_Collection_WorkMapper($db);
 
 
-            $work = new Author_Collection_Work();
+            $work = new Ruth_Collection_Work();
 
             $work->SetTitle($data['title']);
             $work->SetType($data['type']);

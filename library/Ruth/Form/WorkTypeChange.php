@@ -55,7 +55,7 @@ class Ruth_Form_WorkTypeChange extends Author_Form_WorkTypeChange
             throw new Author_Form_WorkCreateException('Invalid data!');
         } else {
             $db = Zend_Registry::get('db');
-            $workMapper = new Author_Collection_WorkMapper($db);
+            $workMapper = new Ruth_Collection_WorkMapper($db);
 
             $workId = $data['id'];
             $workObj = $workMapper->findById($workId);
