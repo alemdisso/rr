@@ -8,6 +8,7 @@ public/index.php
 
 library/Moxca
 library/Author
+library/Zend
 
 /nbproject/**/* 
 /tests/log/**/*

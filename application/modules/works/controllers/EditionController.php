@@ -148,6 +148,7 @@ class Works_EditionController extends Zend_Controller_Action
         } else {
             $serieLabel = "";
             $serieUri = "#";
+            $otherEditionsModel = null;
         }
 
         $sameEditionModel = array(
