@@ -1,11 +1,31 @@
+<?php
+$pageData = $this->pageData;
+?>
+
 <!-- box filtro -->
 <h2>Livros por:</h2>
 
 <form>
 <label>Tema</label>
-<select class="busca">
-<option selected="selected">Selecione</option>
+<?php
+//        print_r($pageData['themesList']);die("...");
+?>
+<select class="busca" id="select-theme">
+<option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
+<?php echo $this->filterThemes($pageData['themesList']) ?>
 </select>
+
+<script>
+
+  $("#select-theme").on("change", function(){
+    var termUri = $(this).children("option:selected").text();
+    var url = '/livros/tema/' + termUri;
+    window.location.href = url;
+
+  });
+
+
+</script>
 
 <label>Idade</label>
 <select class="busca">

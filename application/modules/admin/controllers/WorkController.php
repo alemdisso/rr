@@ -6,6 +6,7 @@ class Admin_WorkController extends Zend_Controller_Action
     private $editorMapper;
     private $editionMapper;
     private $workMapper;
+    private $taxonomyMapper;
 
     public function preDispatch()
     {
@@ -118,6 +119,35 @@ class Admin_WorkController extends Zend_Controller_Action
         }
     }
 
+    public function changeThemeAction()
+    {
+        // cria form
+        $form = new Author_Form_ThemeChange;
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            $this->processAndRedirect($form);
+            return;
+        } else {
+            $data = $this->_request->getParams();
+            try {
+                $id = $this->view->checkIdFromGet($data);
+            } catch (Exception $e) {
+                throw $e;
+            }
+
+            $element = $form->getElement('id');
+            $element->setValue($id);
+
+            $workObj = $this->workMapper->findById($id);
+            $element = $form->getElement('theme');
+            $element->setValue($workObj->getTheme());
+
+            $this->view->title = $workObj->getTitle();
+            $this->view->pageTitle = $this->view->translate("#Change type");
+        }
+    }
+
     public function changeTypeAction()
     {
         // cria form
@@ -217,7 +247,7 @@ class Admin_WorkController extends Zend_Controller_Action
         $prizeMapper = new Author_Collection_PrizeMapper($this->db);
         $prizesLabels = $this->view->workPrizesLabels($id, $prizeMapper);
 
-        $themesData = array();
+        $themeData = $this->view->ThemeTermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 
         $data = array(
             'id' => $id,
@@ -228,7 +258,7 @@ class Admin_WorkController extends Zend_Controller_Action
             'summary' => nl2br($workObj->getSummary()),
             'editions' => $editionsModel,
             'prizes' => $prizesLabels,
-            'themes' => $themesData,
+            'themeModel' => $themeData,
         );
 
         $this->view->pageData = $data;
@@ -300,6 +330,7 @@ class Admin_WorkController extends Zend_Controller_Action
         $this->workMapper = new Author_Collection_WorkMapper($this->db);
         $this->editorMapper = new Author_Collection_EditorMapper($this->db);
         $this->editionMapper = new Author_Collection_EditionMapper($this->db);
+        $this->taxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
     }
 
     private function processAndRedirect($form)

@@ -6,6 +6,19 @@ $pageData = $this->pageData;
 
 <h1>Livros</h1>
 
+<?php
+    if (isset($pageData['themeData'])) {
+        $themeData = $pageData['themeData'];
+?>
+
+<h2>Livros com o tema "<?php echo $themeData['term'] ?>"</h2>
+
+
+<?php
+    }
+
+?>
+
 <table id="livros" width="580px">
     <?php echo $this->editionsRows($pageData['editionsModel']) ?></tr>
 </table>

@@ -8,7 +8,9 @@ $serieData = $pageData['serieData'];
 
 <!-- detalhes -->
 <div class="detalhe">
+<?php if ((isset($pageData['themeLabel'])) && ($pageData['themeLabel'])) { ?>
 <?php echo $this->translate('#Theme:') ?> <a href="<?php echo $this->translate('/theme/') ?><?php echo $pageData['themeUri'] ?>"><?php echo $pageData['themeLabel'] ?></a> <span>|</span>
+<?php } ?>
 <?php if ((isset($pageData['typeLabel'])) && ($pageData['typeLabel'])) { ?>
 <?php echo $this->translate('#Age:') ?> <a href=""><?php echo $pageData['typeLabel'] ?></a>
 <?php } ?>

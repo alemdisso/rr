@@ -5,6 +5,7 @@ class Works_IndexController extends Zend_Controller_Action
     private $workMapper;
     private $editorMapper;
     private $editionMapper;
+    private $taxonomyMapper;
     private $db;
 
     public function postDispatch()
@@ -73,11 +74,25 @@ class Works_IndexController extends Zend_Controller_Action
     public function indexAction()
     {
 
-        $editionsIds = $this->editionMapper->getAllEditionsAlphabeticallyOrdered();
+        $data = $this->_request->getParams();
+
+        try {
+            $theme = $this->view->CheckThemeFromGet($data);
+        } catch (Exception $ex) {
+            $theme = null;
+        }
+
+        if ($theme) {
+            $editionsIds = $this->taxonomyMapper->worksWithTheme($theme);
+
+        } else {
+            $editionsIds = $this->editionMapper->getAllEditionsAlphabeticallyOrdered();
+        }
         $editionsModel = $this->buildEditionsModel($editionsIds);
 
         $pageData = array(
             'editionsModel' => $editionsModel,
+            'themeData' => array('term' => $theme),
         );
 
 
@@ -93,23 +108,26 @@ class Works_IndexController extends Zend_Controller_Action
         $this->workMapper = new Author_Collection_WorkMapper($this->db);
         $this->editorMapper = new Author_Collection_EditorMapper($this->db);
         $this->editionMapper = new Author_Collection_EditionMapper($this->db);
+        $this->taxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
     }
 
     private function buildEditionsModel($editionsIds)
     {
         $editionsData = array();
-        foreach ($editionsIds as $editionId) {
-            $loopEditionObj = $this->editionMapper->findById($editionId);
-            $loopWorkObj = $this->workMapper->findById($loopEditionObj->getWork());
-            $loopEditorObj = $this->editorMapper->findById($loopEditionObj->getEditor());
+        if (is_array($editionsIds)) {
+            foreach ($editionsIds as $editionId) {
+                $loopEditionObj = $this->editionMapper->findById($editionId);
+                $loopWorkObj = $this->workMapper->findById($loopEditionObj->getWork());
+                $loopEditorObj = $this->editorMapper->findById($loopEditionObj->getEditor());
 
-            $coverFilePath = $this->view->coverFilePath($loopEditionObj);
+                $coverFilePath = $this->view->coverFilePath($loopEditionObj);
 
-            $editionsData[$editionId] = array(
-                    'title' => $loopWorkObj->getTitle(),
-                    'coverSrc' => $coverFilePath,
-                    'exploreUri' => '/explore/' . $loopWorkObj->getUri(),
-            );
+                $editionsData[$editionId] = array(
+                        'title' => $loopWorkObj->getTitle(),
+                        'coverSrc' => $coverFilePath,
+                        'exploreUri' => '/explore/' . $loopWorkObj->getUri(),
+                );
+            }
         }
 
         return $editionsData;

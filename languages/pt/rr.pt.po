@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-16 18:16-0300\n"
-"PO-Revision-Date: 2013-10-16 18:17-0300\n"
+"POT-Creation-Date: 2013-10-31 18:43-0300\n"
+"PO-Revision-Date: 2013-10-31 18:44-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -27,7 +27,8 @@ msgstr ""
 #: application\modules/admin/controllers/PrizeController.php:41
 #: application\modules/admin/controllers/PrizeController.php:74
 #: application\modules/admin/controllers/SerieController.php:42
-#: application\modules/admin/controllers/WorkController.php:309
+#: application\modules/admin/controllers/ThemeController.php:40
+#: application\modules/admin/controllers/WorkController.php:342
 #: application\modules/auth/controllers/UserController.php:39
 #: application\modules/auth/controllers/UserController.php:61
 msgid "#The record was successfully updated."
@@ -124,7 +125,7 @@ msgid "#Edit post"
 msgstr "Editar post"
 
 #: application\modules/admin/controllers/PostController.php:136
-#: application\modules/admin/controllers/WorkController.php:259
+#: application\modules/admin/controllers/WorkController.php:291
 msgid "#The record was successfully removed."
 msgstr "O registro foi criado com sucesso."
 
@@ -156,17 +157,18 @@ msgid "#Change title"
 msgstr "Mudar título"
 
 #: application\modules/admin/controllers/WorkController.php:146
+#: application\modules/admin/controllers/WorkController.php:175
 msgid "#Change type"
 msgstr "Mudar tipo"
 
-#: application\modules/admin/controllers/WorkController.php:175
-#: application\modules/admin/controllers/WorkController.php:180
-#: application\modules/admin/controllers/WorkController.php:193
-#: application\modules/admin/controllers/WorkController.php:198
+#: application\modules/admin/controllers/WorkController.php:204
+#: application\modules/admin/controllers/WorkController.php:209
+#: application\modules/admin/controllers/WorkController.php:222
+#: application\modules/admin/controllers/WorkController.php:227
 msgid "#NI"
 msgstr "NI"
 
-#: application\modules/admin/controllers/WorkController.php:289
+#: application\modules/admin/controllers/WorkController.php:321
 #: application\modules/admin/views/scripts/work/remove.phtml:5
 msgid "#Remove work"
 msgstr "Remover"
@@ -319,6 +321,7 @@ msgstr "Conteúdo:"
 #: library\Author/Form/SerieChange.php:34
 #: library\Author/Form/SerieCreate.php:39
 #: library\Author/Form/SummaryChange.php:37
+#: library\Author/Form/ThemeChange.php:45
 #: library\Author/Form/TitleChange.php:39
 #: library\Author/Form/WorkTypeChange.php:40
 #: library\Ruth/Form/EditionCreate.php:176
@@ -1428,6 +1431,15 @@ msgstr "Faixa Etária:"
 msgid "#Year:"
 msgstr "Ano:"
 
+#: library\Author/Form/ThemeChange.php:23
+msgid "#(choose)"
+msgstr "(escolha...)"
+
+#: library\Author/Form/ThemeChange.php:31
+#: application\modules/admin/views/scripts/work/detail.phtml:17
+msgid "#Theme"
+msgstr "Tema"
+
 #: library\Author/Form/WorkTypeChange.php:25
 #: library\Ruth/Form/WorkTypeChange.php:25
 msgid "#Type:"
@@ -1618,14 +1630,24 @@ msgid "#Do you confirm removal of post %s? This CAN'T be undone."
 msgstr "Você confirma a remoção do post \"%s\"? Isso NÂO pode ser desfeito."
 
 #: application\modules/admin/views/scripts/prize/edit.phtml:2
+#: application\modules/admin/views/scripts/theme/remove.phtml:2
 msgid "#Edit prize"
 msgstr "Editar prêmio"
+
+#: application\modules/admin/views/scripts/theme/create.phtml:2
+msgid "#Create theme"
+msgstr "Criar tema"
 
 #: application\modules/admin/views/scripts/work/change-description.phtml:2
 #: application\modules/admin/views/scripts/work/change-summary.phtml:2
 #, php-format
 msgid "#Change summary for %s"
 msgstr "Mudar resumo de %s"
+
+#: application\modules/admin/views/scripts/work/change-theme.phtml:2
+#, php-format
+msgid "#Change %s's theme"
+msgstr "Mudar tema de %s"
 
 #: application\modules/admin/views/scripts/work/change-title.phtml:2
 #, php-format
@@ -1657,20 +1679,24 @@ msgstr "Resumo"
 msgid "#(change summary)"
 msgstr "(mudar resumo)"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:17
+#: application\modules/admin/views/scripts/work/detail.phtml:19
+msgid "#Change theme"
+msgstr "Mudar tema"
+
+#: application\modules/admin/views/scripts/work/detail.phtml:21
 #: application\modules/works/views/scripts/index/fiction.phtml:12
 msgid "#Prizes"
 msgstr "Prêmios"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:19
+#: application\modules/admin/views/scripts/work/detail.phtml:23
 msgid "#Add prize"
 msgstr "Incluir prêmio"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:21
+#: application\modules/admin/views/scripts/work/detail.phtml:27
 msgid "#Editions"
 msgstr "Edições"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:24
+#: application\modules/admin/views/scripts/work/detail.phtml:30
 msgid "#(remove this work!)"
 msgstr "(remover!)"
 
@@ -1701,6 +1727,10 @@ msgstr ""
 "Você confirma a remoção de %s (e de suas edições)? Isso NÂO pode ser "
 "desfeito."
 
+#: application\modules/admin/views/scripts/work/themes-loop.phtml:1
+msgid "#(remove)"
+msgstr "(remover)"
+
 #: application\modules/auth/views/scripts/user/create.phtml:2
 msgid "#New user"
 msgstr "Novo usuário"
@@ -1716,7 +1746,6 @@ msgid "#Success!!!"
 msgstr "Sucesso!"
 
 #: application\modules/blog/views/scripts/index/index.phtml:7
-#: application\modules/blog/views/scripts/index/index_amm.phtml:6
 #: application\modules/blog/views/scripts/post/explore.phtml:7
 msgid "#Blog title"
 msgstr "Novidades"

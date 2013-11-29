@@ -4,6 +4,7 @@ class Works_EditionController extends Zend_Controller_Action
     private $workMapper;
     private $editorMapper;
     private $editionMapper;
+    private $taxonomyMapper;
     private $db;
 
     public function postDispatch()
@@ -40,6 +41,7 @@ class Works_EditionController extends Zend_Controller_Action
 
         $typeLabel = $this->view->typeLabel($workObj, new Ruth_Collection_WorkTypes, $this->view);
 
+        $themeData = $this->view->ThemeTermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 
         $isbn = $editionObj->getIsbn();
         if ($isbn != "") {
@@ -99,8 +101,8 @@ class Works_EditionController extends Zend_Controller_Action
             'editionMapper' => $this->editionMapper,
             'title' => $workTitle,
             'typeLabel' => $typeLabel,
-            'themeLabel' => "Animais",
-            'themeUri' => "animais",
+            'themeLabel' => $themeData['term'],
+            'themeUri' => $themeData['uri'],
             'mediumImageUri' => $coverFilePath,
             'editorName' => $editorLabel,
             'description' => nl2br($workObj->getDescription()),
@@ -132,6 +134,7 @@ class Works_EditionController extends Zend_Controller_Action
         $this->workMapper = new Author_Collection_WorkMapper($this->db);
         $this->editorMapper = new Author_Collection_EditorMapper($this->db);
         $this->editionMapper = new Author_Collection_EditionMapper($this->db);
+        $this->taxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
     }
 
     private function buildSameSerieModel(Author_Collection_Edition $edition, Author_Collection_SerieMapper $serieMapper, Author_Collection_EditionMapper $editionMapper)

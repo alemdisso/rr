@@ -25,6 +25,23 @@ class Includes_IncludeController extends Zend_Controller_Action
 
     public function filterAction()
     {
+        $themesList = $this->view->themesList(new Author_Collection_TaxonomyMapper);
+        $themesModel = array();
+
+        foreach ($themesList as $id => $term) {
+            $themesModel[$id] = array(
+                    'id' => $id,
+                    'term' => $term,
+                );
+        }
+
+        $pageData = array(
+            'themesList' => $themesModel,
+            );
+
+
+        $this->view->pageData = $pageData;
+
 
     }
 
