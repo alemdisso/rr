@@ -35,12 +35,25 @@ class Includes_IncludeController extends Zend_Controller_Action
                 );
         }
 
+        $types = new Ruth_Collection_WorkTypes();
+
+        $typesList = $types->AllTitles();
+        $typesModel = array();
+
+        foreach ($typesList as $id => $term) {
+            $typesModel[$id] = array(
+                    'id' => $id,
+                    'term' => $term,
+                );
+        }
+
         $pageData = array(
             'themesList' => $themesModel,
+            'typesList' => $typesModel,
             );
 
-
         $this->view->pageData = $pageData;
+
 
 
     }

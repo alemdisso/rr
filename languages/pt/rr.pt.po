@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-31 18:43-0300\n"
-"PO-Revision-Date: 2013-10-31 18:44-0300\n"
+"POT-Creation-Date: 2013-12-01 11:11-0300\n"
+"PO-Revision-Date: 2013-12-01 11:12-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -28,7 +28,7 @@ msgstr ""
 #: application\modules/admin/controllers/PrizeController.php:74
 #: application\modules/admin/controllers/SerieController.php:42
 #: application\modules/admin/controllers/ThemeController.php:40
-#: application\modules/admin/controllers/WorkController.php:342
+#: application\modules/admin/controllers/WorkController.php:343
 #: application\modules/auth/controllers/UserController.php:39
 #: application\modules/auth/controllers/UserController.php:61
 msgid "#The record was successfully updated."
@@ -63,6 +63,9 @@ msgstr "Mudar coleção"
 
 #: application\modules/admin/controllers/EditionController.php:252
 #: application\modules/admin/controllers/EditionController.php:265
+#: application\modules/includes/views/scripts/include/filter.phtml:11
+#: application\modules/includes/views/scripts/include/filter.phtml:26
+#: application\modules/includes/views/scripts/include/filter.phtml:49
 msgid "#(choose an option)"
 msgstr "(escolha...)"
 
@@ -125,7 +128,7 @@ msgid "#Edit post"
 msgstr "Editar post"
 
 #: application\modules/admin/controllers/PostController.php:136
-#: application\modules/admin/controllers/WorkController.php:291
+#: application\modules/admin/controllers/WorkController.php:292
 msgid "#The record was successfully removed."
 msgstr "O registro foi criado com sucesso."
 
@@ -144,31 +147,31 @@ msgstr "Criar prêmio"
 msgid "#Create serie"
 msgstr "Criar coleção"
 
-#: application\modules/admin/controllers/WorkController.php:57
+#: application\modules/admin/controllers/WorkController.php:58
 msgid "#Change description"
 msgstr "Criar descrição"
 
-#: application\modules/admin/controllers/WorkController.php:87
+#: application\modules/admin/controllers/WorkController.php:88
 msgid "#Change summary"
 msgstr "Mudar resumo"
 
-#: application\modules/admin/controllers/WorkController.php:117
+#: application\modules/admin/controllers/WorkController.php:118
 msgid "#Change title"
 msgstr "Mudar título"
 
-#: application\modules/admin/controllers/WorkController.php:146
-#: application\modules/admin/controllers/WorkController.php:175
+#: application\modules/admin/controllers/WorkController.php:147
+#: application\modules/admin/controllers/WorkController.php:176
 msgid "#Change type"
 msgstr "Mudar tipo"
 
-#: application\modules/admin/controllers/WorkController.php:204
-#: application\modules/admin/controllers/WorkController.php:209
-#: application\modules/admin/controllers/WorkController.php:222
-#: application\modules/admin/controllers/WorkController.php:227
+#: application\modules/admin/controllers/WorkController.php:205
+#: application\modules/admin/controllers/WorkController.php:210
+#: application\modules/admin/controllers/WorkController.php:223
+#: application\modules/admin/controllers/WorkController.php:228
 msgid "#NI"
 msgstr "NI"
 
-#: application\modules/admin/controllers/WorkController.php:321
+#: application\modules/admin/controllers/WorkController.php:322
 #: application\modules/admin/views/scripts/work/remove.phtml:5
 msgid "#Remove work"
 msgstr "Remover"
@@ -185,17 +188,17 @@ msgstr "Acesso negado"
 msgid "#Not published"
 msgstr "Não publicado"
 
-#: application\modules/works/controllers/EditionController.php:46
+#: application\modules/works/controllers/EditionController.php:48
 #, php-format
 msgid "#ISBN: %s"
 msgstr "ISBN: %s"
 
-#: application\modules/works/controllers/EditionController.php:53
+#: application\modules/works/controllers/EditionController.php:55
 #, php-format
 msgid "#%s pages"
 msgstr "%s páginas"
 
-#: application\modules/works/controllers/EditionController.php:76
+#: application\modules/works/controllers/EditionController.php:78
 #: library\Author/Form/EditionCreate.php:148
 #: library\Author/Form/IllustratorChange.php:21
 #: library\Ruth/Form/EditionCreate.php:148
@@ -203,7 +206,7 @@ msgstr "%s páginas"
 msgid "#Illustrator:"
 msgstr "Ilustrador:"
 
-#: application\modules/works/controllers/EditionController.php:81
+#: application\modules/works/controllers/EditionController.php:83
 #: library\Author/Form/CoverDesignerChange.php:23
 #: library\Author/Form/EditionCreate.php:162
 #: library\Ruth/Form/EditionCreate.php:162
@@ -211,16 +214,16 @@ msgstr "Ilustrador:"
 msgid "#Cover designer:"
 msgstr "Design da capa:"
 
-#: application\modules/works/controllers/EditionController.php:86
+#: application\modules/works/controllers/EditionController.php:88
 msgid "#Editor:"
 msgstr "Editora:"
 
-#: application\modules/works/controllers/EditionController.php:122
+#: application\modules/works/controllers/EditionController.php:124
 #, php-format
 msgid "#Exploring %s"
 msgstr "Explorando %s"
 
-#: application\modules/works/controllers/IndexController.php:68
+#: application\modules/works/controllers/IndexController.php:69
 msgid "#Ruth Rocha - Fiction"
 msgstr "Ruth Rocha"
 
@@ -1437,6 +1440,7 @@ msgstr "(escolha...)"
 
 #: library\Author/Form/ThemeChange.php:31
 #: application\modules/admin/views/scripts/work/detail.phtml:17
+#: application\modules/includes/views/scripts/include/filter.phtml:9
 msgid "#Theme"
 msgstr "Tema"
 
@@ -1480,10 +1484,6 @@ msgstr "De 10 a 13 anos"
 #: library\Ruth/Collection/WorkTypes.php:14
 msgid "#Teen"
 msgstr "Acima de 13 anos"
-
-#: library\Ruth/Collection/WorkTypes.php:15
-msgid "#Adult"
-msgstr "Adultos"
 
 #: library\Ruth/View/Helper/TypeListLink.php:11
 msgid "/works/infant"
@@ -1710,7 +1710,7 @@ msgid "#(edit)"
 msgstr "(editar)"
 
 #: application\modules/admin/views/scripts/work/editions-loop.phtml:6
-#: application\modules/works/views/scripts/edition/explore.phtml:24
+#: application\modules/works/views/scripts/edition/explore.phtml:26
 msgid "#Serie:"
 msgstr "Coleção:"
 
@@ -1750,6 +1750,18 @@ msgstr "Sucesso!"
 msgid "#Blog title"
 msgstr "Novidades"
 
+#: application\modules/includes/views/scripts/include/filter.phtml:6
+msgid "#Filter by:"
+msgstr "Livros por:"
+
+#: application\modules/includes/views/scripts/include/filter.phtml:24
+msgid "#Age"
+msgstr "Idade"
+
+#: application\modules/includes/views/scripts/include/filter.phtml:47
+msgid "#Character"
+msgstr "Personagem"
+
 #: application\modules/includes/views/scripts/include/header-login.phtml:12
 #: application\modules/includes/views/scripts/include/header.phtml:12
 msgid "#Books"
@@ -1760,15 +1772,15 @@ msgstr "Livros"
 msgid "#Contact"
 msgstr "Contato"
 
-#: application\modules/works/views/scripts/edition/explore.phtml:11
+#: application\modules/works/views/scripts/edition/explore.phtml:12
 msgid "#Theme:"
 msgstr "Tema:"
 
-#: application\modules/works/views/scripts/edition/explore.phtml:11
+#: application\modules/works/views/scripts/edition/explore.phtml:12
 msgid "/theme/"
 msgstr "/tema/"
 
-#: application\modules/works/views/scripts/edition/explore.phtml:13
+#: application\modules/works/views/scripts/edition/explore.phtml:15
 msgid "#Age:"
 msgstr "Faixa etária:"
 
@@ -1783,6 +1795,13 @@ msgstr "Curiosidades"
 #: application\modules/works/views/scripts/index/fiction.phtml:12
 msgid "#Available in other language"
 msgstr "Disponível em outro idioma"
+
+#: application\modules/works/views/scripts/index/index.phtml:34
+msgid "#There are no works with this criteria."
+msgstr "Não foram encontrados livros com esse critério."
+
+#~ msgid "#Adult"
+#~ msgstr "Adultos"
 
 #~ msgid "#Serie: %s"
 #~ msgstr "Coleção: %s"

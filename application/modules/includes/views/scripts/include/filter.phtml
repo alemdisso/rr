@@ -3,38 +3,50 @@ $pageData = $this->pageData;
 ?>
 
 <!-- box filtro -->
-<h2>Livros por:</h2>
+<h2><?php echo $this->translate("#Filter by:") ?></h2>
 
 <form>
-<label>Tema</label>
-<?php
-//        print_r($pageData['themesList']);die("...");
-?>
+<label><?php echo $this->translate("#Theme") ?></label>
 <select class="busca" id="select-theme">
 <option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
 <?php echo $this->filterThemes($pageData['themesList']) ?>
 </select>
 
 <script>
-
   $("#select-theme").on("change", function(){
     var termUri = $(this).children("option:selected").text();
     var url = '/livros/tema/' + termUri;
     window.location.href = url;
 
   });
-
-
 </script>
 
-<label>Idade</label>
-<select class="busca">
-<option selected="selected">Selecione</option>
+<label><?php echo $this->translate("#Age") ?></label>
+<select class="busca" id="select-type">
+<option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
+<?php echo $this->filterTypes($pageData['typesList']) ?>
 </select>
 
-<label>Personagem</label>
+<script>
+  $("#select-type").on("change", function(){
+    var types = Array();
+    types[1000] = "ate-3-anos";
+    types[2000] = "de-4-a-6-anos";
+    types[3000] = "de-7-a-9-anos";
+    types[4000] = "de-10-a-13-anos";
+    types[5000] = "acima-de-13-anos";
+    //types[2000] = "adultos";
+
+    var typeIndex = $(this).val();
+    var url = '/livros/' + types[typeIndex];
+    window.location.href = url;
+
+  });
+</script>
+
+<label><?php echo $this->translate("#Character") ?></label>
 <select class="busca">
-<option selected="selected">Selecione</option>
+<option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
 </select>
 
 </form>

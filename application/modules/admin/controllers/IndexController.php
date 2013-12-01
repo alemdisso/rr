@@ -76,7 +76,7 @@ class Admin_IndexController extends Zend_Controller_Action
                 $editorName = "(<em>$editorName</em>)";
             }
 
-            $typeLabel = $this->view->typeLabel($loopWorkObj, new Ruth_Collection_WorkTypes, $this->view);
+            $typeLabel = $this->view->typeLabel($loopWorkObj->getType(), new Ruth_Collection_WorkTypes, $this->view);
 
             $worksData[$workId] = array('title' => $this->view->workTitleAndPrefix($loopWorkObj),
                     'typeLabel' => $typeLabel,

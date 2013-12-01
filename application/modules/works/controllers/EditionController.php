@@ -39,7 +39,7 @@ class Works_EditionController extends Zend_Controller_Action
 
         $workTitle = $workObj->getTitle();
 
-        $typeLabel = $this->view->typeLabel($workObj, new Ruth_Collection_WorkTypes, $this->view);
+        $typeLabel = $this->view->typeLabel($workObj->getType(), new Ruth_Collection_WorkTypes, $this->view);
 
         $themeData = $this->view->ThemeTermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 

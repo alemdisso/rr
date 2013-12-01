@@ -76,23 +76,40 @@ class Works_IndexController extends Zend_Controller_Action
 
         $data = $this->_request->getParams();
 
+
         try {
             $theme = $this->view->CheckThemeFromGet($data);
         } catch (Exception $ex) {
             $theme = null;
         }
 
+        try {
+            $type = $this->view->CheckTypeFromGet($data);
+            $typeLabel = $this->view->typeLabel($type, new Ruth_Collection_WorkTypes, $this->view);
+            $typeData = array('term' => $typeLabel);
+        } catch (Exception $ex) {
+            $type = null;
+            $typeData = array();
+        }
+
         if ($theme) {
             $editionsIds = $this->taxonomyMapper->worksWithTheme($theme);
+
+        } else if ($type) {
+            $editionsIds = $this->editionMapper->getAllIdsOfType($type);
 
         } else {
             $editionsIds = $this->editionMapper->getAllEditionsAlphabeticallyOrdered();
         }
+
+
+
         $editionsModel = $this->buildEditionsModel($editionsIds);
 
         $pageData = array(
             'editionsModel' => $editionsModel,
             'themeData' => array('term' => $theme),
+            'typeData' => $typeData,
         );
 
 

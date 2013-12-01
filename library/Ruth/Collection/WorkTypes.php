@@ -12,7 +12,7 @@ class Ruth_Collection_WorkTypes extends Author_Collection_WorkTypes {
             Ruth_Collection_WorkTypeConstants::TYPE_KIDS        => _("#Kids"),
             Ruth_Collection_WorkTypeConstants::TYPE_TWEEN       => _("#Tween"),
             Ruth_Collection_WorkTypeConstants::TYPE_TEEN        => _("#Teen"),
-            Ruth_Collection_WorkTypeConstants::TYPE_ADULT       => _("#Adult"),
+            //Ruth_Collection_WorkTypeConstants::TYPE_ADULT       => _("#Adult"),
         );
     }
 
@@ -25,7 +25,7 @@ class Ruth_Collection_WorkTypes extends Author_Collection_WorkTypes {
                 case Ruth_Collection_WorkTypeConstants::TYPE_KIDS:
                 case Ruth_Collection_WorkTypeConstants::TYPE_TWEEN:
                 case Ruth_Collection_WorkTypeConstants::TYPE_TEEN:
-                case Ruth_Collection_WorkTypeConstants::TYPE_ADULT:
+                //case Ruth_Collection_WorkTypeConstants::TYPE_ADULT:
                     return $this->titles[$type];
                     break;
 
