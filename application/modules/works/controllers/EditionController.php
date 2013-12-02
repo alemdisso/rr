@@ -41,7 +41,7 @@ class Works_EditionController extends Zend_Controller_Action
 
         $typeLabel = $this->view->typeLabel($workObj->getType(), new Ruth_Collection_WorkTypes, $this->view);
 
-        $themeData = $this->view->ThemeTermAndUri($workObj->getTheme(), $this->taxonomyMapper);
+        $themeData = $this->view->TermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 
         $isbn = $editionObj->getIsbn();
         if ($isbn != "") {

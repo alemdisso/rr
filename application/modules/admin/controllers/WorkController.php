@@ -274,9 +274,18 @@ class Admin_WorkController extends Zend_Controller_Action
         $prizeMapper = new Author_Collection_PrizeMapper($this->db);
         $prizesLabels = $this->view->workPrizesLabels($id, $prizeMapper);
 
-        $themeData = $this->view->ThemeTermAndUri($workObj->getTheme(), $this->taxonomyMapper);
+        $themeData = $this->view->TermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 
-        $charactersData = array(array('id' => 3, 'term' => 'Alvinho'));
+        $characters = $workObj->getCharacters();
+
+        foreach ($characters as $k => $termId) {
+            $tempData = $this->view->TermAndUri($termId, $this->taxonomyMapper);
+            $charactersData[] = array(
+                'id' => $workObj->getId(),
+                'term' => $tempData['term'],
+                'termId' => $termId,
+                );
+        }
 
         $data = array(
             'id' => $id,
@@ -292,7 +301,6 @@ class Admin_WorkController extends Zend_Controller_Action
         );
 
         $this->view->pageData = $data;
-
     }
 
     public function populateEditorsSelect(Zend_Form_Element_Select $elementSelect, $current)
@@ -346,6 +354,60 @@ class Admin_WorkController extends Zend_Controller_Action
             $workData = array(
                 'id'   => $id,
                 'title' => $workObj->getTitle(),
+            );
+            $this->view->pageData = $workData;
+
+            $this->view->pageTitle = $this->view->translate("#Remove work");
+
+        }
+    }
+
+    public function removeCharacterAction()
+    {
+        $form = new Author_Form_CharacterRemove();
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            $postData = $this->getRequest()->getPost();
+            if ($form->isValid($postData)) {
+                $submitButton = $form->getUnfilteredValue('Submit');
+
+                if ($submitButton) {
+                    $workId = $form->process($postData);
+                    $this->_helper->getHelper('FlashMessenger')
+                        ->addMessage($this->view->translate('#The record was successfully removed.'));
+                    $this->_redirect('/admin/work/detail/?id=' . $workId);
+                } else {
+                    $workId = $postData['workId'];
+                    $this->_redirect('/admin/work/detail/?id=' . $workId);
+                }
+            } else {
+                //form error: populate and go back
+                $this->view->form = $form;
+            }
+        } else {
+            // GET
+
+            $data = $this->_request->getParams();
+            try {
+                $workId = $this->view->checkIdFromGet($data, 'object');
+                $termId = $this->view->checkIdFromGet($data, 'term');
+            } catch (Exception $e) {
+                throw $e;
+            }
+
+            $workData = array();
+            $workObj = $this->workMapper->findById($workId);
+            $element = $form->getElement('workId');
+            $element->setValue($workId);
+            $element = $form->getElement('termId');
+            $element->setValue($termId);
+
+            $tempData = $this->view->TermAndUri($termId, $this->taxonomyMapper);
+            $workData = array(
+                'id'   => $workId,
+                'title' => $workObj->getTitle(),
+                'term' => $tempData['term'],
             );
             $this->view->pageData = $workData;
 
