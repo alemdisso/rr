@@ -177,6 +177,33 @@ class Admin_WorkController extends Zend_Controller_Action
         }
     }
 
+    public function createCharacterAction()
+    {
+        // cria form
+        $form = new Author_Form_CharacterAdd;
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            $this->processAndRedirect($form);
+            return;
+        } else {
+            $data = $this->_request->getParams();
+            try {
+                $id = $this->view->checkIdFromGet($data);
+            } catch (Exception $e) {
+                throw $e;
+            }
+
+            $element = $form->getElement('id');
+            $element->setValue($id);
+
+            $workObj = $this->workMapper->findById($id);
+
+            $this->view->title = $workObj->getTitle();
+            $this->view->pageTitle = $this->view->translate("#Add character");
+        }
+    }
+
     public function detailAction()
     {
 
@@ -249,6 +276,8 @@ class Admin_WorkController extends Zend_Controller_Action
 
         $themeData = $this->view->ThemeTermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 
+        $charactersData = array(array('id' => 3, 'term' => 'Alvinho'));
+
         $data = array(
             'id' => $id,
             'title' => $workObj->getTitle(),
@@ -258,6 +287,7 @@ class Admin_WorkController extends Zend_Controller_Action
             'summary' => nl2br($workObj->getSummary()),
             'editions' => $editionsModel,
             'prizes' => $prizesLabels,
+            'characters' => $charactersData,
             'themeModel' => $themeData,
         );
 

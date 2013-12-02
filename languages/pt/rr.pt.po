@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-01 11:11-0300\n"
-"PO-Revision-Date: 2013-12-01 11:12-0300\n"
+"POT-Creation-Date: 2013-12-02 15:58-0300\n"
+"PO-Revision-Date: 2013-12-02 15:59-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -28,7 +28,7 @@ msgstr ""
 #: application\modules/admin/controllers/PrizeController.php:74
 #: application\modules/admin/controllers/SerieController.php:42
 #: application\modules/admin/controllers/ThemeController.php:40
-#: application\modules/admin/controllers/WorkController.php:343
+#: application\modules/admin/controllers/WorkController.php:373
 #: application\modules/auth/controllers/UserController.php:39
 #: application\modules/auth/controllers/UserController.php:61
 msgid "#The record was successfully updated."
@@ -128,7 +128,7 @@ msgid "#Edit post"
 msgstr "Editar post"
 
 #: application\modules/admin/controllers/PostController.php:136
-#: application\modules/admin/controllers/WorkController.php:292
+#: application\modules/admin/controllers/WorkController.php:322
 msgid "#The record was successfully removed."
 msgstr "O registro foi criado com sucesso."
 
@@ -164,14 +164,19 @@ msgstr "Mudar título"
 msgid "#Change type"
 msgstr "Mudar tipo"
 
-#: application\modules/admin/controllers/WorkController.php:205
-#: application\modules/admin/controllers/WorkController.php:210
-#: application\modules/admin/controllers/WorkController.php:223
-#: application\modules/admin/controllers/WorkController.php:228
+#: application\modules/admin/controllers/WorkController.php:203
+#: application\modules/admin/views/scripts/work/detail.phtml:23
+msgid "#Add character"
+msgstr "Inserir personagem"
+
+#: application\modules/admin/controllers/WorkController.php:232
+#: application\modules/admin/controllers/WorkController.php:237
+#: application\modules/admin/controllers/WorkController.php:250
+#: application\modules/admin/controllers/WorkController.php:255
 msgid "#NI"
 msgstr "NI"
 
-#: application\modules/admin/controllers/WorkController.php:322
+#: application\modules/admin/controllers/WorkController.php:352
 #: application\modules/admin/views/scripts/work/remove.phtml:5
 msgid "#Remove work"
 msgstr "Remover"
@@ -312,6 +317,7 @@ msgid "#Content:"
 msgstr "Conteúdo:"
 
 #: library\Moxca/Form/PostCreate.php:80 library\Moxca/Form/UserCreate.php:101
+#: library\Author/Form/CharacterAdd.php:59
 #: library\Author/Form/CoverChange.php:33
 #: library\Author/Form/CoverDesignerChange.php:38
 #: library\Author/Form/DescriptionChange.php:37
@@ -1356,6 +1362,20 @@ msgstr "Ficção"
 msgid "#Essay"
 msgstr "Ensaios"
 
+#: library\Author/Form/CharacterAdd.php:23
+#: library\Author/Form/ThemeChange.php:23
+msgid "#(choose)"
+msgstr "(escolha...)"
+
+#: library\Author/Form/CharacterAdd.php:31
+#: application\modules/admin/views/scripts/work/detail.phtml:21
+msgid "#Characters"
+msgstr "Personagens"
+
+#: library\Author/Form/CharacterAdd.php:45
+msgid "#New character:"
+msgstr "Novo personagem:"
+
 #: library\Author/Form/CoverChange.php:22
 #: library\Author/Form/EditionCreate.php:32
 #: library\Ruth/Form/EditionCreate.php:32
@@ -1433,10 +1453,6 @@ msgstr "Faixa Etária:"
 #: library\Author/Form/PrizeCreate.php:65
 msgid "#Year:"
 msgstr "Ano:"
-
-#: library\Author/Form/ThemeChange.php:23
-msgid "#(choose)"
-msgstr "(escolha...)"
 
 #: library\Author/Form/ThemeChange.php:31
 #: application\modules/admin/views/scripts/work/detail.phtml:17
@@ -1659,6 +1675,16 @@ msgstr "Mudar título de %s"
 msgid "#Change %s's type"
 msgstr "Mudar tipo de %s"
 
+#: application\modules/admin/views/scripts/work/characters-loop.phtml:1
+#: application\modules/admin/views/scripts/work/themes-loop.phtml:1
+msgid "#(remove)"
+msgstr "(remover)"
+
+#: application\modules/admin/views/scripts/work/create-character.phtml:2
+#, php-format
+msgid "#%s's new character"
+msgstr "Novo personagem no livro %s"
+
 #: application\modules/admin/views/scripts/work/detail.phtml:7
 msgid "#(change type)"
 msgstr "(mudar tipo)"
@@ -1683,20 +1709,20 @@ msgstr "(mudar resumo)"
 msgid "#Change theme"
 msgstr "Mudar tema"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:21
+#: application\modules/admin/views/scripts/work/detail.phtml:25
 #: application\modules/works/views/scripts/index/fiction.phtml:12
 msgid "#Prizes"
 msgstr "Prêmios"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:23
+#: application\modules/admin/views/scripts/work/detail.phtml:27
 msgid "#Add prize"
 msgstr "Incluir prêmio"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:27
+#: application\modules/admin/views/scripts/work/detail.phtml:31
 msgid "#Editions"
 msgstr "Edições"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:30
+#: application\modules/admin/views/scripts/work/detail.phtml:34
 msgid "#(remove this work!)"
 msgstr "(remover!)"
 
@@ -1726,10 +1752,6 @@ msgid ""
 msgstr ""
 "Você confirma a remoção de %s (e de suas edições)? Isso NÂO pode ser "
 "desfeito."
-
-#: application\modules/admin/views/scripts/work/themes-loop.phtml:1
-msgid "#(remove)"
-msgstr "(remover)"
 
 #: application\modules/auth/views/scripts/user/create.phtml:2
 msgid "#New user"
@@ -1796,7 +1818,7 @@ msgstr "Curiosidades"
 msgid "#Available in other language"
 msgstr "Disponível em outro idioma"
 
-#: application\modules/works/views/scripts/index/index.phtml:34
+#: application\modules/works/views/scripts/index/index.phtml:46
 msgid "#There are no works with this criteria."
 msgstr "Não foram encontrados livros com esse critério."
 
