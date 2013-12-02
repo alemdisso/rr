@@ -19,17 +19,23 @@ $pageData = $this->pageData;
     <p><a href="/admin/work/change-theme/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#Change theme") ?></a></p>
 
     <h3><?php echo $this->translate('#Characters')?></h2>
+    <?php if ((is_array($pageData['characters']))&&(count($pageData['characters']))) { ?>
     <?php echo $this->charactersLoop($pageData['characters']) ?>
+    <?php } ?>
     <p><a href="/admin/work/create-character/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#Add character") ?></a></p>
 
     <h3><?php echo $this->translate('#Prizes')?></h2>
+    <?php if ((is_array($pageData['prizes']))&&(count($pageData['prizes']))) { ?>
     <?php echo $this->prizesLoop($pageData['prizes']) ?>
+    <?php } ?>
     <p><a href="/admin/prize/create/?work=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#Add prize") ?></a></p>
 
     <input type="hidden" name="id" value="<?php echo $pageData['id'] ?>" id="id">
 
     <h3><?php echo $this->translate('#Editions')?></h2>
+    <?php if ((is_array($pageData['editions']))&&(count($pageData['editions']))) { ?>
     <?php echo $this->editionsLoop($pageData['editions']) ?>
+    <?php } ?>
     <hr>
     <a href="/admin/work/remove/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate('#(remove this work!)')?></a></p>
 </div>

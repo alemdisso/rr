@@ -223,6 +223,7 @@ class Admin_WorkController extends Zend_Controller_Action
         $typeListLink = $this->view->typeListLink($workObj, $this->view);
 
         $editionsIds = $this->editionMapper->getAllEditionsOfWork($id);
+        $editionsModel=array();
         foreach($editionsIds as $editionId) {
             $loopEditionObj = $this->editionMapper->findById($editionId);
             $loopEditorObj = $this->editorMapper->findById($loopEditionObj->getEditor());
@@ -278,6 +279,7 @@ class Admin_WorkController extends Zend_Controller_Action
 
         $characters = $workObj->getCharacters();
 
+        $charactersData = array();
         foreach ($characters as $k => $termId) {
             $tempData = $this->view->TermAndUri($termId, $this->taxonomyMapper);
             $charactersData[] = array(

@@ -89,7 +89,11 @@ class Admin_EditionController extends Zend_Controller_Action
 
             $field = $form->getElement('id');
             $field->setValue($id);
+
+            $workObj = $this->workMapper->findById($id);
+
             $this->view->pageTitle = $this->view->translate("#Change cover");
+            $this->view->pageData=array('title'=> $workObj->getTitle());
         }
     }
 
