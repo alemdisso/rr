@@ -25,75 +25,40 @@ class Works_IndexController extends Zend_Controller_Action
         $this->view->setNestedLayout($layoutHelper, 'inner_books');
     }
 
-    public function fictionAction()
-    {
-
-        $worksData = array(
-                '1' => array(
-                    'title' => 'Cabe na mala',
-                    'thumbImageUri' => '/img/marcacao_livro.png',
-                    'exploreUri' => '/explore/cabe-na-mala',
-                    'summary' => 'Da s&eacute;rie Mico Maneco. Essa divertida hist&oacute;ria ajuda a treinar a leitura de palavras com d&iacute;grafos.',
-                    'editorName' => 'Moderna',
-                    'prizes' => array(),
-                    'moreAbout' => false,
-                    'otherLanguages' => false,
-                ),
-                '2' => array(
-                    'title' => 'Banho sem chuva',
-                    'thumbImageUri' => '/img/marcacao_livro.png',
-                    'exploreUri' => '/explore/banho-sem-chuva',
-                    'summary' => 'Da s&eacute;rie Mico Maneco. Essa divertida hist&oacute;ria ajuda a treinar a leitura de palavras com d&iacute;grafos.',
-                    'editorName' => 'Moderna',
-                    'prizes' => array(),
-                    'moreAbout' => false,
-                    'otherLanguages' => false,
-                ),
-                '3' => array(
-                    'title' => 'Surpresa na sombra',
-                    'thumbImageUri' => '/img/marcacao_livro.png',
-                    'exploreUri' => '/explore/surpresa-na-sombra',
-                    'summary' => 'Da s&eacute;rie Mico Maneco. Essa divertida hist&oacute;ria ajuda a treinar a leitura de palavras com d&iacute;grafos.',
-                    'editorName' => 'Moderna',
-                    'prizes' => array(),
-                    'moreAbout' => false,
-                    'otherLanguages' => false,
-                ),
-        );
-
-        $pageData = array(
-            'worksData' => $worksData,
-        );
-
-        $this->view->pageData = $pageData;
-        $this->view->pageTitle = $this->view->translate("#Ruth Rocha - Fiction");
-
-    }
-
-
     public function indexAction()
     {
-
         $data = $this->_request->getParams();
 
-
         try {
-            $theme = $this->view->CheckThemeFromGet($data);
+            $theme = $this->view->CheckTermFromGet($data, 'theme');
         } catch (Exception $ex) {
             $theme = null;
         }
 
+        $type = null;
+        $typeData = array();
         try {
-            $type = $this->view->CheckTypeFromGet($data);
-            $typeLabel = $this->view->typeLabel($type, new Ruth_Collection_WorkTypes, $this->view);
-            $typeData = array('term' => $typeLabel);
+            $type = $this->view->CheckIdFromGet($data, 'type');
+            if ($type) {
+                $typeLabel = $this->view->typeLabel($type, new Ruth_Collection_WorkTypes, $this->view);
+                $typeData = array('term' => $typeLabel);
+            }
         } catch (Exception $ex) {
             $type = null;
             $typeData = array();
         }
 
+        try {
+            $character = $this->view->CheckTermFromGet($data, 'character');
+        } catch (Exception $ex) {
+            $character = null;
+        }
+
         if ($theme) {
             $editionsIds = $this->taxonomyMapper->editionsWithTheme($theme);
+
+        } else if ($character) {
+            $editionsIds = $this->taxonomyMapper->editionsWithCharacter($character);
 
         } else if ($type) {
             $editionsIds = $this->editionMapper->getAllIdsOfType($type);
@@ -110,6 +75,7 @@ class Works_IndexController extends Zend_Controller_Action
             'editionsModel' => $editionsModel,
             'themeData' => array('term' => $theme),
             'typeData' => $typeData,
+            'characterData' => array('term' => $character),
         );
 
 

@@ -46,7 +46,7 @@ class Includes_IncludeController extends Zend_Controller_Action
                 );
         }
 
-        $charactersList = $this->taxonomyMapper->getAllCharactersAlphabeticallyOrdered();
+        $charactersList = $this->taxonomyMapper->getCharactersAlphabeticallyOrdered(true);
         $charactersModel = array();
 
         foreach ($charactersList as $id => $term) {

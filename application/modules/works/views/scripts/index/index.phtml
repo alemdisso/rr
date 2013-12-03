@@ -4,14 +4,14 @@ $pageData = $this->pageData;
 <!-- conteudo -->
 <div id="conteudo" style="width:580px;">
 
-<h1>Livros</h1>
+<h1><?php echo $this->translate("#Editions") ?></h1>
 
 <?php
     if ((isset($pageData['themeData'])) && ($pageData['themeData']['term'])) {
         $themeData = $pageData['themeData'];
 ?>
 
-<h2>Livros com o tema "<?php echo $themeData['term'] ?>"</h2>
+<h2><?php echo sprintf($this->translate("#Editions with theme '%s'", $themeData['term'])) ?></h2>
 
 
 <?php
@@ -24,6 +24,18 @@ $pageData = $this->pageData;
 ?>
 
 <h2><?php echo $typeData['term'] ?></h2>
+
+
+<?php
+    }
+
+?>
+<?php
+    if ((isset($pageData['characterData'])) && ($pageData['characterData']['term'])) {
+        $characterData = $pageData['characterData'];
+?>
+
+<h2><?php echo sprintf($this->translate("#Editions with character '%s'", $characterData['term'])) ?></h2>
 
 
 <?php

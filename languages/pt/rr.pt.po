@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-03 14:02-0300\n"
-"PO-Revision-Date: 2013-12-03 14:03-0300\n"
+"POT-Creation-Date: 2013-12-03 14:51-0300\n"
+"PO-Revision-Date: 2013-12-03 14:51-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -78,7 +78,6 @@ msgid "#no editions"
 msgstr "sem edições"
 
 #: application\modules/admin/controllers/NavigationController.php:46
-#: application\modules/works/views/scripts/index/fiction.phtml:7
 msgid "#Works"
 msgstr "Livros"
 
@@ -230,10 +229,6 @@ msgstr "Editora:"
 #, php-format
 msgid "#Exploring %s"
 msgstr "%s"
-
-#: application\modules/works/controllers/IndexController.php:69
-msgid "#Ruth Rocha - Fiction"
-msgstr "Ruth Rocha"
 
 #: library\Moxca/Access/Roles.php:10
 msgid "#Unknown"
@@ -1354,6 +1349,10 @@ msgstr "Zimbábue"
 msgid "#Bad value to Id."
 msgstr "Valor inválido de Id"
 
+#: library\Moxca/View/Helper/CheckTermFromGet.php:20
+msgid "#Bad value as term."
+msgstr "Valor inválido de Id"
+
 #: library\Author/Collection/WorkTypes.php:11
 msgid "#Children"
 msgstr "Infantil"
@@ -1718,7 +1717,6 @@ msgid "#Change theme"
 msgstr "Mudar tema"
 
 #: application\modules/admin/views/scripts/work/detail.phtml:27
-#: application\modules/works/views/scripts/index/fiction.phtml:12
 msgid "#Prizes"
 msgstr "Prêmios"
 
@@ -1727,7 +1725,7 @@ msgid "#Add prize"
 msgstr "Incluir prêmio"
 
 #: application\modules/admin/views/scripts/work/detail.phtml:35
-msgid "#Editions"
+msgid "#Editions.admin"
 msgstr "Edições"
 
 #: application\modules/admin/views/scripts/work/detail.phtml:40
@@ -1835,21 +1833,35 @@ msgstr "/tema/"
 msgid "#Age:"
 msgstr "Faixa etária:"
 
-#: application\modules/works/views/scripts/index/fiction.phtml:9
-msgid "#Fiction books"
-msgstr "Ficção"
+#: application\modules/works/views/scripts/index/index.phtml:7
+msgid "#Editions"
+msgstr "Livros"
 
-#: application\modules/works/views/scripts/index/fiction.phtml:12
-msgid "#More about this work"
-msgstr "Curiosidades"
+#: application\modules/works/views/scripts/index/index.phtml:14
+#, php-format
+msgid "#Editions with theme '%s'"
+msgstr "Livros com o tema '%s'"
 
-#: application\modules/works/views/scripts/index/fiction.phtml:12
-msgid "#Available in other language"
-msgstr "Disponível em outro idioma"
+#: application\modules/works/views/scripts/index/index.phtml:38
+#, php-format
+msgid "#Editions with character '%s'"
+msgstr "Livros com a personagem '%s'"
 
-#: application\modules/works/views/scripts/index/index.phtml:46
+#: application\modules/works/views/scripts/index/index.phtml:58
 msgid "#There are no works with this criteria."
 msgstr "Não foram encontrados livros com esse critério."
+
+#~ msgid "#Ruth Rocha - Fiction"
+#~ msgstr "Ruth Rocha"
+
+#~ msgid "#Fiction books"
+#~ msgstr "Ficção"
+
+#~ msgid "#More about this work"
+#~ msgstr "Curiosidades"
+
+#~ msgid "#Available in other language"
+#~ msgstr "Disponível em outro idioma"
 
 #~ msgid "#Adult"
 #~ msgstr "Adultos"
