@@ -23,7 +23,7 @@ $serieData = $pageData['serieData'];
 
 <p>
 <?php if ((isset($serieData['name'])) && ($serieData['name'])) { ?>
-<?php echo $this->translate("#Serie:")?> <a href="/colecao/<?php echo $serieData['uri']?>"><?php echo  $serieData['name'] ?></a><br />
+<?php echo $this->translate("#Serie:")?> <a href="<?php echo $this->translate("/serie") ?>/<?php echo $serieData['uri']?>"><?php echo  $serieData['name'] ?></a><br />
 <?php } ?>
 <?php if ((isset($pageData['illustrator'])) && ($pageData['illustrator'])) { ?>
 <?php echo $pageData['illustrator']?><br />

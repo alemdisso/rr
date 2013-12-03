@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-03 14:51-0300\n"
-"PO-Revision-Date: 2013-12-03 14:51-0300\n"
+"POT-Creation-Date: 2013-12-03 16:45-0300\n"
+"PO-Revision-Date: 2013-12-03 16:46-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -59,7 +59,7 @@ msgstr "Mudar isbn"
 
 #: application\modules/admin/controllers/EditionController.php:247
 msgid "#Change serie"
-msgstr "Mudar coleção"
+msgstr "Mudar série"
 
 #: application\modules/admin/controllers/EditionController.php:256
 #: application\modules/admin/controllers/EditionController.php:269
@@ -89,11 +89,11 @@ msgstr "/livros"
 
 #: application\modules/admin/controllers/NavigationController.php:59
 msgid "#Series"
-msgstr "Coleções"
+msgstr "Séries"
 
 #: application\modules/admin/controllers/NavigationController.php:59
 msgid "/series"
-msgstr "/colecoes"
+msgstr "/series"
 
 #: application\modules/admin/controllers/NavigationController.php:68
 #: application\modules/includes/views/scripts/include/header-login.phtml:14
@@ -145,7 +145,7 @@ msgstr "Criar prêmio"
 
 #: application\modules/admin/controllers/SerieController.php:65
 msgid "#Create serie"
-msgstr "Criar coleção"
+msgstr "Criar série"
 
 #: application\modules/admin/controllers/WorkController.php:58
 msgid "#Change description"
@@ -195,17 +195,17 @@ msgstr "Acesso negado"
 msgid "#Not published"
 msgstr "Não publicado"
 
-#: application\modules/works/controllers/EditionController.php:48
+#: application\modules/works/controllers/EditionController.php:51
 #, php-format
 msgid "#ISBN: %s"
 msgstr "ISBN: %s"
 
-#: application\modules/works/controllers/EditionController.php:55
+#: application\modules/works/controllers/EditionController.php:58
 #, php-format
 msgid "#%s pages"
 msgstr "%s páginas"
 
-#: application\modules/works/controllers/EditionController.php:78
+#: application\modules/works/controllers/EditionController.php:81
 #: library\Author/Form/EditionCreate.php:148
 #: library\Author/Form/IllustratorChange.php:21
 #: library\Ruth/Form/EditionCreate.php:148
@@ -213,7 +213,7 @@ msgstr "%s páginas"
 msgid "#Illustrator:"
 msgstr "Ilustrador:"
 
-#: application\modules/works/controllers/EditionController.php:83
+#: application\modules/works/controllers/EditionController.php:86
 #: library\Author/Form/CoverDesignerChange.php:23
 #: library\Author/Form/EditionCreate.php:162
 #: library\Ruth/Form/EditionCreate.php:162
@@ -221,11 +221,11 @@ msgstr "Ilustrador:"
 msgid "#Cover designer:"
 msgstr "Design da capa:"
 
-#: application\modules/works/controllers/EditionController.php:88
+#: application\modules/works/controllers/EditionController.php:91
 msgid "#Editor:"
 msgstr "Editora:"
 
-#: application\modules/works/controllers/EditionController.php:124
+#: application\modules/works/controllers/EditionController.php:128
 #, php-format
 msgid "#Exploring %s"
 msgstr "%s"
@@ -1424,7 +1424,7 @@ msgstr "Resumo:"
 #: library\Author/Form/SerieChange.php:20
 #: library\Ruth/Form/EditionCreate.php:108
 msgid "#Serie"
-msgstr "Coleção:"
+msgstr "Série:"
 
 #: library\Author/Form/EditionCreate.php:121
 #: library\Author/Form/IsbnChange.php:21
@@ -1560,7 +1560,7 @@ msgstr "Mudar número de páginas de %s"
 #: application\modules/admin/views/scripts/edition/change-serie.phtml:2
 #, php-format
 msgid "#Change %s's serie"
-msgstr "Mudar coleção de %s"
+msgstr "Mudar série de %s"
 
 #: application\modules/admin/views/scripts/edition/create.phtml:73
 msgid "#(choose an editor)"
@@ -1572,7 +1572,7 @@ msgstr "(novo editor)"
 
 #: application\modules/admin/views/scripts/edition/create.phtml:118
 msgid "#(new serie)"
-msgstr "(nova coleção)"
+msgstr "(nova série)"
 
 #: application\modules/admin/views/scripts/editor/create.phtml:12
 #: application\modules/admin/views/scripts/serie/create.phtml:22
@@ -1744,7 +1744,7 @@ msgstr "(editar)"
 #: application\modules/admin/views/scripts/work/editions-loop.phtml:6
 #: application\modules/works/views/scripts/edition/explore.phtml:26
 msgid "#Serie:"
-msgstr "Coleção:"
+msgstr "Série:"
 
 #: application\modules/admin/views/scripts/work/editions-loop.phtml:9
 msgid "#(goto work's page)"
@@ -1792,10 +1792,13 @@ msgstr "Livros por:"
 #: application\modules/includes/views/scripts/include/filter.phtml:18
 #: application\modules/includes/views/scripts/include/filter.phtml:41
 #: application\modules/includes/views/scripts/include/filter.phtml:56
+#: application\modules/works/views/scripts/edition/explore.phtml:12
+#: application\modules/works/views/scripts/edition/explore.phtml:15
 msgid "/editions"
 msgstr "/livros"
 
 #: application\modules/includes/views/scripts/include/filter.phtml:18
+#: application\modules/works/views/scripts/edition/explore.phtml:12
 msgid "/theme"
 msgstr "/tema"
 
@@ -1821,13 +1824,18 @@ msgstr "Livros"
 msgid "#Contact"
 msgstr "Contato"
 
+#: application\modules/works/views/scripts/edition/edition-serie.phtml:3
+msgid "#Other books from the collection:"
+msgstr "Outros livro da série:"
+
+#: application\modules/works/views/scripts/edition/edition-serie.phtml:3
+#: application\modules/works/views/scripts/edition/explore.phtml:26
+msgid "/serie"
+msgstr "/serie"
+
 #: application\modules/works/views/scripts/edition/explore.phtml:12
 msgid "#Theme:"
 msgstr "Tema:"
-
-#: application\modules/works/views/scripts/edition/explore.phtml:12
-msgid "/theme/"
-msgstr "/tema/"
 
 #: application\modules/works/views/scripts/edition/explore.phtml:15
 msgid "#Age:"
@@ -1847,9 +1855,17 @@ msgstr "Livros com o tema '%s'"
 msgid "#Editions with character '%s'"
 msgstr "Livros com a personagem '%s'"
 
-#: application\modules/works/views/scripts/index/index.phtml:58
+#: application\modules/works/views/scripts/index/index.phtml:50
+#, php-format
+msgid "#Editions of serie '%s'"
+msgstr "%s"
+
+#: application\modules/works/views/scripts/index/index.phtml:70
 msgid "#There are no works with this criteria."
 msgstr "Não foram encontrados livros com esse critério."
+
+#~ msgid "/theme/"
+#~ msgstr "/tema/"
 
 #~ msgid "#Ruth Rocha - Fiction"
 #~ msgstr "Ruth Rocha"

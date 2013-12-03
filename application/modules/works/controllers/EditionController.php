@@ -41,9 +41,8 @@ class Works_EditionController extends Zend_Controller_Action
 
         $typeLabel = $this->view->typeLabel($workObj->getType(), new Ruth_Collection_WorkTypes, $this->view);
 
-        $sanitizedTypeLabel = preg_replace("/&([a-z])[a-z]+;/i", "$1", htmlentities($typeLabel));
-        $sanitizedTypeLabel = strtr($sanitizedTypeLabel, ' ', '-');
-        $sanitizedTypeLabel = strtolower($sanitizedTypeLabel);
+        $converter = new Moxca_Util_StringToAscii();
+        $sanitizedTypeLabel = $converter->toAscii($typeLabel);
 
         $themeData = $this->view->TermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 

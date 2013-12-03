@@ -43,6 +43,18 @@ $pageData = $this->pageData;
 
 ?>
 <?php
+    if ((isset($pageData['serieData'])) && ($pageData['serieData']['title'])) {
+        $serieData = $pageData['serieData'];
+?>
+
+<h2><?php echo sprintf($this->translate("#Editions of serie '%s'", $serieData['title'])) ?></h2>
+
+
+<?php
+    }
+
+?>
+<?php
     if ((is_array($pageData['editionsModel'])) && (count($pageData['editionsModel']))){
 
 ?>

@@ -5,6 +5,7 @@ class Works_IndexController extends Zend_Controller_Action
     private $workMapper;
     private $editorMapper;
     private $editionMapper;
+    private $serieMapper;
     private $taxonomyMapper;
     private $db;
 
@@ -54,6 +55,23 @@ class Works_IndexController extends Zend_Controller_Action
             $character = null;
         }
 
+        $serie = null;
+        $serieTitle = null;
+        try {
+            if (isset($data['serie'])) {
+                $converter = new Moxca_Util_StringToAscii();
+                $sanitized = $converter->toAscii($data['serie']);
+                if ($sanitized) {
+                    $obj = $this->serieMapper->findByUri($sanitized);
+                    $serie = $obj->getId();
+                    $serieTitle = $obj->getName();
+                }
+            }
+        } catch (Exception $ex) {
+            throw $ex;
+            $serie = null;
+        }
+
         if ($theme) {
             $editionsIds = $this->taxonomyMapper->editionsWithTheme($theme);
 
@@ -62,6 +80,9 @@ class Works_IndexController extends Zend_Controller_Action
 
         } else if ($type) {
             $editionsIds = $this->editionMapper->getAllIdsOfType($type);
+
+        } else if ($serie) {
+            $editionsIds = $this->editionMapper->getAllEditionsOfSerieById($serie);
 
         } else {
             $editionsIds = $this->editionMapper->getAllEditionsAlphabeticallyOrdered();
@@ -76,6 +97,7 @@ class Works_IndexController extends Zend_Controller_Action
             'themeData' => array('term' => $theme),
             'typeData' => $typeData,
             'characterData' => array('term' => $character),
+            'serieData' => array('title' => $serieTitle),
         );
 
 
@@ -91,6 +113,7 @@ class Works_IndexController extends Zend_Controller_Action
         $this->workMapper = new Author_Collection_WorkMapper($this->db);
         $this->editorMapper = new Author_Collection_EditorMapper($this->db);
         $this->editionMapper = new Author_Collection_EditionMapper($this->db);
+        $this->serieMapper = new Author_Collection_SerieMapper($this->db);
         $this->taxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
     }
 
