@@ -93,7 +93,7 @@ class Works_IndexController extends Zend_Controller_Action
         }
 
         if ($theme) {
-            $editionsIds = $this->taxonomyMapper->worksWithTheme($theme);
+            $editionsIds = $this->taxonomyMapper->editionsWithTheme($theme);
 
         } else if ($type) {
             $editionsIds = $this->editionMapper->getAllIdsOfType($type);

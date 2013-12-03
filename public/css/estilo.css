@@ -827,11 +827,10 @@ div.dataTables_filter {
 /* PAINEL */
 .panel {
 	clear:both;
-	height:87px;
-	width:960px;
-	padding:30px 20px 0 20px;
+	/*height:87px;*/
+	padding: 4px 4px 8px 8px;
 	font-size:12px;
-        margin-left: 80px;
+	background:#ccccb5;
 	}
 
 .panel a {

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 15:58-0300\n"
-"PO-Revision-Date: 2013-12-02 15:59-0300\n"
+"POT-Creation-Date: 2013-12-03 14:02-0300\n"
+"PO-Revision-Date: 2013-12-03 14:03-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: application\modules/admin/controllers/EditionController.php:43
 #: application\modules/admin/controllers/EditionController.php:74
-#: application\modules/admin/controllers/EditionController.php:280
+#: application\modules/admin/controllers/EditionController.php:284
 #: application\modules/admin/controllers/EditorController.php:42
 #: application\modules/admin/controllers/PostController.php:39
 #: application\modules/admin/controllers/PostController.php:86
@@ -28,7 +28,7 @@ msgstr ""
 #: application\modules/admin/controllers/PrizeController.php:74
 #: application\modules/admin/controllers/SerieController.php:42
 #: application\modules/admin/controllers/ThemeController.php:40
-#: application\modules/admin/controllers/WorkController.php:373
+#: application\modules/admin/controllers/WorkController.php:437
 #: application\modules/auth/controllers/UserController.php:39
 #: application\modules/auth/controllers/UserController.php:61
 msgid "#The record was successfully updated."
@@ -39,30 +39,30 @@ msgstr "O registro foi atualizado com sucesso."
 msgid "#Create edition"
 msgstr "Criar edição"
 
-#: application\modules/admin/controllers/EditionController.php:92
+#: application\modules/admin/controllers/EditionController.php:95
 #: application\modules/admin/views/scripts/edition/cover.phtml:1
 msgid "#Change cover"
 msgstr "Mudar capa"
 
-#: application\modules/admin/controllers/EditionController.php:122
+#: application\modules/admin/controllers/EditionController.php:126
 msgid "#Change cover designer"
 msgstr "Mudar designer da capa"
 
-#: application\modules/admin/controllers/EditionController.php:152
+#: application\modules/admin/controllers/EditionController.php:156
 msgid "#Change illustrator"
 msgstr "Mudar ilustrador"
 
-#: application\modules/admin/controllers/EditionController.php:182
-#: application\modules/admin/controllers/EditionController.php:212
+#: application\modules/admin/controllers/EditionController.php:186
+#: application\modules/admin/controllers/EditionController.php:216
 msgid "#Change isbn"
 msgstr "Mudar isbn"
 
-#: application\modules/admin/controllers/EditionController.php:243
+#: application\modules/admin/controllers/EditionController.php:247
 msgid "#Change serie"
 msgstr "Mudar coleção"
 
-#: application\modules/admin/controllers/EditionController.php:252
-#: application\modules/admin/controllers/EditionController.php:265
+#: application\modules/admin/controllers/EditionController.php:256
+#: application\modules/admin/controllers/EditionController.php:269
 #: application\modules/includes/views/scripts/include/filter.phtml:11
 #: application\modules/includes/views/scripts/include/filter.phtml:26
 #: application\modules/includes/views/scripts/include/filter.phtml:49
@@ -98,7 +98,7 @@ msgstr "/colecoes"
 
 #: application\modules/admin/controllers/NavigationController.php:68
 #: application\modules/includes/views/scripts/include/header-login.phtml:14
-#: application\modules/includes/views/scripts/include/header.phtml:14
+#: application\modules/includes/views/scripts/include/header.phtml:13
 msgid "#Biography"
 msgstr "Biografia"
 
@@ -108,7 +108,7 @@ msgstr "/biografia"
 
 #: application\modules/admin/controllers/NavigationController.php:69
 #: application\modules/includes/views/scripts/include/header-login.phtml:13
-#: application\modules/includes/views/scripts/include/header.phtml:13
+#: application\modules/includes/views/scripts/include/header.phtml:12
 msgid "#News"
 msgstr "Novidades"
 
@@ -128,7 +128,8 @@ msgid "#Edit post"
 msgstr "Editar post"
 
 #: application\modules/admin/controllers/PostController.php:136
-#: application\modules/admin/controllers/WorkController.php:322
+#: application\modules/admin/controllers/WorkController.php:332
+#: application\modules/admin/controllers/WorkController.php:380
 msgid "#The record was successfully removed."
 msgstr "O registro foi criado com sucesso."
 
@@ -165,18 +166,20 @@ msgid "#Change type"
 msgstr "Mudar tipo"
 
 #: application\modules/admin/controllers/WorkController.php:203
-#: application\modules/admin/views/scripts/work/detail.phtml:23
+#: application\modules/admin/views/scripts/work/detail.phtml:25
 msgid "#Add character"
 msgstr "Inserir personagem"
 
-#: application\modules/admin/controllers/WorkController.php:232
-#: application\modules/admin/controllers/WorkController.php:237
-#: application\modules/admin/controllers/WorkController.php:250
-#: application\modules/admin/controllers/WorkController.php:255
+#: application\modules/admin/controllers/WorkController.php:233
+#: application\modules/admin/controllers/WorkController.php:238
+#: application\modules/admin/controllers/WorkController.php:251
+#: application\modules/admin/controllers/WorkController.php:256
 msgid "#NI"
 msgstr "NI"
 
-#: application\modules/admin/controllers/WorkController.php:352
+#: application\modules/admin/controllers/WorkController.php:362
+#: application\modules/admin/controllers/WorkController.php:416
+#: application\modules/admin/views/scripts/work/remove-character.phtml:5
 #: application\modules/admin/views/scripts/work/remove.phtml:5
 msgid "#Remove work"
 msgstr "Remover"
@@ -226,7 +229,7 @@ msgstr "Editora:"
 #: application\modules/works/controllers/EditionController.php:124
 #, php-format
 msgid "#Exploring %s"
-msgstr "Explorando %s"
+msgstr "%s"
 
 #: application\modules/works/controllers/IndexController.php:69
 msgid "#Ruth Rocha - Fiction"
@@ -338,16 +341,21 @@ msgstr "Conteúdo:"
 msgid "#Submit"
 msgstr "Enviar"
 
-#: library\Moxca/Form/PostRemove.php:21 library\Author/Form/WorkRemove.php:21
+#: library\Moxca/Form/PostRemove.php:21
+#: library\Author/Form/CharacterRemove.php:27
+#: library\Author/Form/WorkRemove.php:21
 msgid "#Confirm removal"
 msgstr "Confirmar remoção"
 
-#: library\Moxca/Form/PostRemove.php:21 library\Author/Form/WorkRemove.php:21
+#: library\Moxca/Form/PostRemove.php:21
+#: library\Author/Form/CharacterRemove.php:27
+#: library\Author/Form/WorkRemove.php:21
 msgid "#Don't remove"
 msgstr "Não remova"
 
 #: library\Moxca/Form/PostRemove.php:32 library\Moxca/Form/UserCreate.php:117
 #: library\Moxca/Form/UserEdit.php:28 library\Moxca/Form/UserLogin.php:66
+#: library\Author/Form/CharacterRemove.php:39
 #: library\Author/Form/WorkRemove.php:32
 msgid "#Invalid data!"
 msgstr "Dados inválidos"
@@ -1709,20 +1717,20 @@ msgstr "(mudar resumo)"
 msgid "#Change theme"
 msgstr "Mudar tema"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:25
+#: application\modules/admin/views/scripts/work/detail.phtml:27
 #: application\modules/works/views/scripts/index/fiction.phtml:12
 msgid "#Prizes"
 msgstr "Prêmios"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:27
+#: application\modules/admin/views/scripts/work/detail.phtml:31
 msgid "#Add prize"
 msgstr "Incluir prêmio"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:31
+#: application\modules/admin/views/scripts/work/detail.phtml:35
 msgid "#Editions"
 msgstr "Edições"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:34
+#: application\modules/admin/views/scripts/work/detail.phtml:40
 msgid "#(remove this work!)"
 msgstr "(remover!)"
 
@@ -1743,6 +1751,13 @@ msgstr "Coleção:"
 #: application\modules/admin/views/scripts/work/editions-loop.phtml:9
 msgid "#(goto work's page)"
 msgstr "(ir para a página)"
+
+#: application\modules/admin/views/scripts/work/remove-character.phtml:8
+#, php-format
+msgid "#Do you confirm removal of character %s from %s? This CAN'T be undone."
+msgstr ""
+"Você confirma a remoção do personagem \"%s\" do livro %s? Isso NÂO pode ser "
+"desfeito."
 
 #: application\modules/admin/views/scripts/work/remove.phtml:8
 #, php-format
@@ -1776,6 +1791,16 @@ msgstr "Novidades"
 msgid "#Filter by:"
 msgstr "Livros por:"
 
+#: application\modules/includes/views/scripts/include/filter.phtml:18
+#: application\modules/includes/views/scripts/include/filter.phtml:41
+#: application\modules/includes/views/scripts/include/filter.phtml:56
+msgid "/editions"
+msgstr "/livros"
+
+#: application\modules/includes/views/scripts/include/filter.phtml:18
+msgid "/theme"
+msgstr "/tema"
+
 #: application\modules/includes/views/scripts/include/filter.phtml:24
 msgid "#Age"
 msgstr "Idade"
@@ -1784,13 +1809,17 @@ msgstr "Idade"
 msgid "#Character"
 msgstr "Personagem"
 
+#: application\modules/includes/views/scripts/include/filter.phtml:56
+msgid "/character"
+msgstr "/personagem"
+
 #: application\modules/includes/views/scripts/include/header-login.phtml:12
-#: application\modules/includes/views/scripts/include/header.phtml:12
+#: application\modules/includes/views/scripts/include/header.phtml:11
 msgid "#Books"
 msgstr "Livros"
 
 #: application\modules/includes/views/scripts/include/header-login.phtml:15
-#: application\modules/includes/views/scripts/include/header.phtml:15
+#: application\modules/includes/views/scripts/include/header.phtml:14
 msgid "#Contact"
 msgstr "Contato"
 

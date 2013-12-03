@@ -15,7 +15,7 @@ $pageData = $this->pageData;
 <script>
   $("#select-theme").on("change", function(){
     var termUri = $(this).children("option:selected").text();
-    var url = '/livros/tema/' + termUri;
+    var url = '<?php echo $this->translate("/editions") ?><?php echo $this->translate("/theme") ?>/' + termUri;
     window.location.href = url;
 
   });
@@ -38,16 +38,26 @@ $pageData = $this->pageData;
     //types[2000] = "adultos";
 
     var typeIndex = $(this).val();
-    var url = '/livros/' + types[typeIndex];
+    var url = '<?php echo $this->translate("/editions") ?>/' + types[typeIndex];
     window.location.href = url;
 
   });
 </script>
 
 <label><?php echo $this->translate("#Character") ?></label>
-<select class="busca">
+<select class="busca" id="select-character">
 <option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
+<?php echo $this->filterCharacters($pageData['charactersList']) ?>
 </select>
+
+<script>
+  $("#select-character").on("change", function(){
+    var termUri = $(this).children("option:selected").text();
+    var url = '<?php echo $this->translate("/editions") ?><?php echo $this->translate("/character") ?>/' + termUri;
+    window.location.href = url;
+
+  });
+</script>
 
 </form>
 <!-- /box filtro -->

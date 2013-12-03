@@ -25,9 +25,10 @@ class Includes_IncludeController extends Zend_Controller_Action
 
     public function filterAction()
     {
-        $themesList = $this->view->themesList(new Author_Collection_TaxonomyMapper);
-        $themesModel = array();
+        $this->initDbAndMappers();
 
+        $themesList = $this->taxonomyMapper->getAllThemesAlphabeticallyOrdered();
+        $themesModel = array();
         foreach ($themesList as $id => $term) {
             $themesModel[$id] = array(
                     'id' => $id,
@@ -36,10 +37,8 @@ class Includes_IncludeController extends Zend_Controller_Action
         }
 
         $types = new Ruth_Collection_WorkTypes();
-
         $typesList = $types->AllTitles();
         $typesModel = array();
-
         foreach ($typesList as $id => $term) {
             $typesModel[$id] = array(
                     'id' => $id,
@@ -47,9 +46,21 @@ class Includes_IncludeController extends Zend_Controller_Action
                 );
         }
 
+        $charactersList = $this->taxonomyMapper->getAllCharactersAlphabeticallyOrdered();
+        $charactersModel = array();
+
+        foreach ($charactersList as $id => $term) {
+            $charactersModel[$id] = array(
+                    'id' => $id,
+                    'term' => $term,
+                );
+        }
+
+
         $pageData = array(
             'themesList' => $themesModel,
             'typesList' => $typesModel,
+            'charactersList' => $charactersModel,
             );
 
         $this->view->pageData = $pageData;
@@ -96,6 +107,12 @@ class Includes_IncludeController extends Zend_Controller_Action
     public function footerHomeAction()
     {
 
+    }
+
+    private function initDbAndMappers()
+    {
+        $this->db = Zend_Registry::get('db');
+        $this->taxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
     }
 
 }
