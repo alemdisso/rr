@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-03 16:45-0300\n"
-"PO-Revision-Date: 2013-12-03 16:46-0300\n"
+"PO-Revision-Date: 2013-12-03 19:48-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -1494,7 +1494,7 @@ msgstr "Até 3 anos"
 
 #: library\Ruth/Collection/WorkTypes.php:11
 msgid "#Preschooler"
-msgstr "De 4 a 6 anos"
+msgstr "Até 6 anos"
 
 #: library\Ruth/Collection/WorkTypes.php:12
 msgid "#Kids"

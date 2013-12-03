@@ -7,7 +7,7 @@ class Ruth_Collection_WorkTypes extends Author_Collection_WorkTypes {
     public function __construct() {
         $this->titles = array(
             Ruth_Collection_WorkTypeConstants::TYPE_NIL         => _("#Nil"),
-            Ruth_Collection_WorkTypeConstants::TYPE_INFANT      => _("#Infant"),
+            //Ruth_Collection_WorkTypeConstants::TYPE_INFANT      => _("#Infant"),
             Ruth_Collection_WorkTypeConstants::TYPE_PRESCHOOLER => _("#Preschooler"),
             Ruth_Collection_WorkTypeConstants::TYPE_KIDS        => _("#Kids"),
             Ruth_Collection_WorkTypeConstants::TYPE_TWEEN       => _("#Tween"),
@@ -20,7 +20,7 @@ class Ruth_Collection_WorkTypes extends Author_Collection_WorkTypes {
     {
             switch ($type) {
                 case Ruth_Collection_WorkTypeConstants::TYPE_NIL:
-                case Ruth_Collection_WorkTypeConstants::TYPE_INFANT:
+                //case Ruth_Collection_WorkTypeConstants::TYPE_INFANT:
                 case Ruth_Collection_WorkTypeConstants::TYPE_PRESCHOOLER:
                 case Ruth_Collection_WorkTypeConstants::TYPE_KIDS:
                 case Ruth_Collection_WorkTypeConstants::TYPE_TWEEN:
