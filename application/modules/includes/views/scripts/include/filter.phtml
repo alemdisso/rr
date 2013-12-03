@@ -59,5 +59,20 @@ $pageData = $this->pageData;
   });
 </script>
 
+<label><?php echo $this->translate("#Serie") ?></label>
+<select class="busca" id="select-serie">
+<option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
+<?php echo $this->filterSeries($pageData['seriesList']) ?>
+</select>
+
+<script>
+  $("#select-serie").on("change", function(){
+    var termUri = $(this).children("option:selected").val();
+    var url = '<?php echo $this->translate("/serie") ?>/' + termUri;
+    window.location.href = url;
+
+  });
+</script>
+
 </form>
 <!-- /box filtro -->

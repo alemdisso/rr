@@ -56,11 +56,25 @@ class Includes_IncludeController extends Zend_Controller_Action
                 );
         }
 
+        $seriesList = $this->serieMapper->getAllSeriesAlphabeticallyOrdered();
+        $seriesModel = array();
+
+        $converter = new Moxca_Util_StringToAscii();
+        foreach ($seriesList as $id => $term) {
+            $sanitized = $converter->toAscii($term);
+            $seriesModel[$id] = array(
+                    'id' => $id,
+                    'term' => $term,
+                    'sanitized' => $sanitized
+                );
+        }
+
 
         $pageData = array(
             'themesList' => $themesModel,
             'typesList' => $typesModel,
             'charactersList' => $charactersModel,
+            'seriesList' => $seriesModel,
             );
 
         $this->view->pageData = $pageData;
@@ -112,6 +126,7 @@ class Includes_IncludeController extends Zend_Controller_Action
     private function initDbAndMappers()
     {
         $this->db = Zend_Registry::get('db');
+        $this->serieMapper = new Author_Collection_SerieMapper($this->db);
         $this->taxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
     }
 
