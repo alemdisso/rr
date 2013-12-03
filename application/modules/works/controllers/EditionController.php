@@ -41,6 +41,10 @@ class Works_EditionController extends Zend_Controller_Action
 
         $typeLabel = $this->view->typeLabel($workObj->getType(), new Ruth_Collection_WorkTypes, $this->view);
 
+        $sanitizedTypeLabel = preg_replace("/&([a-z])[a-z]+;/i", "$1", htmlentities($typeLabel));
+        $sanitizedTypeLabel = strtr($sanitizedTypeLabel, ' ', '-');
+        $sanitizedTypeLabel = strtolower($sanitizedTypeLabel);
+
         $themeData = $this->view->TermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 
         $isbn = $editionObj->getIsbn();
@@ -101,6 +105,7 @@ class Works_EditionController extends Zend_Controller_Action
             'editionMapper' => $this->editionMapper,
             'title' => $workTitle,
             'typeLabel' => $typeLabel,
+            'sanitizedTypeLabel' => $sanitizedTypeLabel,
             'themeLabel' => $themeData['term'],
             'themeUri' => $themeData['uri'],
             'mediumImageUri' => $coverFilePath,
