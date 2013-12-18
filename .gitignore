@@ -29,3 +29,5 @@ library/Zend
 /public/img/editions/raw/*
 /public/img/special/*
 /application/_Bootstrap_staging.php
+/public/js/jquery.pajinate.min.js
+/public/js/jquery.pajinate.js

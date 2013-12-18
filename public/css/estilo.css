@@ -286,8 +286,19 @@ h4 {
 
 #livros img {
 	width:100px;
-	height:auto;;
+	height:auto;
 	}
+
+#livros .works_row {
+        overflow:auto;
+        width: 600px;
+        }
+
+#livros .item_row {
+        float: left;
+        width: 100px;
+        margin-left: 12px;
+        }
 
 #conteudo a img.explore_cover {
 	border:2px solid #fff9cb;
@@ -497,10 +508,10 @@ label {
 	}
 
 select {
-	border:1px solid #eaeabb;
+        border:1px solid #eaeabb;
 	background:#eaeabb;
 	padding:5px 10px;
-	width:380px;
+	width:400px;
 	margin:0 0 15px 0;
 	}
 
@@ -513,7 +524,7 @@ select.medio {
 	}
 
 option {
-	padding:5px;
+	padding:0 5px;
 	margin:0 0 5px 0;
 	}
 
@@ -536,9 +547,10 @@ textarea {
 .box select {
 	border:1px solid #fff;
 	background:#fff;
-	padding:5px  10px;
+	padding:5px;
 	width:220px;
-	margin:0 0 15px 0;
+	margin:0 0 10px 0;
+
 	}
 
 /* ADMIN */
@@ -857,3 +869,58 @@ div.dataTables_filter {
 	float:left;
 	display:block;
 	}
+
+/* pajination */
+
+#page_container ul li {
+    list-style: none;
+    margin-left: -2px;
+}
+
+.page_navigation , .alt_page_navigation{
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.page_navigation a, .alt_page_navigation a{
+	padding:3px 5px;
+	margin:1px;
+	color:#ffffff;
+	text-decoration: none;
+	float: left;
+	font-family: Tahoma;
+	font-size: 12px;
+	background-color:#0ba219;
+
+}
+.active_page{
+	background-color:#eaeabb !important;
+	color:#000000 !important;
+}
+
+.no_more{
+	background-color:#85d08c !important;
+	color:#000000 !important;
+        pointer-events:none;
+}
+
+.info_text{
+    text-align: left;
+    display:block;
+    padding-top: 8px;
+    clear: both;
+}
+
+.page_link{
+    text-align: center;
+    width: 16px;
+    height: 20px;
+}
+
+.first_link, .previous_link, .last_link, .next_link  {
+    text-align: center;
+    width: 27px;
+    height: 20px;
+}
+

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-03 16:45-0300\n"
-"PO-Revision-Date: 2013-12-03 19:48-0300\n"
+"POT-Creation-Date: 2013-12-18 14:34-0300\n"
+"PO-Revision-Date: 2013-12-18 14:35-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -66,6 +66,7 @@ msgstr "Mudar série"
 #: application\modules/includes/views/scripts/include/filter.phtml:11
 #: application\modules/includes/views/scripts/include/filter.phtml:26
 #: application\modules/includes/views/scripts/include/filter.phtml:49
+#: application\modules/includes/views/scripts/include/filter.phtml:64
 msgid "#(choose an option)"
 msgstr "(escolha...)"
 
@@ -1423,6 +1424,7 @@ msgstr "Resumo:"
 #: library\Author/Form/EditionCreate.php:108
 #: library\Author/Form/SerieChange.php:20
 #: library\Ruth/Form/EditionCreate.php:108
+#: application\modules/includes/views/scripts/include/filter.phtml:62
 msgid "#Serie"
 msgstr "Série:"
 
@@ -1487,10 +1489,6 @@ msgstr "/livros/ficcao"
 #: library\Author/View/Helper/TypeListLink.php:23
 msgid "/works/young"
 msgstr "/livros/juvenis"
-
-#: library\Ruth/Collection/WorkTypes.php:10
-msgid "#Infant"
-msgstr "Até 3 anos"
 
 #: library\Ruth/Collection/WorkTypes.php:11
 msgid "#Preschooler"
@@ -1814,6 +1812,12 @@ msgstr "Personagem"
 msgid "/character"
 msgstr "/personagem"
 
+#: application\modules/includes/views/scripts/include/filter.phtml:71
+#: application\modules/works/views/scripts/edition/edition-serie.phtml:3
+#: application\modules/works/views/scripts/edition/explore.phtml:26
+msgid "/serie"
+msgstr "/serie"
+
 #: application\modules/includes/views/scripts/include/header-login.phtml:12
 #: application\modules/includes/views/scripts/include/header.phtml:11
 msgid "#Books"
@@ -1828,11 +1832,6 @@ msgstr "Contato"
 msgid "#Other books from the collection:"
 msgstr "Outros livro da série:"
 
-#: application\modules/works/views/scripts/edition/edition-serie.phtml:3
-#: application\modules/works/views/scripts/edition/explore.phtml:26
-msgid "/serie"
-msgstr "/serie"
-
 #: application\modules/works/views/scripts/edition/explore.phtml:12
 msgid "#Theme:"
 msgstr "Tema:"
@@ -1841,28 +1840,51 @@ msgstr "Tema:"
 msgid "#Age:"
 msgstr "Faixa etária:"
 
-#: application\modules/works/views/scripts/index/index.phtml:7
+#: application\modules/works/views/scripts/index/index.phtml:10
+msgid "#First"
+msgstr "Prim."
+
+#: application\modules/works/views/scripts/index/index.phtml:11
+msgid "#Prev"
+msgstr "Ant."
+
+#: application\modules/works/views/scripts/index/index.phtml:12
+msgid "#Last"
+msgstr "Últ."
+
+#: application\modules/works/views/scripts/index/index.phtml:13
+msgid "#Next"
+msgstr "Próx."
+
+#: application\modules/works/views/scripts/index/index.phtml:14
+msgid "#Showing {0}-{1} of {2} results"
+msgstr "Mostrando {0}-{1} de {2} resultados"
+
+#: application\modules/works/views/scripts/index/index.phtml:29
 msgid "#Editions"
 msgstr "Livros"
 
-#: application\modules/works/views/scripts/index/index.phtml:14
+#: application\modules/works/views/scripts/index/index.phtml:36
 #, php-format
 msgid "#Editions with theme '%s'"
 msgstr "Livros com o tema '%s'"
 
-#: application\modules/works/views/scripts/index/index.phtml:38
+#: application\modules/works/views/scripts/index/index.phtml:60
 #, php-format
 msgid "#Editions with character '%s'"
 msgstr "Livros com a personagem '%s'"
 
-#: application\modules/works/views/scripts/index/index.phtml:50
+#: application\modules/works/views/scripts/index/index.phtml:72
 #, php-format
 msgid "#Editions of serie '%s'"
 msgstr "%s"
 
-#: application\modules/works/views/scripts/index/index.phtml:70
+#: application\modules/works/views/scripts/index/index.phtml:102
 msgid "#There are no works with this criteria."
 msgstr "Não foram encontrados livros com esse critério."
+
+#~ msgid "#Infant"
+#~ msgstr "Até 3 anos"
 
 #~ msgid "/theme/"
 #~ msgstr "/tema/"
@@ -1905,21 +1927,6 @@ msgstr "Não foram encontrados livros com esse critério."
 
 #~ msgid "#Awarded books"
 #~ msgstr "Livros Premiados"
-
-#~ msgid "#First"
-#~ msgstr "Primeiro"
-
-#~ msgid "#Prev"
-#~ msgstr "Ant"
-
-#~ msgid "#Last"
-#~ msgstr "Último"
-
-#~ msgid "#Next"
-#~ msgstr "Próx"
-
-#~ msgid "#Showing {0}-{1} of {2} results"
-#~ msgstr "Mostrando {0}-{1} de {2} resultados"
 
 #~ msgid "#Books by category"
 #~ msgstr "Por categoria"

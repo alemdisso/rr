@@ -1,17 +1,19 @@
-<?php
+<table><?php
     if (!$this->firstRow) {
 ?>
 <tr height="20px">&nbsp;</tr>
 <?php
     }
 ?>
+
 <tr>
     <td width="20px">&nbsp;</td>
+
 <?php
-foreach ($this->row as $td) {
-    if (!is_null($td)) {
+foreach ($this->row as $item) {
+    if (!is_null($item)) {
 ?>
-    <td width="100px"><?php echo $this->thumbnailCover($td['coverSrc'], $td['exploreUri'], $td['title']) ?></td>
+    <td width="100px"><?php echo $this->thumbnailCover($item['coverSrc'], $item['exploreUri'], $item['title']) ?></td>
     <td width="20px">&nbsp;</td>
 <?php
     } else {
@@ -23,3 +25,4 @@ foreach ($this->row as $td) {
 }
 ?>
 </tr>
+</table>
