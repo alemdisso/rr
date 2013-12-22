@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 14:34-0300\n"
-"PO-Revision-Date: 2013-12-18 14:35-0300\n"
+"POT-Creation-Date: 2013-12-22 18:48-0300\n"
+"PO-Revision-Date: 2013-12-22 18:50-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -212,7 +212,7 @@ msgstr "%s páginas"
 #: library\Ruth/Form/EditionCreate.php:148
 #: application\modules/admin/views/scripts/work/editions-loop.phtml:7
 msgid "#Illustrator:"
-msgstr "Ilustrador:"
+msgstr "Ilustração:"
 
 #: application\modules/works/controllers/EditionController.php:86
 #: library\Author/Form/CoverDesignerChange.php:23
@@ -1830,7 +1830,7 @@ msgstr "Contato"
 
 #: application\modules/works/views/scripts/edition/edition-serie.phtml:3
 msgid "#Other books from the collection:"
-msgstr "Outros livro da série:"
+msgstr "Outros livros da série:"
 
 #: application\modules/works/views/scripts/edition/explore.phtml:12
 msgid "#Theme:"
@@ -1872,7 +1872,7 @@ msgstr "Livros com o tema '%s'"
 #: application\modules/works/views/scripts/index/index.phtml:60
 #, php-format
 msgid "#Editions with character '%s'"
-msgstr "Livros com a personagem '%s'"
+msgstr "Livros com '%s'"
 
 #: application\modules/works/views/scripts/index/index.phtml:72
 #, php-format
