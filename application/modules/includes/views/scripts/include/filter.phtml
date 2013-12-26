@@ -14,7 +14,7 @@ $pageData = $this->pageData;
 
 <script>
   $("#select-theme").on("change", function(){
-    var termUri = $(this).children("option:selected").text();
+    var termUri = $(this).children("option:selected").val();
     var url = '<?php echo $this->translate("/editions") ?><?php echo $this->translate("/theme") ?>/' + termUri;
     window.location.href = url;
 
@@ -52,7 +52,7 @@ $pageData = $this->pageData;
 
 <script>
   $("#select-character").on("change", function(){
-    var termUri = $(this).children("option:selected").text();
+    var termUri = $(this).children("option:selected").val();
     var url = '<?php echo $this->translate("/editions") ?><?php echo $this->translate("/character") ?>/' + termUri;
     window.location.href = url;
 

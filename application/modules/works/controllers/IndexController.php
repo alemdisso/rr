@@ -32,8 +32,12 @@ class Works_IndexController extends Zend_Controller_Action
 
         try {
             $theme = $this->view->CheckTermFromGet($data, 'theme');
+            $termData = $this->taxonomyMapper->getTermByUri($theme);
+            $themeTerm = $termData['term'];
+
         } catch (Exception $ex) {
             $theme = null;
+            $themeTerm = null;
         }
 
         $type = null;
@@ -51,8 +55,11 @@ class Works_IndexController extends Zend_Controller_Action
 
         try {
             $character = $this->view->CheckTermFromGet($data, 'character');
+            $termData = $this->taxonomyMapper->getTermByUri($character);
+            $characterTerm = $termData['term'];
         } catch (Exception $ex) {
             $character = null;
+            $characterTerm = null;
         }
 
         $serie = null;
@@ -94,9 +101,9 @@ class Works_IndexController extends Zend_Controller_Action
 
         $pageData = array(
             'editionsModel' => $editionsModel,
-            'themeData' => array('term' => $theme),
+            'themeData' => array('term' => $themeTerm),
             'typeData' => $typeData,
-            'characterData' => array('term' => $character),
+            'characterData' => array('term' => $characterTerm),
             'serieData' => array('title' => $serieTitle),
         );
 
