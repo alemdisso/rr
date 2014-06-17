@@ -150,7 +150,7 @@ class Works_EditionController extends Zend_Controller_Action
             $serieLabel = $serieName;
             $serieUri = $serieObj->getUri();
 
-            $editionsIds = $editionMapper->getAllEditionsOfSerieByUri($serieUri);
+            $editionsIds = $editionMapper->getAllEditionsOfSerie($serieUri);
             $otherEditionsModel = $this->buildOtherEditionsModel($editionsIds, $edition->getId());
         } else {
             $serieLabel = "";
