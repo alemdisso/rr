@@ -91,10 +91,6 @@ class Works_EditionController extends Zend_Controller_Action
             $editorLabel = $this->view->translate("#Editor:") . " " . $editorObj->getName();
         }
 
-//        $editionsIds = $this->editionMapper->getAllEditionsOfSerieByUri($serieObj->getUri());
-
-//        $otherEditionsModel = $this->buildOtherEditionsModel($editionsIds, $editionObj->getId());
-
         $sameSerieModel = $this->buildSameSerieModel($editionObj
                 , new Author_Collection_SerieMapper($this->db)
                 , $this->editionMapper);
@@ -150,7 +146,7 @@ class Works_EditionController extends Zend_Controller_Action
             $serieLabel = $serieName;
             $serieUri = $serieObj->getUri();
 
-            $editionsIds = $editionMapper->getAllEditionsOfSerie($serieUri);
+            $editionsIds = $editionMapper->getAllEditionsOfSerieByUri($serieUri);
             $otherEditionsModel = $this->buildOtherEditionsModel($editionsIds, $edition->getId());
         } else {
             $serieLabel = "";
