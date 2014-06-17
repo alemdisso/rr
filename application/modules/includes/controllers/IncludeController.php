@@ -11,6 +11,12 @@ class Includes_IncludeController extends Zend_Controller_Action
     public function categoriesAction()
     {
 
+        $categoriesModel[0] = array(
+                'id' => $id,
+                'term' => $term,
+            );
+
+
     }
 
     public function featuredBookAction()
