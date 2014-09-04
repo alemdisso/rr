@@ -1,6 +1,35 @@
 <?php
 $pageData = $this->pageData;
 ?>
+
+<!-- destaque -->
+<div id="destaque">
+
+<div id="banner-fade">
+
+<ul class="bjqs">
+  <li><a href="/livros"><img src="img/banner01.jpg" title="Amigos da bola"></a></li>
+  <li><a href="/biografia"><img src="img/banner02.jpg" title="Biblioteca de São Paulo recebe Ruth Rocha"></a></li>
+  <li><a href="/novidades"><img src="img/banner03.jpg" title="Almanaque Ruth Rocha"></a></li>
+</ul>
+
+</div>
+
+<script class="secret-source">
+jQuery(document).ready(function($) {
+
+  $('#banner-fade').bjqs({
+    height      : 430,
+    width       : 990,
+    responsive  : true
+  });
+
+});
+</script>
+
+</div>
+<!-- /destaque -->
+
 <div id="conteudo" class="clearfix" style="width:585px;">
 <div class="box2 clearfix float_left box_home"><?php echo $this->action('featured-book', 'include', 'includes') ?></div>
 <div class="box clearfix float_right box_home"><?php echo $this->action('filter', 'include', 'includes') ?></div>
