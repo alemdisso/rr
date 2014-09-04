@@ -35,30 +35,31 @@ class Includes_IncludeController extends Zend_Controller_Action
 
         $themesList = $this->taxonomyMapper->getAllThemesAlphabeticallyOrdered();
         $themesModel = array();
-        foreach ($themesList as $id => $term) {
+        foreach ($themesList as $id => $themeData) {
             $themesModel[$id] = array(
                     'id' => $id,
-                    'term' => $term,
+                    'uri' => $themeData['uri'],
+                    'term' => $themeData['term'],
                 );
         }
 
         $types = new Ruth_Collection_WorkTypes();
         $typesList = $types->AllTitles();
         $typesModel = array();
-        foreach ($typesList as $id => $term) {
+        foreach ($typesList as $id => $themeData) {
             $typesModel[$id] = array(
                     'id' => $id,
-                    'term' => $term,
+                    'term' => $themeData,
                 );
         }
 
-        $charactersList = $this->taxonomyMapper->getCharactersAlphabeticallyOrdered(true);
+        $charactersList = $this->taxonomyMapper->getAllCharactersAlphabeticallyOrdered(true);
         $charactersModel = array();
 
-        foreach ($charactersList as $id => $term) {
+        foreach ($charactersList as $id => $themeData) {
             $charactersModel[$id] = array(
                     'id' => $id,
-                    'term' => $term,
+                    'term' => $themeData,
                 );
         }
 
@@ -66,11 +67,11 @@ class Includes_IncludeController extends Zend_Controller_Action
         $seriesModel = array();
 
         $converter = new Moxca_Util_StringToAscii();
-        foreach ($seriesList as $id => $term) {
-            $sanitized = $converter->toAscii($term);
+        foreach ($seriesList as $id => $themeData) {
+            $sanitized = $converter->toAscii($themeData);
             $seriesModel[$id] = array(
                     'id' => $id,
-                    'term' => $term,
+                    'term' => $themeData,
                     'sanitized' => $sanitized
                 );
         }

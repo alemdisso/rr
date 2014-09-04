@@ -2,12 +2,12 @@
 <configdata>
   <nav>
     <home>
-      <label>Ruth Rocha</label>
+      <label>Principal</label>
       <uri>/home</uri>
       <pages>
         <root>
           <uri>/</uri>
-          <label>Ruth Rocha</label>
+          <label>Principal</label>
         </root>
         <works>
           <label>Livros</label>
@@ -15,56 +15,88 @@
           <pages>
             <edition-a-arca-de-noe>
               <label>A Arca de Noé</label>
-              <uri>/explore/a-arca-de-noe</uri>
+              <uri>/livro/a-arca-de-noe</uri>
             </edition-a-arca-de-noe>
             <edition-a-cinderela-das-bonecas>
               <label>A Cinderela das Bonecas</label>
-              <uri>/explore/a-cinderela-das-bonecas</uri>
+              <uri>/livro/a-cinderela-das-bonecas</uri>
             </edition-a-cinderela-das-bonecas>
             <edition--que-eu-vou-pra-angola-e-outras-historias>
               <label>... Que Eu Vou Pra Angola... e Outras Histórias...</label>
-              <uri>/explore/-que-eu-vou-pra-angola-e-outras-historias</uri>
+              <uri>/livro/-que-eu-vou-pra-angola-e-outras-historias</uri>
             </edition--que-eu-vou-pra-angola-e-outras-historias>
             <edition-a-arvore-do-beto>
               <label>A Árvore do Beto</label>
-              <uri>/explore/a-arvore-do-beto</uri>
+              <uri>/livro/a-arvore-do-beto</uri>
             </edition-a-arvore-do-beto>
             <edition-a-coisa>
               <label>A Coisa</label>
-              <uri>/explore/a-coisa</uri>
+              <uri>/livro/a-coisa</uri>
             </edition-a-coisa>
             <edition-a-decisao-do-campeonato>
               <label>A Decisão do Campeonato</label>
-              <uri>/explore/a-decisao-do-campeonato</uri>
+              <uri>/livro/a-decisao-do-campeonato</uri>
             </edition-a-decisao-do-campeonato>
             <edition-a-escola-do-marcelo>
               <label>A Escola do Marcelo</label>
-              <uri>/explore/a-escola-do-marcelo</uri>
+              <uri>/livro/a-escola-do-marcelo</uri>
             </edition-a-escola-do-marcelo>
             <edition-a-escolinha-do-mar>
               <label>A Escolinha do Mar</label>
-              <uri>/explore/a-escolinha-do-mar</uri>
+              <uri>/livro/a-escolinha-do-mar</uri>
             </edition-a-escolinha-do-mar>
             <edition-a-familia-do-marcelo>
               <label>A Família do Marcelo</label>
-              <uri>/explore/a-familia-do-marcelo</uri>
+              <uri>/livro/a-familia-do-marcelo</uri>
             </edition-a-familia-do-marcelo>
             <edition-a-fantastica-maquina-dos-bichos>
               <label>A Fantástica Máquina dos Bichos</label>
-              <uri>/explore/a-fantastica-maquina-dos-bichos</uri>
+              <uri>/livro/a-fantastica-maquina-dos-bichos</uri>
             </edition-a-fantastica-maquina-dos-bichos>
             <edition-a-galinha-dos-ovos-de-ouro-e-outras-historias>
               <label>A Galinha dos Ovos de Ouro e Outras Histórias</label>
-              <uri>/explore/a-galinha-dos-ovos-de-ouro-e-outras-historias</uri>
+              <uri>/livro/a-galinha-dos-ovos-de-ouro-e-outras-historias</uri>
             </edition-a-galinha-dos-ovos-de-ouro-e-outras-historias>
             <edition-a-maquina-maluca>
               <label>A Máquina Maluca</label>
-              <uri>/explore/a-maquina-maluca</uri>
+              <uri>/livro/a-maquina-maluca</uri>
             </edition-a-maquina-maluca>
+            <edition-um-teste-para-maiores>
+              <label>um teste para maiores</label>
+              <uri>/livro/um-teste-para-maiores</uri>
+            </edition-um-teste-para-maiores>
+            <edition-sem-colecao>
+              <label>sem coleção</label>
+              <uri>/livro/sem-colecao</uri>
+            </edition-sem-colecao>
+            <edition-teste-de-tema>
+              <label>teste de tema</label>
+              <uri>/livro/teste-de-tema</uri>
+            </edition-teste-de-tema>
+            <edition-livro-cheio-de-acentuacao>
+              <label>livro cheio de acentuação</label>
+              <uri>/livro/livro-cheio-de-acentuacao</uri>
+            </edition-livro-cheio-de-acentuacao>
+            <edition-um-teste>
+              <label>um teste</label>
+              <uri>/livro/um-teste</uri>
+            </edition-um-teste>
+            <edition-teste-de-serie-e-tema>
+              <label>teste de série e tema</label>
+              <uri>/livro/teste-de-serie-e-tema</uri>
+            </edition-teste-de-serie-e-tema>
             <series>
-              <label>Coleções</label>
-              <uri>/colecoes</uri>
+              <label>Séries</label>
+              <uri>/series</uri>
               <pages>
+                <serie-vou-te-contar>
+                  <label>Vou Te Contar!</label>
+                  <uri>/colecao/vou-te-contar</uri>
+                </serie-vou-te-contar>
+                <serie-conte-um-conto2>
+                  <label>Conte um Conto2</label>
+                  <uri>/colecao/conte-um-conto2</uri>
+                </serie-conte-um-conto2>
                 <serie-a-turma-da-nossa-rua>
                   <label>A Turma da Nossa Rua</label>
                   <uri>/colecao/a-turma-da-nossa-rua</uri>
@@ -73,18 +105,14 @@
                   <label>As Aventuras de Alvinho</label>
                   <uri>/colecao/as-aventuras-de-alvinho</uri>
                 </serie-as-aventuras-de-alvinho>
-                <serie-conte-um-conto>
-                  <label>Conte um Conto</label>
-                  <uri>/colecao/conte-um-conto</uri>
-                </serie-conte-um-conto>
                 <serie-marcelo-marmelo-martelo>
                   <label>Marcelo, Marmelo, Martelo</label>
                   <uri>/colecao/marcelo-marmelo-martelo</uri>
                 </serie-marcelo-marmelo-martelo>
-                <serie-vou-te-contar>
-                  <label>Vou Te Contar!</label>
-                  <uri>/colecao/vou-te-contar</uri>
-                </serie-vou-te-contar>
+                <serie-decisao-e-acao>
+                  <label>Decisão e Ação</label>
+                  <uri>/colecao/decisao-e-acao</uri>
+                </serie-decisao-e-acao>
               </pages>
             </series>
           </pages>
@@ -97,6 +125,14 @@
           <label>Novidades</label>
           <uri>/novidades</uri>
           <pages>
+            <post-tribeca-ao-luar>
+              <label>tribeca ao luar</label>
+              <uri>/novidades/tribeca-ao-luar</uri>
+            </post-tribeca-ao-luar>
+            <post-counting-zero-one-two>
+              <label>counting zero, one, two...</label>
+              <uri>/novidades/counting-zero-one-two</uri>
+            </post-counting-zero-one-two>
             <post-teatro-cacilda-becker-recebe-peca-baseada-em-livro-de-ruth-rocha>
               <label>Teatro Cacilda Becker recebe peça baseada em livro de Ruth Rocha</label>
               <uri>/novidades/teatro-cacilda-becker-recebe-peca-baseada-em-livro-de-ruth-rocha</uri>

@@ -2,6 +2,43 @@
 <h2>Busca de livros:</h2>
 
 <form>
-<input type="text" class="display_block float_left" /><input type="submit" value="Ok" class="display_block float_right" />
+<input type="text" id="search_topic" class="display_block float_left" /><input type="button" value="Ok" class="display_block float_right" />
 </form>
 <!-- /box busca -->
+
+
+<script>
+$(document).ready(function() {
+    $("#submitSearch").click(function(){
+
+    });
+});
+
+$(function() {
+
+    $("#search_topic").autocomplete({
+        source: "/works/index/autocomplete",
+        minLength: 2,
+        select: function(event, ui) {
+            var url = ui.item.id;
+            if(url != '#') {
+                location.href = '/livro/' + url;
+            }
+        },
+
+        html: true, // optional (jquery.ui.autocomplete.html.js required)
+
+      // optional (if other layers overlap autocomplete list)
+        open: function(event, ui) {
+            $(".ui-autocomplete").css("z-index", 1000);
+        }
+    });
+
+});
+
+
+</script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.autocomplete.html.js"></script>
+

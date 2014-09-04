@@ -2,12 +2,12 @@
 <configdata>
     <nav>
         <home>
-            <label>Ruth Rocha</label>
+            <label>Principal</label>
             <uri>/home</uri>
             <pages>
                 <root>
                     <uri>/</uri>
-                    <label>Ruth Rocha</label>
+                    <label>Principal</label>
                 </root>
             </pages>
         </home>

@@ -107,7 +107,7 @@ class Admin_PrizeController extends Zend_Controller_Action
             $element = $form->getElement('year');
             $element->setValue($prize->getYear());
 
-            $this->view->pageTitle = $this->view->translate("#Create prize");
+            $this->view->pageTitle = $this->view->translate("#Edit prize");
         }
     }
 

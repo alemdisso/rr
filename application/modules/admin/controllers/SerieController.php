@@ -84,4 +84,61 @@ class Admin_SerieController extends Zend_Controller_Action
 
 
     }
+
+    public function editAction()
+    {
+        // cria form
+        $form = new Author_Form_SerieEdit;
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            $postData = $this->getRequest()->getPost();
+            if ($form->isValid($postData)) {
+                $newSerie = $form->process($postData);
+                $this->_helper->getHelper('FlashMessenger')
+                    ->addMessage($this->view->translate('#The record was successfully updated.'));
+                $this->_redirect('/admin/index/list-works');
+            } else {
+                //form error: populate and go back
+                $form->populate($postData);
+                $this->view->form = $form;
+            }
+        } else {
+
+            $data = $this->_request->getParams();
+            try {
+                $id = $this->view->checkIdFromGet($data);
+            } catch (Exception $e) {
+                throw $e;
+            }
+
+            $serie = $this->serieMapper->findById($id);
+
+            $element = $form->getElement('id');
+            $element->setValue($id);
+
+            $element = $form->getElement('serieEditor');
+            $this->populateEditorsSelect($element, $serie->getEditor());
+
+            $element = $form->getElement('name');
+            $element->setValue($serie->getName());
+
+            $this->view->pageTitle = $this->view->translate("#Edit serie");
+        }
+    }
+
+    public function populateEditorsSelect(Zend_Form_Element_Select $elementSelect, $current)
+    {
+        $editorMapper = new Author_Collection_EditorMapper($this->db);
+        $list = $editorMapper->getAllEditorsAlphabeticallyOrdered();
+
+        $elementSelect->addMultiOption(null, $this->view->translate("#(choose an option)"));
+        foreach($list as $editorId => $editorName) {
+            $elementSelect->addMultiOption($editorId, $editorName);
+        }
+        $elementSelect->setValue($current);
+    }
+
+
+
 }

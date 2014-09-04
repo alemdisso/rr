@@ -3,7 +3,7 @@ class Blog_IndexController extends Zend_Controller_Action
 {
     private $db;
     private $postMapper;
-    private $taxonomyMapper;
+    private $blogTaxonomyMapper;
 
     public function postDispatch()
     {
@@ -30,7 +30,7 @@ class Blog_IndexController extends Zend_Controller_Action
         foreach ($postsIds as $postId) {
             $loopPostObj = $this->postMapper->findById($postId);
             $publicationDate = $this->view->splitDateFromDateTime($loopPostObj->getPublicationDate());
-            $categoryData = $this->view->CategoryTermAndUri($loopPostObj->getCategory(), $this->taxonomyMapper);
+            $categoryData = $this->view->CategoryTermAndUri($loopPostObj->getCategory(), $this->blogTaxonomyMapper);
 
             $postsData[$postId] = array(
                 'title' => $loopPostObj->getTitle(),
@@ -52,7 +52,7 @@ class Blog_IndexController extends Zend_Controller_Action
     {
         $this->db = Zend_Registry::get('db');
         $this->postMapper = new Moxca_Blog_PostMapper($this->db);
-        $this->taxonomyMapper = new Moxca_Taxonomy_TaxonomyMapper($this->db);
+        $this->blogTaxonomyMapper = new Moxca_Blog_TaxonomyMapper($this->db);
 
     }
 }

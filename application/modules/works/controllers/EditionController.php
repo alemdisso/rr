@@ -177,7 +177,7 @@ class Works_EditionController extends Zend_Controller_Action
                 $otherEditionsData[$editionId] = array(
                         'title' => $loopWorkObj->getTitle(),
                         'coverSrc' => $coverFilePath,
-                        'exploreUri' => '/explore/' . $loopWorkObj->getUri(),
+                        'exploreUri' => '/livro/' . $loopWorkObj->getUri(),
                 );
             }
         }

@@ -53,7 +53,7 @@ class Admin_NavigationController extends Zend_Controller_Action
             $loopWorkObj = $this->workMapper->findById($loopEditionObj->getWork());
 
 
-            $edition = $this->addPage($worksPages, 'edition-' . $loopWorkObj->getUri(), $loopWorkObj->getTitle(), '/explore/' . $loopWorkObj->getUri());
+            $edition = $this->addPage($worksPages, 'edition-' . $loopWorkObj->getUri(), $loopWorkObj->getTitle(), '/livro/' . $loopWorkObj->getUri());
         }
 
         $series = $this->addPage($worksPages, 'series', $this->view->translate("#Series"), $this->view->translate("/series"));
