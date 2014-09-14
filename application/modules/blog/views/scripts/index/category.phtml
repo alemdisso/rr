@@ -1,0 +1,26 @@
+<?php
+$pageData = $this->pageData;
+?>
+<!-- conteudo -->
+<div id="conteudo">
+
+<h1><?php echo $this->translate("#Blog title") ?></h1>
+
+<?php if ((isset($pageData['postsData'])) && (is_array($pageData['postsData']) && (count($pageData['postsData'])))) { ?>
+<?php $this->postsLoop($pageData['postsData']); ?>
+<?php } else { ?>
+<?php print $this->translate("#No posts found with this criteria."); ?>
+<?php } ?>
+
+
+<!-- paginacao -->
+<!--
+<div id="paginacao" class="clearfix">
+<span class="float_left">Posts <strong>1 de 10</strong> de 33</span>
+<span class="float_right">in&iacute;cio | &lsaquo; anterior | <a href="" title=""><strong>pr&oacute;ximo</strong> &rsaquo;</a> | <a href="" title=""><strong>fim</strong></a></span>
+</div>
+-->
+<!-- /paginacao -->
+
+</div>
+<!-- /conteudo -->

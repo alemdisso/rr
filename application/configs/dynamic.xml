@@ -85,60 +85,70 @@
               <label>teste de série e tema</label>
               <uri>/livro/teste-de-serie-e-tema</uri>
             </edition-teste-de-serie-e-tema>
-            <series>
-              <label>Séries</label>
-              <uri>/series</uri>
-              <pages>
-                <serie-vou-te-contar>
-                  <label>Vou Te Contar!</label>
-                  <uri>/colecao/vou-te-contar</uri>
-                </serie-vou-te-contar>
-                <serie-conte-um-conto2>
-                  <label>Conte um Conto2</label>
-                  <uri>/colecao/conte-um-conto2</uri>
-                </serie-conte-um-conto2>
-                <serie-a-turma-da-nossa-rua>
-                  <label>A Turma da Nossa Rua</label>
-                  <uri>/colecao/a-turma-da-nossa-rua</uri>
-                </serie-a-turma-da-nossa-rua>
-                <serie-as-aventuras-de-alvinho>
-                  <label>As Aventuras de Alvinho</label>
-                  <uri>/colecao/as-aventuras-de-alvinho</uri>
-                </serie-as-aventuras-de-alvinho>
-                <serie-marcelo-marmelo-martelo>
-                  <label>Marcelo, Marmelo, Martelo</label>
-                  <uri>/colecao/marcelo-marmelo-martelo</uri>
-                </serie-marcelo-marmelo-martelo>
-                <serie-decisao-e-acao>
-                  <label>Decisão e Ação</label>
-                  <uri>/colecao/decisao-e-acao</uri>
-                </serie-decisao-e-acao>
-              </pages>
-            </series>
+            <serie-vou-te-contar>
+              <label>Vou Te Contar!</label>
+              <uri>/serie/vou-te-contar</uri>
+            </serie-vou-te-contar>
+            <serie-conte-um-conto2>
+              <label>Conte um Conto2</label>
+              <uri>/serie/conte-um-conto2</uri>
+            </serie-conte-um-conto2>
+            <serie-a-turma-da-nossa-rua>
+              <label>A Turma da Nossa Rua</label>
+              <uri>/serie/a-turma-da-nossa-rua</uri>
+            </serie-a-turma-da-nossa-rua>
+            <serie-as-aventuras-de-alvinho>
+              <label>As Aventuras de Alvinho</label>
+              <uri>/serie/as-aventuras-de-alvinho</uri>
+            </serie-as-aventuras-de-alvinho>
+            <serie-marcelo-marmelo-martelo>
+              <label>Marcelo, Marmelo, Martelo</label>
+              <uri>/serie/marcelo-marmelo-martelo</uri>
+            </serie-marcelo-marmelo-martelo>
+            <serie-decisao-e-acao>
+              <label>Decisão e Ação</label>
+              <uri>/serie/decisao-e-acao</uri>
+            </serie-decisao-e-acao>
           </pages>
         </works>
         <biography>
           <label>Biografia</label>
           <uri>/biografia</uri>
         </biography>
-        <news>
+        <blog>
           <label>Novidades</label>
           <uri>/novidades</uri>
           <pages>
-            <post-tribeca-ao-luar>
-              <label>tribeca ao luar</label>
-              <uri>/novidades/tribeca-ao-luar</uri>
-            </post-tribeca-ao-luar>
-            <post-counting-zero-one-two>
-              <label>counting zero, one, two...</label>
-              <uri>/novidades/counting-zero-one-two</uri>
-            </post-counting-zero-one-two>
             <post-teatro-cacilda-becker-recebe-peca-baseada-em-livro-de-ruth-rocha>
               <label>Teatro Cacilda Becker recebe peça baseada em livro de Ruth Rocha</label>
               <uri>/novidades/teatro-cacilda-becker-recebe-peca-baseada-em-livro-de-ruth-rocha</uri>
             </post-teatro-cacilda-becker-recebe-peca-baseada-em-livro-de-ruth-rocha>
+            <post-counting-zero-one-two>
+              <label>counting zero, one, two...</label>
+              <uri>/novidades/counting-zero-one-two</uri>
+            </post-counting-zero-one-two>
+            <post-tribeca-ao-luar>
+              <label>tribeca ao luar</label>
+              <uri>/novidades/tribeca-ao-luar</uri>
+            </post-tribeca-ao-luar>
+            <category-categoria-1>
+              <label>Categoria 1</label>
+              <uri>/novidades-em/categoria-1</uri>
+            </category-categoria-1>
+            <category-categoria-2>
+              <label>Categoria 2</label>
+              <uri>/novidades-em/categoria-2</uri>
+            </category-categoria-2>
+            <category-categoria-3>
+              <label>Categoria 3</label>
+              <uri>/novidades-em/categoria-3</uri>
+            </category-categoria-3>
+            <category-categoria-4>
+              <label>Categoria 4</label>
+              <uri>/novidades-em/categoria-4</uri>
+            </category-categoria-4>
           </pages>
-        </news>
+        </blog>
       </pages>
     </home>
   </nav>

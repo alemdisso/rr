@@ -95,6 +95,35 @@ class Includes_IncludeController extends Zend_Controller_Action
 
     }
 
+    public function blogFilterAction()
+    {
+        $this->initDbAndMappers();
+
+        $blogTaxonomyMapper = new Moxca_Blog_TaxonomyMapper($this->db);
+        $categoriesList = $blogTaxonomyMapper->getAllCategoriesAlphabeticallyOrdered();
+
+        $categoriesModel = array();
+        foreach ($categoriesList as $id => $categoryData) {
+            $loopTermAndUri = $blogTaxonomyMapper->getTermAndUri($id);
+
+            $categoriesModel[$id] = array(
+                    'id' => $id,
+                    'uri' => $loopTermAndUri['uri'],
+                    'term' => $loopTermAndUri['term'],
+                );
+        }
+
+
+        $pageData = array(
+            'categoriesList' => $categoriesModel,
+            );
+
+        $this->view->pageData = $pageData;
+
+
+
+    }
+
     public function breadcrumbAction()
     {
 

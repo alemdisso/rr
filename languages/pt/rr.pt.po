@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-01 11:43-0300\n"
-"PO-Revision-Date: 2014-09-01 16:49-0300\n"
+"POT-Creation-Date: 2014-09-14 13:17-0300\n"
+"PO-Revision-Date: 2014-09-14 13:18-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -65,6 +65,7 @@ msgstr "Mudar série"
 #: application\modules/admin/controllers/EditionController.php:258
 #: application\modules/admin/controllers/EditionController.php:271
 #: application\modules/admin/controllers/SerieController.php:135
+#: application\modules/includes/views/scripts/include/blog-filter.phtml:12
 #: application\modules/includes/views/scripts/include/filter.phtml:12
 #: application\modules/includes/views/scripts/include/filter.phtml:27
 #: application\modules/includes/views/scripts/include/filter.phtml:50
@@ -207,6 +208,11 @@ msgstr "Acesso negado"
 #: application\modules/blog/controllers/PostController.php:46
 msgid "#Not published"
 msgstr "Não publicado"
+
+#: application\modules/blog/views/helpers/CategoryHrefTerm.php:10
+#: application\modules/includes/views/scripts/include/blog-filter.phtml:19
+msgid "/news-about"
+msgstr "/novidades-em"
 
 #: application\modules/works/controllers/EditionController.php:51
 #, php-format
@@ -367,6 +373,7 @@ msgid "#(choose)"
 msgstr "(escolha...)"
 
 #: library\Moxca/Form/PostCreate.php:60
+#: application\modules/includes/views/scripts/include/blog-filter.phtml:10
 msgid "#Category"
 msgstr "Categoria:"
 
@@ -1827,10 +1834,19 @@ msgstr "Editar conta do usuário"
 msgid "#Success!!!"
 msgstr "Sucesso!"
 
+#: application\modules/blog/views/scripts/index/category.phtml:7
 #: application\modules/blog/views/scripts/index/index.phtml:7
 #: application\modules/blog/views/scripts/post/explore.phtml:7
 msgid "#Blog title"
 msgstr "Novidades"
+
+#: application\modules/blog/views/scripts/index/category.phtml:12
+msgid "#No posts found with this criteria."
+msgstr "Não foram encontrados artigos com esse critério."
+
+#: application\modules/includes/views/scripts/include/blog-filter.phtml:7
+msgid "#Filter posts by:"
+msgstr "Novidades Sobre:"
 
 #: application\modules/includes/views/scripts/include/categories.phtml:2
 msgid "#Categories"
