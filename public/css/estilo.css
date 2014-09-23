@@ -445,21 +445,20 @@ li.ui-menu-item a {
 	z-index:0;
 	bottom:0;
 	}
-
+	
 /* TABLES */
 table {
 	width:100%;
-	clear:both;
 	}
 
-td, th {
-	border:1px solid #f1f1f2;
-	border-bottom:1px dotted #ddd;
-	padding:5px;
+td {
+	border:none;
+	padding:0;
+	text-align:center;
 	}
-
+	
 tr {
-
+	
 	}
 
 /* FORM */
@@ -822,6 +821,21 @@ div.dataTables_filter {
     display:inline;
     float:left;
 }
+
+.admin table {
+	width:100%;
+	clear:both;
+	}
+
+.admin td, .admin th {
+	border:1px solid #f1f1f2;
+	border-bottom:1px dotted #ddd;
+	padding:5px;
+	}
+
+.admin td {
+	text-align:left;
+	}
 
 #page_container ul li {
     list-style: none;
