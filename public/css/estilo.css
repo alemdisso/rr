@@ -93,7 +93,7 @@ a, a:visited {
 	}
 	
 .admin a {
-	color:#aaaaaa;
+	color:#a7a76f;
 	text-decoration:none;
 	}
 
@@ -277,16 +277,16 @@ h4 {
 	border-top:10px solid #e2a715;
 	background:#febe20;
 	padding:15px 50px;
-	margin:0 0 30px 0;
+	margin:0 0 30px 0;	
 	}
 
 #breadcrumb_livros a, #breadcrumb_novidades a, #breadcrumb_biografia a, #breadcrumb_contato a {
-	color:#fff!important;
+	color:#a7a76f!important;
 	}
 	
 .admin div#breadcrumb_livros, .admin div#breadcrumb_novidades, .admin div#breadcrumb_biografia, .admin div#breadcrumb_contato {
-	background:#ccc;
-	border-top-color:#aaa;
+	background:#EAEABB;
+	border-top-color:#CBCB90;
 	border-top-style:solid;
 	border-top-width:10px;
 	margin:0;
@@ -475,7 +475,7 @@ input[type=text] {
 	}
 	
 .admin input[type=text]  {
-	background:#ccc!important;
+	background:#EAEABB!important;
 	border:none;
 	}
 
@@ -502,7 +502,7 @@ input[type=submit], input[type=button] {
 	}
 	
 .admin input[type=password]  {
-	background:#ccc!important;
+	background:#EAEABB!important;
 	}
 
 .novidades input[type=submit], .novidades input[type=button] {
@@ -537,7 +537,7 @@ input[type=submit]:hover, input[type=button]:hover {
 	}
 	
 .admin input[type=submit], .admin input[type=button] {
-	background:#ccc!important;
+	background:#EAEABB!important;
 	border-top-color:#aaa!important;
 	}
 
@@ -914,7 +914,7 @@ div.dataTables_filter {
 	/*height:87px;*/
 	padding:15px 50px;
 	font-size:12px;
-	background:#f1f1f2;
+	background:#f9f9e4;
 	margin-bottom:30px;
 	}
 
