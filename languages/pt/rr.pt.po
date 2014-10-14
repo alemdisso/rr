@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-14 13:17-0300\n"
-"PO-Revision-Date: 2014-09-14 13:18-0300\n"
+"POT-Creation-Date: 2014-10-06 11:53-0300\n"
+"PO-Revision-Date: 2014-10-06 11:53-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -81,44 +81,56 @@ msgstr "Criar editora"
 msgid "#no editions"
 msgstr "sem edições"
 
-#: application\modules/admin/controllers/NavigationController.php:46
+#: application\modules/admin/controllers/NavigationController.php:48
 msgid "#Works"
 msgstr "Livros"
 
-#: application\modules/admin/controllers/NavigationController.php:47
+#: application\modules/admin/controllers/NavigationController.php:49
 #: library\Author/View/Helper/TypeListLink.php:27
 #: library\Ruth/View/Helper/TypeListLink.php:35
+#: application\modules/includes/views/scripts/include/header.phtml:11
 msgid "/works"
 msgstr "/livros"
 
-#: application\modules/admin/controllers/NavigationController.php:59
-msgid "#Series"
-msgstr "Séries"
-
-#: application\modules/admin/controllers/NavigationController.php:59
-msgid "/series"
-msgstr "/series"
-
-#: application\modules/admin/controllers/NavigationController.php:68
+#: application\modules/admin/controllers/NavigationController.php:70
 #: application\modules/includes/views/scripts/include/header-login.phtml:14
 #: application\modules/includes/views/scripts/include/header.phtml:13
 msgid "#Biography"
 msgstr "Biografia"
 
-#: application\modules/admin/controllers/NavigationController.php:68
+#: application\modules/admin/controllers/NavigationController.php:70
+#: application\modules/includes/views/scripts/include/header.phtml:13
 msgid "/biography"
 msgstr "/biografia"
 
-#: application\modules/admin/controllers/NavigationController.php:69
+#: application\modules/admin/controllers/NavigationController.php:71
+#: application\modules/includes/views/scripts/include/header-login.phtml:15
+#: application\modules/includes/views/scripts/include/header.phtml:14
+msgid "#Contact"
+msgstr "Contato"
+
+#: application\modules/admin/controllers/NavigationController.php:71
+#: application\modules/includes/views/scripts/include/header.phtml:14
+msgid "/contact"
+msgstr "/contato"
+
+#: application\modules/admin/controllers/NavigationController.php:75
 #: application\modules/includes/views/scripts/include/header-login.phtml:13
 #: application\modules/includes/views/scripts/include/header.phtml:12
 msgid "#News"
 msgstr "Novidades"
 
-#: application\modules/admin/controllers/NavigationController.php:69
+#: application\modules/admin/controllers/NavigationController.php:76
 #: application\modules/blog/views/scripts/index/posts-loop.phtml:4
+#: application\modules/includes/views/scripts/include/header.phtml:12
 msgid "/news"
 msgstr "/novidades"
+
+#: application\modules/admin/controllers/NavigationController.php:94
+#: application\modules/blog/views/helpers/CategoryHrefTerm.php:10
+#: application\modules/includes/views/scripts/include/blog-filter.phtml:19
+msgid "/news-about"
+msgstr "/novidades-em"
 
 #: application\modules/admin/controllers/PostController.php:48
 #: application\modules/admin/views/scripts/post/create.phtml:7
@@ -208,11 +220,6 @@ msgstr "Acesso negado"
 #: application\modules/blog/controllers/PostController.php:46
 msgid "#Not published"
 msgstr "Não publicado"
-
-#: application\modules/blog/views/helpers/CategoryHrefTerm.php:10
-#: application\modules/includes/views/scripts/include/blog-filter.phtml:19
-msgid "/news-about"
-msgstr "/novidades-em"
 
 #: application\modules/works/controllers/EditionController.php:51
 #, php-format
@@ -319,6 +326,7 @@ msgstr "Nova categoria:"
 
 #: library\Moxca/Form/CategoryCreate.php:29
 #: library\Moxca/Form/PostCreate.php:88
+#: library\Moxca/Form/PostKeywordAdd.php:59
 #: library\Moxca/Form/QuestionCreate.php:92
 #: library\Moxca/Form/UserCreate.php:101
 #: library\Author/Form/CharacterAdd.php:59
@@ -326,6 +334,7 @@ msgstr "Nova categoria:"
 #: library\Author/Form/CoverDesignerChange.php:38
 #: library\Author/Form/DescriptionChange.php:37
 #: library\Author/Form/EditionCreate.php:176
+#: library\Author/Form/EditorChange.php:34
 #: library\Author/Form/EditorCreate.php:32
 #: library\Author/Form/IllustratorChange.php:35
 #: library\Author/Form/IsbnChange.php:35 library\Author/Form/KeywordAdd.php:59
@@ -366,6 +375,7 @@ msgid "#Status"
 msgstr "Status"
 
 #: library\Moxca/Form/PostCreate.php:53
+#: library\Moxca/Form/PostKeywordAdd.php:23
 #: library\Author/Form/CharacterAdd.php:23
 #: library\Author/Form/KeywordAdd.php:23
 #: library\Author/Form/ThemeChange.php:23
@@ -381,6 +391,16 @@ msgstr "Categoria:"
 #: library\Moxca/Form/QuestionCreate.php:33
 msgid "#Content:"
 msgstr "Conteúdo:"
+
+#: library\Moxca/Form/PostKeywordAdd.php:31
+#: library\Author/Form/KeywordAdd.php:31
+msgid "#Keywords"
+msgstr "Palavras-chave"
+
+#: library\Moxca/Form/PostKeywordAdd.php:45
+#: library\Author/Form/KeywordAdd.php:45
+msgid "#New keyword:"
+msgstr "Nova palavra-chave"
 
 #: library\Moxca/Form/PostRemove.php:21
 #: library\Moxca/Form/QuestionRemove.php:21
@@ -1457,6 +1477,7 @@ msgid "#Type"
 msgstr "Tipo"
 
 #: library\Author/Form/EditionCreate.php:65
+#: library\Author/Form/EditorChange.php:20
 #: library\Author/Form/SerieEdit.php:20 library\Ruth/Form/EditionCreate.php:65
 #: application\modules/admin/views/scripts/index/list-works.phtml:47
 #: application\modules/admin/views/scripts/work/list.phtml:21
@@ -1499,14 +1520,6 @@ msgstr "Páginas:"
 #: library\Author/Form/SerieCreate.php:31
 msgid "#Name is required"
 msgstr "Nome é obrigatório"
-
-#: library\Author/Form/KeywordAdd.php:31
-msgid "#Keywords"
-msgstr "Palavras-chave"
-
-#: library\Author/Form/KeywordAdd.php:45
-msgid "#New keyword:"
-msgstr "Nova palavra-chave"
 
 #: library\Author/Form/PrizeCreate.php:21
 msgid "#Prize:"
@@ -1625,11 +1638,11 @@ msgstr "Mudar série de %s"
 msgid "#(choose an editor)"
 msgstr "(escolha...)"
 
-#: application\modules/admin/views/scripts/edition/create.phtml:111
+#: application\modules/admin/views/scripts/edition/create.phtml:110
 msgid "#(new editor)"
 msgstr "(novo editor)"
 
-#: application\modules/admin/views/scripts/edition/create.phtml:118
+#: application\modules/admin/views/scripts/edition/create.phtml:117
 msgid "#(new serie)"
 msgstr "(nova série)"
 
@@ -1896,11 +1909,6 @@ msgstr "/serie"
 msgid "#Books"
 msgstr "Livros"
 
-#: application\modules/includes/views/scripts/include/header-login.phtml:15
-#: application\modules/includes/views/scripts/include/header.phtml:14
-msgid "#Contact"
-msgstr "Contato"
-
 #: application\modules/works/views/scripts/edition/edition-serie.phtml:3
 msgid "#Other books from the collection:"
 msgstr "Outros livros da série:"
@@ -1955,6 +1963,12 @@ msgstr "%s"
 #: application\modules/works/views/scripts/index/index.phtml:102
 msgid "#There are no works with this criteria."
 msgstr "Não foram encontrados livros com esse critério."
+
+#~ msgid "#Series"
+#~ msgstr "Séries"
+
+#~ msgid "/series"
+#~ msgstr "/series"
 
 #~ msgid "#Infant"
 #~ msgstr "Até 3 anos"

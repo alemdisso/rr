@@ -46,10 +46,10 @@ class Includes_IncludeController extends Zend_Controller_Action
         $types = new Ruth_Collection_WorkTypes();
         $typesList = $types->AllTitles();
         $typesModel = array();
-        foreach ($typesList as $id => $themeData) {
+        foreach ($typesList as $id => $typeLabel) {
             $typesModel[$id] = array(
                     'id' => $id,
-                    'term' => $themeData,
+                    'term' => $typeLabel,
                 );
         }
 
@@ -59,9 +59,11 @@ class Includes_IncludeController extends Zend_Controller_Action
         foreach ($charactersList as $id => $themeData) {
             $charactersModel[$id] = array(
                     'id' => $id,
-                    'term' => $themeData,
+                    'uri' => $themeData['uri'],
+                    'term' => $themeData['term'],
                 );
         }
+        //print_r($charactersModel);exit;
 
         $seriesList = $this->serieMapper->getAllSeriesAlphabeticallyOrdered();
         $seriesModel = array();

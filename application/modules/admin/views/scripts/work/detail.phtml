@@ -4,27 +4,27 @@ $pageData = $this->pageData;
 <!-- conteudo -->
 <div id="conteudo">
     <h1><?php echo $pageData['title'] ?></h1>
-    <h2><a href="<?php echo $pageData['typeListLink']?>"><?php echo $pageData['typeLabel']?></a></h3> <a href="/admin/work/change-type/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate('#(change type)')?></a></p>
+    <h2><a href="<?php echo $pageData['typeListLink']?>"><?php echo $pageData['typeLabel']?></a></h2> <a href="/admin/work/change-type/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate('#(change type)')?></a></p>
 
-    <h3><?php echo $this->translate('#Description')?></h2>
+    <h3><?php echo $this->translate('#Description')?></h3>
     <p><?php echo $pageData['description']?></p>
     <p><a href="/admin/work/change-description/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#(change description)") ?></a></p>
 
-    <h3><?php echo $this->translate('#Summary')?></h2>
+    <h3><?php echo $this->translate('#Summary')?></h3>
     <p><?php echo $pageData['summary']?></p>
     <p> <a href="/admin/work/change-summary/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#(change summary)") ?></a></p>
 
-    <h3><?php echo $this->translate('#Theme')?></h2>
+    <h3><?php echo $this->translate('#Theme')?></h3>
     <p><?php echo $pageData['themeModel']['term']?></p>
     <p><a href="/admin/work/change-theme/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#Change theme") ?></a></p>
 
-    <h3><?php echo $this->translate('#Characters')?></h2>
+    <h3><?php echo $this->translate('#Characters')?></h3>
     <?php if ((is_array($pageData['characters']))&&(count($pageData['characters']))) { ?>
     <?php echo $this->charactersLoop($pageData['characters']) ?>
     <?php } ?>
     <p><a href="/admin/work/create-character/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#Add character") ?></a></p>
 
-    <h3><?php echo $this->translate('#Prizes')?></h2>
+    <h3><?php echo $this->translate('#Prizes')?></h3>
     <?php if ((is_array($pageData['prizes']))&&(count($pageData['prizes']))) { ?>
     <?php echo $this->prizesLoop($pageData['prizes']) ?>
     <?php } ?>
@@ -32,7 +32,7 @@ $pageData = $this->pageData;
 
     <input type="hidden" name="id" value="<?php echo $pageData['id'] ?>" id="id">
 
-    <h3><?php echo $this->translate('#Editions.admin')?></h2>
+    <h3><?php echo $this->translate('#Editions.admin')?></h3>
     <?php if ((is_array($pageData['editions']))&&(count($pageData['editions']))) { ?>
     <?php echo $this->editionsLoop($pageData['editions']) ?>
     <?php } ?>

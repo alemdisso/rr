@@ -109,12 +109,100 @@
               <label>Decisão e Ação</label>
               <uri>/serie/decisao-e-acao</uri>
             </serie-decisao-e-acao>
+            <keyword-acentuacao>
+              <label>Acentuação</label>
+              <uri>/livros/tema/acentuacao</uri>
+            </keyword-acentuacao>
+            <keyword-animais>
+              <label>Animais</label>
+              <uri>/livros/tema/animais</uri>
+            </keyword-animais>
+            <keyword-escola>
+              <label>Escola</label>
+              <uri>/livros/tema/escola</uri>
+            </keyword-escola>
+            <keyword-reis-e-princesas>
+              <label>Reis e Princesas</label>
+              <uri>/livros/tema/reis-e-princesas</uri>
+            </keyword-reis-e-princesas>
+            <keyword-tema-5>
+              <label>Tema 5</label>
+              <uri>/livros/tema/tema-5</uri>
+            </keyword-tema-5>
+            <keyword-tema-6>
+              <label>Tema 6</label>
+              <uri>/livros/tema/tema-6</uri>
+            </keyword-tema-6>
+            <keyword-turma>
+              <label>Turma</label>
+              <uri>/livros/tema/turma</uri>
+            </keyword-turma>
+            <type-2000>
+              <label>Até 6 anos</label>
+              <uri>/livros/de-4-a-6-anos</uri>
+            </type-2000>
+            <type-3000>
+              <label>De 7 a 9 anos</label>
+              <uri>/livros/de-7-a-9-anos</uri>
+            </type-3000>
+            <type-4000>
+              <label>De 10 a 13 anos</label>
+              <uri>/livros/de-10-a-13-anos</uri>
+            </type-4000>
+            <type-5000>
+              <label>Acima de 13 anos</label>
+              <uri>/livros/acima-de-13-anos</uri>
+            </type-5000>
+            <keyword-alvinho>
+              <label>Alvinho</label>
+              <uri>/livros/personagem/alvinho</uri>
+            </keyword-alvinho>
+            <keyword-arnaldinho>
+              <label>Arnaldinho</label>
+              <uri>/livros/personagem/arnaldinho</uri>
+            </keyword-arnaldinho>
+            <keyword-batista>
+              <label>Batista</label>
+              <uri>/livros/personagem/batista</uri>
+            </keyword-batista>
+            <keyword-catapimba>
+              <label>Catapimba</label>
+              <uri>/livros/personagem/catapimba</uri>
+            </keyword-catapimba>
+            <keyword-macacos>
+              <label>Macacos</label>
+              <uri>/livros/personagem/macacos</uri>
+            </keyword-macacos>
+            <keyword-maneco>
+              <label>Maneco</label>
+              <uri>/livros/personagem/maneco</uri>
+            </keyword-maneco>
+            <keyword-noe>
+              <label>Noé</label>
+              <uri>/livros/personagem/noe</uri>
+            </keyword-noe>
+            <keyword-personagem-a>
+              <label>Personagem A</label>
+              <uri>/livros/personagem/personagem-a</uri>
+            </keyword-personagem-a>
+            <keyword-personagem-b>
+              <label>Personagem B</label>
+              <uri>/livros/personagem/personagem-b</uri>
+            </keyword-personagem-b>
+            <keyword-porco-panca>
+              <label>Porco Pança</label>
+              <uri>/livros/personagem/porco-panca</uri>
+            </keyword-porco-panca>
           </pages>
         </works>
         <biography>
           <label>Biografia</label>
           <uri>/biografia</uri>
         </biography>
+        <contact>
+          <label>Contato</label>
+          <uri>/contato</uri>
+        </contact>
         <blog>
           <label>Novidades</label>
           <uri>/novidades</uri>

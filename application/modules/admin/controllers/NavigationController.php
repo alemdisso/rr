@@ -9,6 +9,9 @@ class Admin_NavigationController extends Zend_Controller_Action
     private $workMapper;
     private $postMapper;
     private $blogTaxonomyMapper;
+    private $collectionTaxonomyMapper;
+
+    private $workTypesUris;
 
     public function preDispatch()
     {
@@ -33,6 +36,17 @@ class Admin_NavigationController extends Zend_Controller_Action
         $this->serieMapper = new Author_Collection_SerieMapper($this->db);
         $this->postMapper = new Moxca_Blog_PostMapper($this->db);
         $this->blogTaxonomyMapper = new Moxca_Blog_TaxonomyMapper($this->db);
+        $this->collectionTaxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
+
+
+        $this->workTypesUris = array('1000' => "ate-3-anos",
+                            '2000' => "de-4-a-6-anos",
+                            '3000' => "de-7-a-9-anos",
+                            '4000' => "de-10-a-13-anos",
+                            '5000' => "acima-de-13-anos",
+
+
+        );
     }
 
     public function updateAction()
@@ -67,7 +81,30 @@ class Admin_NavigationController extends Zend_Controller_Action
             $serie = $this->addPage($worksPages, 'serie-' . $loopSerieObj->getUri(), $loopSerieObj->getName(), '/serie/' . $loopSerieObj->getUri());
         }
 
+        $themesModel = $this->collectionTaxonomyMapper->getAllThemesAlphabeticallyOrdered();
+        foreach ($themesModel as $termId => $termData) {
+            $termAndUri = $this->collectionTaxonomyMapper->getTermAndUri($termId);
+            $theme = $this->addPage($worksPages, 'keyword-' . $termAndUri['uri'], $termAndUri['term'], '/livros/tema/' . $termAndUri['uri']);
+        }
+
+        $types = new Ruth_Collection_WorkTypes();
+        $typesList = $types->AllTitles();
+        foreach ($typesList as $typeId => $typeData) {
+            $type = $this->addPage($worksPages, 'type-' . $typeId, $typeData, '/livros/' . $this->workTypesUris[$typeId]);
+        }
+
+        $charactersModel = $this->collectionTaxonomyMapper->getAllCharactersAlphabeticallyOrdered();
+
+        foreach ($charactersModel as $termId => $termData) {
+            $termAndUri = $this->collectionTaxonomyMapper->getTermAndUri($termId);
+            $character = $this->addPage($worksPages, 'keyword-' . $termAndUri['uri'], $termAndUri['term'], '/livros/personagem/' . $termAndUri['uri']);
+        }
+
+
+
+
         $this->addPage($pages, 'biography', $this->view->translate("#Biography"), $this->view->translate("/biography"));
+        $this->addPage($pages, 'contact', $this->view->translate("#Contact"), $this->view->translate("/contact"));
 
 
         $blog = $pages->addChild('blog');
