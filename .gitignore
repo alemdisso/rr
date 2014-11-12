@@ -25,9 +25,11 @@ library/Zend
 /application/*.php_
 /application/configs/_*.ini
 /public/js/jquery-1.10.2.js
+/public/js/tinymce/*
 /public/js/jquery.dataTables.js
 /public/img/editions/raw/*
 /public/img/special/*
+/public/img/up/*
 /application/_Bootstrap_staging.php
 /public/js/jquery.pajinate.min.js
 /public/js/jquery.pajinate.js

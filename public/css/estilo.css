@@ -91,7 +91,7 @@ a, a:visited {
 	color:#e2a715;
 	text-decoration:none;
 	}
-	
+
 .admin a {
 	color:#a7a76f;
 	text-decoration:none;
@@ -277,13 +277,13 @@ h4 {
 	border-top:10px solid #e2a715;
 	background:#febe20;
 	padding:15px 50px;
-	margin:0 0 30px 0;	
+	margin:0 0 30px 0;
 	}
 
 #breadcrumb_livros a, #breadcrumb_novidades a, #breadcrumb_biografia a, #breadcrumb_contato a {
-	color:#a7a76f!important;
+	color:#ffffff!important;
 	}
-	
+
 .admin div#breadcrumb_livros, .admin div#breadcrumb_novidades, .admin div#breadcrumb_biografia, .admin div#breadcrumb_contato {
 	background:#EAEABB;
 	border-top-color:#CBCB90;
@@ -292,7 +292,7 @@ h4 {
 	margin:0;
 	padding:15px 50px;
 	}
-	
+
 .admin div#breadcrumb_livros a, .admin div#breadcrumb_novidades a, .admin div#breadcrumb_biografia a, .admin div#breadcrumb_contato a {
 	color:#fff!important;
 	}
@@ -394,7 +394,7 @@ h4 {
 .detalhe span {
 	color:#cbcb90;
 	}
-	
+
 /* BUSCA BOX */
 li.ui-menu-item {
 	background:#FFFFFF;
@@ -403,7 +403,7 @@ li.ui-menu-item {
  	padding:10px;
 	width:300px;
 	}
-	
+
 li.ui-menu-item a {
 	font-size:13px;
 	cursor:pointer;
@@ -445,7 +445,7 @@ li.ui-menu-item a {
 	z-index:0;
 	bottom:0;
 	}
-	
+
 /* TABLES */
 table {
 	width:100%;
@@ -456,9 +456,9 @@ td {
 	padding:0;
 	text-align:center;
 	}
-	
+
 tr {
-	
+
 	}
 
 /* FORM */
@@ -473,7 +473,7 @@ input[type=text] {
 	width:380px;
 	margin:0 0 15px 0;
 	}
-	
+
 .admin input[type=text]  {
 	background:#EAEABB!important;
 	border:none;
@@ -500,7 +500,7 @@ input[type=submit], input[type=button] {
 	border-top:10px solid #0ba219;
 	cursor:pointer;
 	}
-	
+
 .admin input[type=password]  {
 	background:#EAEABB!important;
 	}
@@ -535,7 +535,7 @@ input[type=submit]:hover, input[type=button]:hover {
 .contato input[type=submit]:hover, .contato input[type=button]:hover {
 	background:#e2a715!important;
 	}
-	
+
 .admin input[type=submit], .admin input[type=button] {
 	background:#EAEABB!important;
 	border-top-color:#aaa!important;
@@ -563,7 +563,7 @@ select.pequeno {
 select.medio {
 	width:100px;
 	}
-	
+
 .admin select {
 	background:#ccc!important;
 	border:none;
@@ -581,7 +581,7 @@ textarea {
 	width:380px;
 	margin:0 0 15px 0;
 	}
-	
+
 .admin textarea {
 	background:#ccc!important;
 	border:none;
@@ -602,14 +602,14 @@ textarea {
 	width:220px;
 	margin:0 0 10px 0;
 	}
-	
+
 #lateral input[type=text] {
 	width:215px;
 	}
-	
+
 #lateral input[type=submit], #lateral input[type=button] {
 	display:none;
-	}	
+	}
 
 /* CLASSES */
 .clear_both {
@@ -726,7 +726,7 @@ img.float_right {
 	color:#3399cc;
 	padding:10px;
 	}*/
-	
+
 /*#admin {
 	width:920px;
 	margin:0 auto;
