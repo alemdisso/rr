@@ -204,6 +204,33 @@ class Admin_WorkController extends Zend_Controller_Action
         }
     }
 
+    public function createThemeAction()
+    {
+        // cria form
+        $form = new Author_Form_ThemeAdd;
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            $this->processAndRedirect($form);
+            return;
+        } else {
+            $data = $this->_request->getParams();
+            try {
+                $id = $this->view->checkIdFromGet($data);
+            } catch (Exception $e) {
+                throw $e;
+            }
+
+            $element = $form->getElement('id');
+            $element->setValue($id);
+
+            $workObj = $this->workMapper->findById($id);
+
+            $this->view->title = $workObj->getTitle();
+            $this->view->pageTitle = $this->view->translate("#Add theme");
+        }
+    }
+
     public function detailAction()
     {
 
@@ -275,7 +302,18 @@ class Admin_WorkController extends Zend_Controller_Action
         $prizeMapper = new Author_Collection_PrizeMapper($this->db);
         $prizesLabels = $this->view->workPrizesLabels($id, $prizeMapper);
 
-        $themeData = $this->view->TermAndUri($workObj->getTheme(), $this->taxonomyMapper);
+        $themes = $workObj->getThemes();
+
+        $themesData = array();
+        foreach ($themes as $k => $termId) {
+            $tempData = $this->view->TermAndUri($termId, $this->taxonomyMapper);
+            $themesData[] = array(
+                'id' => $workObj->getId(),
+                'term' => $tempData['term'],
+                'termId' => $termId,
+                );
+        }
+
 
         $characters = $workObj->getCharacters();
 
@@ -299,7 +337,8 @@ class Admin_WorkController extends Zend_Controller_Action
             'editions' => $editionsModel,
             'prizes' => $prizesLabels,
             'characters' => $charactersData,
-            'themeModel' => $themeData,
+            'themes' => $themesData,
+            //'themeModel' => $themeData,
         );
 
         $this->view->pageData = $data;
@@ -367,6 +406,60 @@ class Admin_WorkController extends Zend_Controller_Action
     public function removeCharacterAction()
     {
         $form = new Author_Form_CharacterRemove();
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            $postData = $this->getRequest()->getPost();
+            if ($form->isValid($postData)) {
+                $submitButton = $form->getUnfilteredValue('Submit');
+
+                if ($submitButton) {
+                    $workId = $form->process($postData);
+                    $this->_helper->getHelper('FlashMessenger')
+                        ->addMessage($this->view->translate('#The record was successfully removed.'));
+                    $this->_redirect('/admin/work/detail/?id=' . $workId);
+                } else {
+                    $workId = $postData['workId'];
+                    $this->_redirect('/admin/work/detail/?id=' . $workId);
+                }
+            } else {
+                //form error: populate and go back
+                $this->view->form = $form;
+            }
+        } else {
+            // GET
+
+            $data = $this->_request->getParams();
+            try {
+                $workId = $this->view->checkIdFromGet($data, 'object');
+                $termId = $this->view->checkIdFromGet($data, 'term');
+            } catch (Exception $e) {
+                throw $e;
+            }
+
+            $workData = array();
+            $workObj = $this->workMapper->findById($workId);
+            $element = $form->getElement('workId');
+            $element->setValue($workId);
+            $element = $form->getElement('termId');
+            $element->setValue($termId);
+
+            $tempData = $this->view->TermAndUri($termId, $this->taxonomyMapper);
+            $workData = array(
+                'id'   => $workId,
+                'title' => $workObj->getTitle(),
+                'term' => $tempData['term'],
+            );
+            $this->view->pageData = $workData;
+
+            $this->view->pageTitle = $this->view->translate("#Remove work");
+
+        }
+    }
+
+    public function removeThemeAction()
+    {
+        $form = new Author_Form_ThemeRemove();
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {

@@ -44,7 +44,12 @@ class Works_EditionController extends Zend_Controller_Action
         $converter = new Moxca_Util_StringToAscii();
         $sanitizedTypeLabel = $converter->toAscii($typeLabel);
 
-        $themeData = $this->view->TermAndUri($workObj->getTheme(), $this->taxonomyMapper);
+        $themes = $workObj->getThemes();
+        foreach($themes as $k => $eachTheme) {
+            $themeData[$k] = $this->view->TermAndUri($eachTheme, $this->taxonomyMapper);
+        }
+
+//        $themeData = $this->view->TermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 
         $isbn = $editionObj->getIsbn();
         if ($isbn != "") {
@@ -101,8 +106,9 @@ class Works_EditionController extends Zend_Controller_Action
             'title' => $workTitle,
             'typeLabel' => $typeLabel,
             'sanitizedTypeLabel' => $sanitizedTypeLabel,
-            'themeLabel' => $themeData['term'],
-            'themeUri' => $themeData['uri'],
+            'themeData' => $themeData,
+//            'themeLabel' => $themeData['term'],
+//            'themeUri' => $themeData['uri'],
             'mediumImageUri' => $coverFilePath,
             'editorName' => $editorLabel,
             'description' => nl2br($workObj->getDescription()),

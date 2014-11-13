@@ -14,9 +14,11 @@ $pageData = $this->pageData;
     <p><?php echo $pageData['summary']?></p>
     <p> <a href="/admin/work/change-summary/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#(change summary)") ?></a></p>
 
-    <h3><?php echo $this->translate('#Theme')?></h3>
-    <p><?php echo $pageData['themeModel']['term']?></p>
-    <p><a href="/admin/work/change-theme/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#Change theme") ?></a></p>
+    <h3><?php echo $this->translate('#Themes')?></h3>
+    <?php if ((is_array($pageData['themes']))&&(count($pageData['themes']))) { ?>
+    <?php echo $this->themesLoop($pageData['themes']) ?>
+    <?php } ?>
+    <p><a href="/admin/work/create-theme/?id=<?php echo $pageData['id'] ?>"><?php echo $this->translate("#Add theme") ?></a></p>
 
     <h3><?php echo $this->translate('#Characters')?></h3>
     <?php if ((is_array($pageData['characters']))&&(count($pageData['characters']))) { ?>
