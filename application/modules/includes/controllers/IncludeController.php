@@ -63,7 +63,6 @@ class Includes_IncludeController extends Zend_Controller_Action
                     'term' => $themeData['term'],
                 );
         }
-        //print_r($charactersModel);exit;
 
         $seriesList = $this->serieMapper->getAllSeriesAlphabeticallyOrdered();
         $seriesModel = array();

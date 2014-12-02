@@ -8,8 +8,8 @@ $serieData = $pageData['serieData'];
 
 <!-- detalhes -->
 <div class="detalhe">
-<?php if ((isset($pageData['themeData'])) && ($pageData['themeData'])) { ?>
 <?php $sep = ""; ?>
+<?php if ((isset($pageData['themeData'])) && ($pageData['themeData'])) { ?>
 <?php echo $this->translate('#Theme:') ?>
 <?php foreach($pageData['themeData'] as $theme) { ?>
 <?php echo $sep; ?>

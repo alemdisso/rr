@@ -45,6 +45,7 @@ class Works_EditionController extends Zend_Controller_Action
         $sanitizedTypeLabel = $converter->toAscii($typeLabel);
 
         $themes = $workObj->getThemes();
+        $themeData = array();
         foreach($themes as $k => $eachTheme) {
             $themeData[$k] = $this->view->TermAndUri($eachTheme, $this->taxonomyMapper);
         }
