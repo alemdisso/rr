@@ -1,0 +1,127 @@
+<?php
+$pageData = $this->pageData;
+//print_r ($pageData['seriesList']);die();
+?>
+
+<!-- box filtro -->
+<h2><?php echo $this->translate("#Filter by:") ?></h2>
+
+<form>
+<label><?php echo $this->translate("#Theme") ?></label>
+<select class="busca" id="select-theme">
+<option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
+<?php echo $this->filterThemes($pageData['themesList']) ?>
+</select>
+
+<script>
+  $("#select-theme").on("change", function(){
+    var termUri = $(this).children("option:selected").val();
+    var url = '<?php echo $this->translate("/editions") ?><?php echo $this->translate("/theme") ?>/' + termUri;
+    window.location.href = url;
+
+  });
+</script>
+
+<!--<label><?php echo $this->translate("#Age") ?></label>
+<select class="busca" id="select-type">
+<option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
+<?php echo $this->filterTypes($pageData['typesList']) ?>
+</select>
+
+<script>
+  $("#select-type").on("change", function(){
+    var types = Array();
+    types[1000] = "ate-3-anos";
+    types[2000] = "de-4-a-6-anos";
+    types[3000] = "de-7-a-9-anos";
+    types[4000] = "de-10-a-13-anos";
+    types[5000] = "acima-de-13-anos";
+    //types[2000] = "adultos";
+
+    var typeIndex = $(this).val();
+    var url = '<?php echo $this->translate("/editions") ?>/' + types[typeIndex];
+    window.location.href = url;
+
+  });
+</script>-->
+
+<!--<label><?php echo $this->translate("#Character") ?></label>
+<select class="busca" id="select-character">
+<option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
+<?php echo $this->filterCharacters($pageData['charactersList']) ?>
+</select>
+
+<script>
+  $("#select-character").on("change", function(){
+    var termUri = $(this).children("option:selected").val();
+    var url = '<?php echo $this->translate("/editions") ?><?php echo $this->translate("/character") ?>/' + termUri;
+    window.location.href = url;
+
+  });
+</script>
+-->
+<label><?php echo $this->translate("#Serie") ?></label>
+<select class="busca" id="select-serie">
+<option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
+<?php echo $this->filterSeries($pageData['seriesList']) ?>
+</select>
+
+<script>
+  $("#select-serie").on("change", function(){
+    var termUri = $(this).children("option:selected").val();
+    var url = '<?php echo $this->translate("/serie") ?>/' + termUri;
+    window.location.href = url;
+
+  });
+</script>
+
+</form>
+<!-- /box filtro -->
+
+<br />
+
+<!-- box busca -->
+<h2>Busca de livros:</h2>
+<!--<p><small>Use o campo abaixo e depois clique em um dos livros sugeridos</small>
+    </p>-->
+<form>
+<input type="text" id="search_topic" class="display_block float_left" /><input type="button" value="Ok" class="display_block float_right" />
+</form>
+<!-- /box busca -->
+
+
+<script>
+$(document).ready(function() {
+    $("#submitSearch").click(function(){
+
+    });
+});
+
+$(function() {
+
+    $("#search_topic").autocomplete({
+        source: "/works/index/autocomplete",
+        minLength: 2,
+        select: function(event, ui) {
+            var url = ui.item.id;
+            if(url != '#') {
+                location.href = '/livro/' + url;
+            }
+        },
+
+        html: true, // optional (jquery.ui.autocomplete.html.js required)
+
+      // optional (if other layers overlap autocomplete list)
+        open: function(event, ui) {
+            $(".ui-autocomplete").css("z-index", 1000);
+        }
+    });
+
+});
+
+
+</script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.autocomplete.html.js"></script>
+

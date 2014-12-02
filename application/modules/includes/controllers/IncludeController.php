@@ -91,6 +91,45 @@ class Includes_IncludeController extends Zend_Controller_Action
 
     }
 
+    public function filterHomeAction()
+    {
+        $this->initDbAndMappers();
+
+        $themesList = $this->taxonomyMapper->getAllThemesAlphabeticallyOrdered();
+        $themesModel = array();
+        foreach ($themesList as $id => $themeData) {
+            $themesModel[$id] = array(
+                    'id' => $id,
+                    'uri' => $themeData['uri'],
+                    'term' => $themeData['term'],
+                );
+        }
+
+        $seriesList = $this->serieMapper->getAllSeriesAlphabeticallyOrdered();
+        $seriesModel = array();
+
+        $converter = new Moxca_Util_StringToAscii();
+        foreach ($seriesList as $id => $themeData) {
+            $sanitized = $converter->toAscii($themeData);
+            $seriesModel[$id] = array(
+                    'id' => $id,
+                    'term' => $themeData,
+                    'sanitized' => $sanitized
+                );
+        }
+
+
+        $pageData = array(
+            'themesList' => $themesModel,
+            'seriesList' => $seriesModel,
+            );
+
+        $this->view->pageData = $pageData;
+
+
+
+    }
+
     public function searchAction()
     {
 
