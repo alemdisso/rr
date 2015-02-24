@@ -7,6 +7,22 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.pajinate.js"></script>
 
+<?php
+    $controllerName =  $controller->getRequest()->getControllerName();
+    $actionName = $controller->getRequest()->getActionName();
+    if (($controllerName == 'edition') && ($actionName == 'explore')) {
+
+        echo $this->headScript()->prependFile($this->baseUrl('js/shadowbox/shadowbox.js'));
+        echo $this->headLink()->prependStylesheet($this->baseUrl('css/shadowbox.css'));
+?>
+<script type="text/javascript">
+Shadowbox.init();
+</script>
+<?php
+    }
+
+?>
+
 <!-- header -->
 <?php echo $this->action('header', 'include', 'includes') ?>
 <!-- /header -->

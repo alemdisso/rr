@@ -3,8 +3,18 @@ $pageData = $this->pageData;
 //print_r ($pageData['seriesList']);die();
 ?>
 
+<!-- box busca -->
+<h2>Busca de livros:</h2>
+<!--<p><small>Use o campo abaixo e depois clique em um dos livros sugeridos</small>
+    </p>-->
+<form id="search_home">
+<input type="text" id="search_topic" class="display_block float_left" /><input type="button" value="Ok" class="display_block float_right" />
+</form>
+<!-- /box busca -->
+
 <!-- box filtro -->
-<h2><?php echo $this->translate("#Filter by:") ?></h2>
+<div style='clear:both'></div>
+<h2><?php echo $this->translate("#Or filter by:") ?></h2>
 
 <form>
 <label><?php echo $this->translate("#Theme") ?></label>
@@ -77,18 +87,6 @@ $pageData = $this->pageData;
 
 </form>
 <!-- /box filtro -->
-
-<br />
-
-<!-- box busca -->
-<h2>Busca de livros:</h2>
-<!--<p><small>Use o campo abaixo e depois clique em um dos livros sugeridos</small>
-    </p>-->
-<form>
-<input type="text" id="search_topic" class="display_block float_left" /><input type="button" value="Ok" class="display_block float_right" />
-</form>
-<!-- /box busca -->
-
 
 <script>
 $(document).ready(function() {

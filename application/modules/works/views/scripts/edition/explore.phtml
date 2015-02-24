@@ -26,7 +26,7 @@ $serieData = $pageData['serieData'];
 <!-- /detalhes -->
 
 <!--<p><img src="/img/marcacao_livro_detalhe.jpg" class="float_left" /><strong>&Aacute;tica, 2000</strong></p>-->
-<p><a href="<?php echo $pageData['mediumImageUri']?>"><?php $this->exploreCover($pageData['mediumImageUri']) ?></a></p>
+<p><a href="<?php echo $pageData['mediumImageUri']?>" rel="shadowbox"><?php $this->exploreCover($pageData['mediumImageUri']) ?></a></p>
 <p><?php echo $pageData['description']?></p>
 
 <p>
@@ -50,7 +50,6 @@ $serieData = $pageData['serieData'];
 <?php } ?>
 
 </p>
-
 <!--
 <form>
 <input type="submit" value="Comprar online" />

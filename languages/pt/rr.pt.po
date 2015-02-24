@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruth\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-13 16:52-0300\n"
-"PO-Revision-Date: 2014-11-13 16:55-0300\n"
+"POT-Creation-Date: 2015-02-09 16:41-0300\n"
+"PO-Revision-Date: 2015-02-09 17:01-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: Português\n"
@@ -66,6 +66,10 @@ msgstr "Mudar série"
 #: application\modules/admin/controllers/EditionController.php:271
 #: application\modules/admin/controllers/SerieController.php:135
 #: application\modules/includes/views/scripts/include/blog-filter.phtml:12
+#: application\modules/includes/views/scripts/include/filter-home.phtml:21
+#: application\modules/includes/views/scripts/include/filter-home.phtml:36
+#: application\modules/includes/views/scripts/include/filter-home.phtml:59
+#: application\modules/includes/views/scripts/include/filter-home.phtml:74
 #: application\modules/includes/views/scripts/include/filter.phtml:12
 #: application\modules/includes/views/scripts/include/filter.phtml:27
 #: application\modules/includes/views/scripts/include/filter.phtml:50
@@ -192,12 +196,12 @@ msgid "#Change type"
 msgstr "Mudar tipo"
 
 #: application\modules/admin/controllers/WorkController.php:203
-#: application\modules/admin/views/scripts/work/detail.phtml:27
+#: application\modules/admin/views/scripts/work/detail.phtml:23
 msgid "#Add character"
 msgstr "Inserir personagem"
 
 #: application\modules/admin/controllers/WorkController.php:230
-#: application\modules/admin/views/scripts/work/detail.phtml:21
+#: application\modules/admin/views/scripts/work/detail.phtml:17
 msgid "#Add theme"
 msgstr "Acrescentar tema"
 
@@ -227,17 +231,17 @@ msgstr "Acesso negado"
 msgid "#Not published"
 msgstr "Não publicado"
 
-#: application\modules/works/controllers/EditionController.php:56
+#: application\modules/works/controllers/EditionController.php:57
 #, php-format
 msgid "#ISBN: %s"
 msgstr "ISBN: %s"
 
-#: application\modules/works/controllers/EditionController.php:63
+#: application\modules/works/controllers/EditionController.php:64
 #, php-format
 msgid "#%s pages"
 msgstr "%s páginas"
 
-#: application\modules/works/controllers/EditionController.php:86
+#: application\modules/works/controllers/EditionController.php:87
 #: library\Author/Form/EditionCreate.php:148
 #: library\Author/Form/IllustratorChange.php:21
 #: library\Ruth/Form/EditionCreate.php:148
@@ -245,7 +249,7 @@ msgstr "%s páginas"
 msgid "#Illustrator:"
 msgstr "Ilustração:"
 
-#: application\modules/works/controllers/EditionController.php:91
+#: application\modules/works/controllers/EditionController.php:92
 #: library\Author/Form/CoverDesignerChange.php:23
 #: library\Author/Form/EditionCreate.php:162
 #: library\Ruth/Form/EditionCreate.php:162
@@ -253,11 +257,11 @@ msgstr "Ilustração:"
 msgid "#Cover designer:"
 msgstr "Design da capa:"
 
-#: application\modules/works/controllers/EditionController.php:96
+#: application\modules/works/controllers/EditionController.php:97
 msgid "#Editor:"
 msgstr "Editora:"
 
-#: application\modules/works/controllers/EditionController.php:130
+#: application\modules/works/controllers/EditionController.php:131
 #, php-format
 msgid "#Exploring %s"
 msgstr "%s"
@@ -1458,7 +1462,7 @@ msgid "#Essay"
 msgstr "Ensaios"
 
 #: library\Author/Form/CharacterAdd.php:31
-#: application\modules/admin/views/scripts/work/detail.phtml:23
+#: application\modules/admin/views/scripts/work/detail.phtml:19
 msgid "#Characters"
 msgstr "Personagens"
 
@@ -1507,6 +1511,7 @@ msgstr "Resumo:"
 #: library\Author/Form/EditionCreate.php:108
 #: library\Author/Form/SerieChange.php:20
 #: library\Ruth/Form/EditionCreate.php:108
+#: application\modules/includes/views/scripts/include/filter-home.phtml:72
 #: application\modules/includes/views/scripts/include/filter.phtml:63
 msgid "#Serie"
 msgstr "Série:"
@@ -1547,7 +1552,7 @@ msgid "#Year:"
 msgstr "Ano:"
 
 #: library\Author/Form/ThemeAdd.php:31
-#: application\modules/admin/views/scripts/work/detail.phtml:17
+#: application\modules/admin/views/scripts/work/detail.phtml:13
 msgid "#Themes"
 msgstr "Temas"
 
@@ -1556,6 +1561,7 @@ msgid "#New theme:"
 msgstr "Criar tema"
 
 #: library\Author/Form/ThemeChange.php:31
+#: application\modules/includes/views/scripts/include/filter-home.phtml:19
 #: application\modules/includes/views/scripts/include/filter.phtml:10
 msgid "#Theme"
 msgstr "Tema"
@@ -1745,7 +1751,11 @@ msgstr "Você confirma a remoção do post \"%s\"? Isso NÂO pode ser desfeito."
 msgid "#Create theme"
 msgstr "Criar tema"
 
-#: application\modules/admin/views/scripts/work/change-description.phtml:1
+#: application\modules/admin/views/scripts/work/change-description.phtml:2
+#, php-format
+msgid "#Change description for %s"
+msgstr "Criar descrição para %s"
+
 #: application\modules/admin/views/scripts/work/change-summary.phtml:2
 #, php-format
 msgid "#Change summary for %s"
@@ -1793,27 +1803,19 @@ msgstr "Descrição"
 msgid "#(change description)"
 msgstr "(mudar descrição)"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:13
-msgid "#Summary"
-msgstr "Resumo"
-
-#: application\modules/admin/views/scripts/work/detail.phtml:15
-msgid "#(change summary)"
-msgstr "(mudar resumo)"
-
-#: application\modules/admin/views/scripts/work/detail.phtml:29
+#: application\modules/admin/views/scripts/work/detail.phtml:25
 msgid "#Prizes"
 msgstr "Prêmios"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:33
+#: application\modules/admin/views/scripts/work/detail.phtml:29
 msgid "#Add prize"
 msgstr "Incluir prêmio"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:37
+#: application\modules/admin/views/scripts/work/detail.phtml:33
 msgid "#Editions.admin"
 msgstr "Edições"
 
-#: application\modules/admin/views/scripts/work/detail.phtml:42
+#: application\modules/admin/views/scripts/work/detail.phtml:38
 msgid "#(remove this work!)"
 msgstr "(remover!)"
 
@@ -1839,7 +1841,7 @@ msgstr "(ir para a página)"
 msgid "#Remove character"
 msgstr "Remover personagem:"
 
-#: application\modules/admin/views/scripts/work/remove-character.phtml:8
+#: application\modules/admin/views/scripts/work/remove-character.phtml:7
 #, php-format
 msgid "#Do you confirm removal of character %s from %s? This CAN'T be undone."
 msgstr ""
@@ -1850,14 +1852,14 @@ msgstr ""
 msgid "#Remove theme"
 msgstr "Remover tema"
 
-#: application\modules/admin/views/scripts/work/remove-theme.phtml:8
+#: application\modules/admin/views/scripts/work/remove-theme.phtml:7
 #, php-format
 msgid "#Do you confirm removal of theme %s from %s? This CAN'T be undone."
 msgstr ""
 "Você confirma a remoção do tema \"%s\" do livro %s? Isso NÂO pode ser "
 "desfeito."
 
-#: application\modules/admin/views/scripts/work/remove.phtml:8
+#: application\modules/admin/views/scripts/work/remove.phtml:7
 #, php-format
 msgid ""
 "#Do you confirm removal of work %s (and all its editions)? This CAN'T be "
@@ -1902,10 +1904,13 @@ msgstr "Categorias"
 msgid "#In the press"
 msgstr "Na imprensa"
 
-#: application\modules/includes/views/scripts/include/filter.phtml:7
-msgid "#Filter by:"
-msgstr "Livros por:"
+#: application\modules/includes/views/scripts/include/filter-home.phtml:16
+msgid "#Or filter by:"
+msgstr "Ou filtre por:"
 
+#: application\modules/includes/views/scripts/include/filter-home.phtml:28
+#: application\modules/includes/views/scripts/include/filter-home.phtml:51
+#: application\modules/includes/views/scripts/include/filter-home.phtml:66
 #: application\modules/includes/views/scripts/include/filter.phtml:19
 #: application\modules/includes/views/scripts/include/filter.phtml:42
 #: application\modules/includes/views/scripts/include/filter.phtml:57
@@ -1914,28 +1919,37 @@ msgstr "Livros por:"
 msgid "/editions"
 msgstr "/livros"
 
+#: application\modules/includes/views/scripts/include/filter-home.phtml:28
 #: application\modules/includes/views/scripts/include/filter.phtml:19
 #: application\modules/works/views/scripts/edition/explore.phtml:16
 msgid "/theme"
 msgstr "/tema"
 
+#: application\modules/includes/views/scripts/include/filter-home.phtml:34
 #: application\modules/includes/views/scripts/include/filter.phtml:25
 msgid "#Age"
 msgstr "Idade"
 
+#: application\modules/includes/views/scripts/include/filter-home.phtml:57
 #: application\modules/includes/views/scripts/include/filter.phtml:48
 msgid "#Character"
 msgstr "Personagem"
 
+#: application\modules/includes/views/scripts/include/filter-home.phtml:66
 #: application\modules/includes/views/scripts/include/filter.phtml:57
 msgid "/character"
 msgstr "/personagem"
 
+#: application\modules/includes/views/scripts/include/filter-home.phtml:81
 #: application\modules/includes/views/scripts/include/filter.phtml:72
 #: application\modules/works/views/scripts/edition/edition-serie.phtml:3
 #: application\modules/works/views/scripts/edition/explore.phtml:34
 msgid "/serie"
 msgstr "/serie"
+
+#: application\modules/includes/views/scripts/include/filter.phtml:7
+msgid "#Filter by:"
+msgstr "Livros por:"
 
 #: application\modules/includes/views/scripts/include/header-login.phtml:12
 #: application\modules/includes/views/scripts/include/header.phtml:11
@@ -1996,6 +2010,12 @@ msgstr "%s"
 #: application\modules/works/views/scripts/index/index.phtml:102
 msgid "#There are no works with this criteria."
 msgstr "Não foram encontrados livros com esse critério."
+
+#~ msgid "#Summary"
+#~ msgstr "Resumo"
+
+#~ msgid "#(change summary)"
+#~ msgstr "(mudar resumo)"
 
 #~ msgid "#Change theme"
 #~ msgstr "Mudar tema"
