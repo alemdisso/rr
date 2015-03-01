@@ -25,11 +25,17 @@ $serieData = $pageData['serieData'];
 </div>
 <!-- /detalhes -->
 
+
+<div class="clearfix">
+
+<!-- coluna 1 -->
+<div class="float_left" style="width:250px;">
+
+
 <!--<p><img src="/img/marcacao_livro_detalhe.jpg" class="float_left" /><strong>&Aacute;tica, 2000</strong></p>-->
 <p><a href="<?php echo $pageData['mediumImageUri']?>" rel="shadowbox"><?php $this->exploreCover($pageData['mediumImageUri']) ?></a></p>
-<p><?php echo $pageData['description']?></p>
 
-<p>
+<p class="info_livro">
 <?php if ((isset($serieData['name'])) && ($serieData['name'])) { ?>
 <?php echo $this->translate("#Serie:")?> <a href="<?php echo $this->translate("/serie") ?>/<?php echo $serieData['uri']?>"><?php echo  $serieData['name'] ?></a><br />
 <?php } ?>
@@ -55,6 +61,17 @@ $serieData = $pageData['serieData'];
 <input type="submit" value="Comprar online" />
 </form>
 -->
+</div>
+<!-- /coluna 1 -->
+
+<!-- coluna 2 -->
+<div class="float_right" style="width:290px;">
+<p><?php echo $pageData['description']?></p>
+</div>
+<!-- /coluna 2 -->
+
+</div>
+
 
 <?php $this->editionSerie($pageData['serieData']) ?>
 </div>
