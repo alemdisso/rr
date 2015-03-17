@@ -5,6 +5,7 @@ class Works_EditionController extends Zend_Controller_Action
     private $editorMapper;
     private $editionMapper;
     private $taxonomyMapper;
+    private $keywords;
     private $db;
 
     public function postDispatch()
@@ -129,7 +130,14 @@ class Works_EditionController extends Zend_Controller_Action
 
         $this->view->pageData = $pageData;
         $this->view->pageTitle = sprintf($this->view->translate("#Exploring %s"), $workTitle);
-        $keywords = $workObj->getTitle() . ", " . $this->view->keywords;
+        $taxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
+        $keywordsLabels = $this->view->workThemesLabels($workObj->getId(), $taxonomyMapper);
+        $stringKeywords="";
+        foreach($keywordsLabels as $labelArray) {
+            $stringKeywords .= ', ' . $labelArray['label'];
+        }
+
+        $keywords = $workObj->getTitle() . $stringKeywords . ", " . $this->view->keywords;
 
         $this->view->keywords = $keywords;
 

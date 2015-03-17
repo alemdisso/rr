@@ -980,6 +980,10 @@ div.dataTables_filter {
     font-size: 16px;
 }
 
+.ui-helper-hidden-accessible {
+    display: none;
+}
+
 /* IE 6 doesn't support max-height
 * we use height instead, but this forces the menu to always be this tall
 */
@@ -1008,6 +1012,4 @@ div.dataTables_filter {
 #paginas_biografia .page_navigation , .alt_page_navigation{
 	padding-left: 0px;
 }
-
-
 
