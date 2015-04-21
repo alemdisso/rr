@@ -102,6 +102,17 @@ class Works_EditionController extends Zend_Controller_Action
                 , new Author_Collection_SerieMapper($this->db)
                 , $this->editionMapper);
 
+
+        $this->_helper->layout()->getView()->doctype(Zend_View_Helper_Doctype::XHTML1_RDFA);
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:title', $workTitle);
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:url', $this->_helper->layout()->getView()->currentUrl());
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:type', 'website');
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:site_name', 'Ruth Rocha');
+        $this->_helper->layout()->getView()->headMeta()->setProperty('fb:admins', '100000378824805');
+
+
+
+
         $pageData = array(
             'edition' => $editionObj,
             'editionMapper' => $this->editionMapper,

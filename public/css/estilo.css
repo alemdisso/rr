@@ -326,6 +326,42 @@ h4 {
 	border:2px solid #fff9cb;
 	}
 
+.novidades .img_legenda.legenda, .legenda {
+font-style: italic;
+font-size: 0.85rem;
+width: 90%;
+//margin: 0.5rem 1 0.5rem 1rem;
+float: left;
+padding-left: 0.5rem;
+}
+
+.novidades #conteudo #explore img[align="left"],
+.novidades #conteudo #explore img[style*="float: left"],
+.novidades #conteudo #explore img[style*="float:left"] {
+   	margin: 0px 12px 6px 0;
+	}
+
+.novidades #conteudo #explore img[align="right"],
+.novidades #conteudo #explore img[style*="float: right"],
+.novidades #conteudo #explore img[style*="float:right"] {
+    	margin: 0px 0 6px 12px;
+	}
+
+.novidades .item img {
+    	margin: 6px 6px 6px 12px;
+	}
+
+.novidades .item img[align="left"],
+.novidades .item img[style*="float: left"],
+.novidades .item img[style*="float:left"] {
+   	margin: 6px 12px 6px 0;
+	}
+
+.novidades .item img[align="right"],
+.novidades .item img[style*="float: right"],
+.novidades .item img[style*="float:right"] {
+    	margin: 6px 0 6px 12px;
+	}
 
 
 .box {

@@ -56,6 +56,17 @@ class Blog_PostController extends Zend_Controller_Action
             'categoryModel' => $categoryData,
         );
 
+
+
+        $this->_helper->layout()->getView()->doctype(Zend_View_Helper_Doctype::XHTML1_RDFA);
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:title', $postTitle);
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:url', $this->_helper->layout()->getView()->currentUrl());
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:type', 'website');
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:site_name', 'Ruth Rocha');
+        $this->_helper->layout()->getView()->headMeta()->setProperty('fb:admins', '100000378824805');
+
+
+
         $this->view->pageData = $pageData;
         $this->view->pageTitle = $postTitle;
     }
