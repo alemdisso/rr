@@ -7,7 +7,8 @@ class Blog_View_Helper_CategoryHrefTerm extends Zend_View_Helper_Abstract
         try {
             $term = $model['term'];
             $uri = $model['uri'];
-            return "<a href='/blog/index/category/$uri' title='$term'><strong>$term</strong></a>";
+            $path = $this->view->translate("/news-about");
+            return "<a href='$path/$uri' title='$term'><strong>$term</strong></a>";
         } catch (Exception $e) {
             throw $e;
         }

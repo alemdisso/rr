@@ -5,6 +5,7 @@ class Works_EditionController extends Zend_Controller_Action
     private $editorMapper;
     private $editionMapper;
     private $taxonomyMapper;
+    private $keywords;
     private $db;
 
     public function postDispatch()
@@ -44,7 +45,13 @@ class Works_EditionController extends Zend_Controller_Action
         $converter = new Moxca_Util_StringToAscii();
         $sanitizedTypeLabel = $converter->toAscii($typeLabel);
 
-        $themeData = $this->view->TermAndUri($workObj->getTheme(), $this->taxonomyMapper);
+        $themes = $workObj->getThemes();
+        $themeData = array();
+        foreach($themes as $k => $eachTheme) {
+            $themeData[$k] = $this->view->TermAndUri($eachTheme, $this->taxonomyMapper);
+        }
+
+//        $themeData = $this->view->TermAndUri($workObj->getTheme(), $this->taxonomyMapper);
 
         $isbn = $editionObj->getIsbn();
         if ($isbn != "") {
@@ -95,14 +102,26 @@ class Works_EditionController extends Zend_Controller_Action
                 , new Author_Collection_SerieMapper($this->db)
                 , $this->editionMapper);
 
+
+        $this->_helper->layout()->getView()->doctype(Zend_View_Helper_Doctype::XHTML1_RDFA);
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:title', $workTitle);
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:url', $this->_helper->layout()->getView()->currentUrl());
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:type', 'website');
+        $this->_helper->layout()->getView()->headMeta()->setProperty('og:site_name', 'Ruth Rocha');
+        $this->_helper->layout()->getView()->headMeta()->setProperty('fb:admins', '100000378824805');
+
+
+
+
         $pageData = array(
             'edition' => $editionObj,
             'editionMapper' => $this->editionMapper,
             'title' => $workTitle,
             'typeLabel' => $typeLabel,
             'sanitizedTypeLabel' => $sanitizedTypeLabel,
-            'themeLabel' => $themeData['term'],
-            'themeUri' => $themeData['uri'],
+            'themeData' => $themeData,
+//            'themeLabel' => $themeData['term'],
+//            'themeUri' => $themeData['uri'],
             'mediumImageUri' => $coverFilePath,
             'editorName' => $editorLabel,
             'description' => nl2br($workObj->getDescription()),
@@ -122,7 +141,14 @@ class Works_EditionController extends Zend_Controller_Action
 
         $this->view->pageData = $pageData;
         $this->view->pageTitle = sprintf($this->view->translate("#Exploring %s"), $workTitle);
-        $keywords = $workObj->getTitle() . ", " . $this->view->keywords;
+        $taxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
+        $keywordsLabels = $this->view->workThemesLabels($workObj->getId(), $taxonomyMapper);
+        $stringKeywords="";
+        foreach($keywordsLabels as $labelArray) {
+            $stringKeywords .= ', ' . $labelArray['label'];
+        }
+
+        $keywords = $workObj->getTitle() . $stringKeywords . ", " . $this->view->keywords;
 
         $this->view->keywords = $keywords;
 

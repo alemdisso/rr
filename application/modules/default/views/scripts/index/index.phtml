@@ -1,7 +1,35 @@
 <?php
 $pageData = $this->pageData;
 ?>
+
+<!-- destaque -->
+<div id="destaque">
+
+<div id="banner-fade">
+
+<ul class="bjqs">
+  <li><a href="/novidades/ruth-rocha-completa-45-anos-de-carreira"><img src="img/banner_45anos.jpg"></a></li>
+  <li><a href="/novidades/livros-biografia-e-muito-mais-sobre-ruth-rocha"><img src="img/banners_novosite.jpg"></a></li>
+</ul>
+
+</div>
+
+<script class="secret-source">
+jQuery(document).ready(function($) {
+
+  $('#banner-fade').bjqs({
+    height      : 430,
+    width       : 990,
+    responsive  : true
+  });
+
+});
+</script>
+
+</div>
+<!-- /destaque -->
+
 <div id="conteudo" class="clearfix" style="width:585px;">
 <div class="box2 clearfix float_left box_home"><?php echo $this->action('featured-book', 'include', 'includes') ?></div>
-<div class="box clearfix float_right box_home"><?php echo $this->action('filter', 'include', 'includes') ?></div>
+<div class="box clearfix float_right box_home"><?php echo $this->action('filter-home', 'include', 'includes') ?></div>
 </div>

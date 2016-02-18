@@ -4,6 +4,8 @@
   $controller->setParam('outerModule', $request->getModuleName());
   $params = $controller->getParams();
 ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.pajinate.js"></script>
 
 <!-- header -->
 <?php echo $this->action('header', 'include', 'includes') ?>
@@ -34,6 +36,7 @@
 <br /><br /><br />
 <div title="" id="rodape_container" class="clearfix" style="background:url(/img/personagens/biografia.png) bottom center no-repeat">
 <?php echo $this->action('footer', 'include', 'includes') ?>
+<?php echo $this->panel() ?>
 </div>
 <!-- /rodape -->
 

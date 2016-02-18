@@ -8,20 +8,34 @@ $serieData = $pageData['serieData'];
 
 <!-- detalhes -->
 <div class="detalhe">
-<?php if ((isset($pageData['themeLabel'])) && ($pageData['themeLabel'])) { ?>
-<?php echo $this->translate('#Theme:') ?> <a href="<?php echo $this->translate('/editions') ?><?php echo $this->translate('/theme') ?>/<?php echo $pageData['themeUri'] ?>"><?php echo $pageData['themeLabel'] ?></a> <span>|</span>
+<?php $sep = ""; ?>
+<?php if ((isset($pageData['themeData'])) && ($pageData['themeData'])) { ?>
+<?php echo $this->translate('#Theme:') ?>
+<?php foreach($pageData['themeData'] as $theme) { ?>
+<?php echo $sep; ?>
+    <a href="<?php echo $this->translate('/editions') ?><?php echo $this->translate('/theme') ?>/<?php echo $theme['uri'] ?>"><?php echo $theme['term'] ?></a>
+<?php
+    $sep = '<span>|</span> ';
+    } ?>
 <?php } ?>
 <?php if ((isset($pageData['typeLabel'])) && ($pageData['typeLabel'])) { ?>
+<?php echo $sep; ?>
 <?php echo $this->translate('#Age:') ?> <a href="<?php echo $this->translate('/editions') ?>/<?php echo $pageData['sanitizedTypeLabel'] ?>"><?php echo $pageData['typeLabel'] ?></a>
 <?php } ?>
 </div>
 <!-- /detalhes -->
 
-<!--<p><img src="/img/marcacao_livro_detalhe.jpg" class="float_left" /><strong>&Aacute;tica, 2000</strong></p>-->
-<p><a href="<?php echo $pageData['mediumImageUri']?>"><?php $this->exploreCover($pageData['mediumImageUri']) ?></a></p>
-<p><?php echo $pageData['description']?></p>
 
-<p>
+<div class="clearfix">
+
+<!-- coluna 1 -->
+<div class="float_left" style="width:250px;">
+
+
+<!--<p><img src="/img/marcacao_livro_detalhe.jpg" class="float_left" /><strong>&Aacute;tica, 2000</strong></p>-->
+<p><a href="<?php echo $pageData['mediumImageUri']?>" rel="shadowbox"><?php $this->exploreCover($pageData['mediumImageUri']) ?></a></p>
+
+<p class="info_livro">
 <?php if ((isset($serieData['name'])) && ($serieData['name'])) { ?>
 <?php echo $this->translate("#Serie:")?> <a href="<?php echo $this->translate("/serie") ?>/<?php echo $serieData['uri']?>"><?php echo  $serieData['name'] ?></a><br />
 <?php } ?>
@@ -42,12 +56,22 @@ $serieData = $pageData['serieData'];
 <?php } ?>
 
 </p>
-
 <!--
 <form>
 <input type="submit" value="Comprar online" />
 </form>
 -->
+</div>
+<!-- /coluna 1 -->
+
+<!-- coluna 2 -->
+<div class="float_right" style="width:290px;">
+<p><?php echo $pageData['description']?></p>
+</div>
+<!-- /coluna 2 -->
+
+</div>
+
 
 <?php $this->editionSerie($pageData['serieData']) ?>
 </div>

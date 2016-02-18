@@ -5,7 +5,7 @@ $postsList = $pageData['postsList'];
 <script>
 $(function() {
       $('#Posts').dataTable( {
-         "iDisplayLength": -1,
+         "iDisplayLength": 10,
          "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Todos"]],
 	 "sPaginationType": "full_numbers",
         "oLanguage": {
@@ -37,7 +37,7 @@ $(function() {
 <!-- conteudo -->
 <div id="conteudo">
 <h1><?php echo $this->translate("#List of posts") ?></h1>
-<div id="container" style="width:800px; margin:0 auto;">
+<div id="container" style="width:860px; margin:0 auto;">
            <table id="Posts" class="display">
               <thead>
                 <tr>
@@ -60,10 +60,9 @@ foreach($postsList as $id => $postInfo) {
                   <td>
                     <?php print($postInfo['creationDate']) ?></a>
                   </td>
-                  <td><ul>
-                          <li><a href="/admin/post/remove/?id=<?php echo $id ?>"><?php echo $this->translate('#remove')?></a></li>
-                          <li><a href="/admin/post/edit/?id=<?php echo $id ?>"><?php echo $this->translate('#edit')?></a></li>
-                      </ul>
+                  <td>
+                      <a href="/admin/post/remove/?id=<?php echo $id ?>"><img src="/img/icon_delete.gif" alt="<?php echo $this->translate('#remove')?>" title="<?php echo $this->translate('#remove')?>"></a>
+                      <a href="/admin/post/edit/?id=<?php echo $id ?>"><img src="/img/icon_edit.gif" alt="<?php echo $this->translate('#edit')?>" title="<?php echo $this->translate('#edit')?>"></a>
                  </td>
                 </tr>
 <?php

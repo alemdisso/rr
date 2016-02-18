@@ -8,6 +8,10 @@ class Admin_NavigationController extends Zend_Controller_Action
     private $serieMapper;
     private $workMapper;
     private $postMapper;
+    private $blogTaxonomyMapper;
+    private $collectionTaxonomyMapper;
+
+    private $workTypesUris;
 
     public function preDispatch()
     {
@@ -31,6 +35,18 @@ class Admin_NavigationController extends Zend_Controller_Action
         $this->editionMapper = new Author_Collection_EditionMapper($this->db);
         $this->serieMapper = new Author_Collection_SerieMapper($this->db);
         $this->postMapper = new Moxca_Blog_PostMapper($this->db);
+        $this->blogTaxonomyMapper = new Moxca_Blog_TaxonomyMapper($this->db);
+        $this->collectionTaxonomyMapper = new Author_Collection_TaxonomyMapper($this->db);
+
+
+        $this->workTypesUris = array('1000' => "ate-3-anos",
+                            '2000' => "de-4-a-6-anos",
+                            '3000' => "de-7-a-9-anos",
+                            '4000' => "de-10-a-13-anos",
+                            '5000' => "acima-de-13-anos",
+
+
+        );
     }
 
     public function updateAction()
@@ -56,28 +72,92 @@ class Admin_NavigationController extends Zend_Controller_Action
             $edition = $this->addPage($worksPages, 'edition-' . $loopWorkObj->getUri(), $loopWorkObj->getTitle(), '/livro/' . $loopWorkObj->getUri());
         }
 
-        $series = $this->addPage($worksPages, 'series', $this->view->translate("#Series"), $this->view->translate("/series"));
+//        $series = $this->addPage($worksPages, 'series', $this->view->translate("#Series"), $this->view->translate("/series"));
 
-        $seriesPages = $series->addChild('pages');
+//        $seriesPages = $series->addChild('pages');
         $seriesIds = $this->serieMapper->getAllIds();
         foreach ($seriesIds as $serieId) {
             $loopSerieObj = $this->serieMapper->findById($serieId);
-            $serie = $this->addPage($seriesPages, 'serie-' . $loopSerieObj->getUri(), $loopSerieObj->getName(), '/colecao/' . $loopSerieObj->getUri());
+            $serie = $this->addPage($worksPages, 'serie-' . $loopSerieObj->getUri(), $loopSerieObj->getName(), '/serie/' . $loopSerieObj->getUri());
         }
+
+        $themesModel = $this->collectionTaxonomyMapper->getAllThemesAlphabeticallyOrdered();
+        foreach ($themesModel as $termId => $termData) {
+            $termAndUri = $this->collectionTaxonomyMapper->getTermAndUri($termId);
+            $theme = $this->addPage($worksPages, 'keyword-' . $termAndUri['uri'], $termAndUri['term'], '/livros/tema/' . $termAndUri['uri']);
+        }
+
+        $types = new Ruth_Collection_WorkTypes();
+        $typesList = $types->AllTitles();
+        foreach ($typesList as $typeId => $typeData) {
+            $type = $this->addPage($worksPages, 'type-' . $typeId, $typeData, '/livros/' . $this->workTypesUris[$typeId]);
+        }
+
+        $charactersModel = $this->collectionTaxonomyMapper->getAllCharactersAlphabeticallyOrdered();
+
+        foreach ($charactersModel as $termId => $termData) {
+            $termAndUri = $this->collectionTaxonomyMapper->getTermAndUri($termId);
+            $character = $this->addPage($worksPages, 'keyword-' . $termAndUri['uri'], $termAndUri['term'], '/livros/personagem/' . $termAndUri['uri']);
+        }
+
+
+
 
         $this->addPage($pages, 'biography', $this->view->translate("#Biography"), $this->view->translate("/biography"));
-        $newsNode = $this->addPage($pages, 'news', $this->view->translate("#News"), $this->view->translate("/news"));
+        $this->addPage($pages, 'contact', $this->view->translate("#Contact"), $this->view->translate("/contact"));
 
-        $postsIds = $this->postMapper->getAllPublishedIds();
 
-        if (count($postsIds) > 0) {
-            $newsPages = $newsNode->addChild('pages');
-            foreach ($postsIds as $postId) {
-                $loopPostObj = $this->postMapper->findById($postId);
-                $this->addPage($newsPages, 'post-' . $loopPostObj->getUri(), $loopPostObj->getTitle(), '/novidades/' . $loopPostObj->getUri());
-            }
+        $blog = $pages->addChild('blog');
+        $blog->addChild('label', $this->view->translate("#News"));
+        $blog->addChild('uri', $this->view->translate('/news'));
+        $blogPages = $blog->addChild('pages');
+
+        $postsIds = $this->postMapper->getAllIds();
+        foreach ($postsIds as $postId) {
+            $loopPostObj = $this->postMapper->findById($postId);
+
+            $post = $this->addPage($blogPages, 'post-' . $loopPostObj->getUri(), $loopPostObj->getTitle(), '/novidades/' . $loopPostObj->getUri());
         }
 
+        //$categories = $this->addPage($blogPages, 'categories', $this->view->translate("#Categories"), $this->view->translate("/novidades"));
+
+        //$categoriesPages = $categories->addChild('pages');
+        //$categoriesIds = $this->serieMapper->getAllIds();
+        $mapper = new Moxca_Blog_TaxonomyMapper();
+        $categoriesIds = $mapper->getAllCategoriesAlphabeticallyOrdered();
+        foreach ($categoriesIds as $categoryId => $dataCategory) {
+            $loopTermAndUri = $this->blogTaxonomyMapper->getTermAndUri($categoryId);
+            $category = $this->addPage($blogPages, 'category-' . $loopTermAndUri['uri'], $loopTermAndUri['term'], $this->view->translate('/news-about') . "/" . $loopTermAndUri['uri']);
+        }
+
+
+
+
+
+
+
+//        $newsNode = $this->addPage($pages, 'news', $this->view->translate("#News"), $this->view->translate("/news"));
+//
+//        $categories = $this->addPage($newsNode, 'categories', $this->view->translate("#Categories"), $this->view->translate("/news-about"));
+//        $categoriesNode = $categories->addChild('pages');
+//        $categoriesIds = $this->blogTaxonomyMapper->getAllCategoriesAlphabeticallyOrdered();
+//        foreach ($categoriesIds as $categoryId => $term) {
+//            $loopTermAndUri = $this->blogTaxonomyMapper->getTermAndUri($categoryId);
+//            $category = $this->addPage($categoriesNode, 'category-' . $loopTermAndUri['uri'], $loopTermAndUri['term'], $this->view->translate('/news-about') . "/" . $loopTermAndUri['uri']);
+//        }
+//
+
+
+//        $postsIds = $this->postMapper->getAllPublishedIds();
+//
+//        if (count($postsIds) > 0) {
+//            $newsPages = $newsNode->addChild('pages');
+//            foreach ($postsIds as $postId) {
+//                $loopPostObj = $this->postMapper->findById($postId);
+//                $this->addPage($newsPages, 'post-' . $loopPostObj->getUri(), $loopPostObj->getTitle(), '/novidades/' . $loopPostObj->getUri());
+//            }
+//        }
+//
 
 
 
