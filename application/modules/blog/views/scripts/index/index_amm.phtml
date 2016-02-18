@@ -1,0 +1,21 @@
+<?php
+$pageData = $this->pageData;
+?>
+<!-- conteudo -->
+<div id="conteudo">
+<h1><img src="/img/icone_novidades.png" align="absmiddle" alt="<?php echo $this->translate("#Blog title") ?>" /> <?php echo $this->translate("#Blog title") ?></h1>
+<div id="index">
+<?php $this->postsLoop($pageData['postsData']); ?>
+</div>
+
+<!-- paginacao -->
+<!--<div id="paginacao" class="clearfix">
+<span class="float_left">Posts <strong>1 de 10</strong> de 33</span>
+<span class="float_right">in&iacute;cio | <img src="/img/icone_anterior.png" align="absmiddle" /> anterior | <a href="" title=""><strong>pr&oacute;ximo</strong> <img src="/img/icone_mais.png" align="absmiddle" /></a> | <a href="" title=""><strong>fim</strong></a></span>
+
+</div>
+-->
+<!-- /paginacao -->
+
+</div>
+<!-- /conteudo -->

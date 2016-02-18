@@ -1,0 +1,26 @@
+<?php
+$pageData = $this->pageData;
+//print_r ($pageData['seriesList']);die();
+?>
+
+<!-- box filtro -->
+<h2><?php echo $this->translate("#Filter posts by:") ?></h2>
+
+<form>
+<label><?php echo $this->translate("#Category") ?></label>
+<select class="busca" id="select-category">
+<option selected="selected"><?php echo $this->translate("#(choose an option)") ?></option>
+<?php echo $this->filterCategories($pageData['categoriesList']) ?>
+</select>
+
+<script>
+  $("#select-category").on("change", function(){
+    var termUri = $(this).children("option:selected").val();
+    var url = '<?php echo $this->translate("/news-about") ?>/' + termUri;
+    window.location.href = url;
+
+  });
+</script>
+
+</form>
+<!-- /box filtro -->
